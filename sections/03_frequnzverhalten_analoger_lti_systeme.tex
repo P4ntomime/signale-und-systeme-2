@@ -5,6 +5,7 @@
 \end{minipage}
 \hfill
 \begin{minipage}[c]{0.48\columnwidth}
+    \raggedright% needed to suppress underfull hbox warning
     Die Betrachtungen beschränken sich auf \textbf{zeitinvariante} LLF-Netzwerke (lineare Netzwerke mit konzentrierten Elementen)
 \end{minipage}
 
@@ -14,19 +15,19 @@
 \subsection{Zusammenhang Frequenzgang -- UTF}
 
 Alle LTI-Systeme lassen sich mit einer Differntialfleichung der folgenden Form beschreiben:
-$$ \scriptstyle{a_n \frac{\diff^n y}{\diff t^n} + a_{n-1} \frac{\diff^{n-1} y}{\diff t^{n-1}} + \cdots + a_1 \frac{\diff y}{\diff t} + a_0 y =
-    b_m \frac{\diff^m x}{\diff t^m} + b_{m-1} \frac{\diff^{m-1} x}{\diff t^{m-1}} + \cdots + b_1 \frac{\diff x}{\diff t} + b_0 x } $$
+$$ a_n \frac{\diff^n y}{\diff t^n} + a_{n-1} \frac{\diff^{n-1} y}{\diff t^{n-1}} + \cdots + a_1 \frac{\diff y}{\diff t} + a_0 y =
+    b_m \frac{\diff^m x}{\diff t^m} + b_{m-1} \frac{\diff^{m-1} x}{\diff t^{m-1}} + \cdots + b_1 \frac{\diff x}{\diff t} + b_0 x  $$
 
 Die Laplace-Transformierte der DGL hat die Form 
 $$ \boxed{ H(s) = \frac{Y(s)}{X(s)} = \frac{b_m s^m + b_{m-1} s^{m-1} + \cdots + b_1 s + b_0}
 {a_n s^n + a_{n-1} s^{n-1} + \cdots + a_1 s + a_0}  = \frac{N(s)}{D(s)} }$$
 
-\begin{tabular}{ll c ll}
-    $N(s)$ & Zählerpolynom mit konstanten, reelen Koeffizienten \\
-    $D(s)$ & Nennerpolynom mit konstanten, reelen Koeffizienten \\
-    $x(t)$ & Eingangssignal \\
-    $y(t)$ & Ausgangssignal \\
-\end{tabular}
+\begin{ctabular}{Ol}
+    N(s) & Zählerpolynom mit konstanten, reelen Koeffizienten \\
+    D(s) & Nennerpolynom mit konstanten, reelen Koeffizienten \\
+    x(t) & Eingangssignal \\
+    y(t) & Ausgangssignal \\
+\end{ctabular}
 
 \vspace{0.2cm}
 
@@ -36,7 +37,7 @@ Die Wurzeln der Gleichung $N(s) = 0$ ergeben $m$ endliche Nullstellen; die Wurze
 
 \subsubsection{Praktische Schreibweise für Pol-/Nullstellen}
 
-Um die Pole bzw. Nullstellen des Systems direkt ablesen zu können, wird $H(s)$ faktorisiert. \textrightarrow Die UTF $H(s)$ ist durch
+Um die Pole bzw. Nullstellen des Systems direkt ablesen zu können, wird $H(s)$ faktorisiert. \textrightarrow\ Die UTF $H(s)$ ist durch
 die Pole, Nullstellen und den Faktor K \textbf{vollständig bestimmt}!
 
 $$ H(s) = \underbrace{\frac{b_m}{a_m}}_{K} \cdot \frac{\prod\limits_{i=1}^m (s - z_i)}{\prod\limits_{j=1}^n (s - p_j)} $$
@@ -49,8 +50,6 @@ $$ H(s) = \underbrace{\frac{b_m}{a_m}}_{K} \cdot
     \frac{\prod\limits_{i=1}^r (\cbl{s^2 + 2 \sigma_{zi} s + \omega_{zi}^2}) \prod\limits_{i=2r+1}^m (\cgn{s - z_i})}
     {\prod\limits_{j=1}^t (\cor{s^2 + 2 \sigma_{pj} s + \omega_{pj}^2}) \prod\limits_{j=2t+1}^n (\cvt{s - p_j})} $$
 
-
-% colors must be updated --> better visibility
 \textbf{Legende:}
 \begin{itemize}
     \item \cbl{Beschreibt komplex-konjugierte Nullstellen in der LHE} 
@@ -66,23 +65,22 @@ $$ H(s) = \underbrace{\frac{b_m}{a_m}}_{K} \cdot
     \frac{\prod\limits_{i=1}^r (s^2 + \frac{\omega_{zi}}{q_{zi}} s + \omega_{zi}^2) \prod\limits_{i=2r+1}^m (s - z_i)}
     {\prod\limits_{j=1}^t (s^2 +\frac{\omega_{pj}}{q_{pj}} s + \omega_{pj}^2) \prod\limits_{j=2t+1}^n (s - p_j)} $$
 
-\begin{tabular}{ll c ll}
-    $\omega_{pj}$   & Polstellenfrequenzen & 
-    $\omega_{zi}$   & Nullstellenfrequenzen \\
-    $q_{pj}$        & Polstellengüten & 
-    $q_{zi}$        & Nullstellengüten
-\end{tabular}
+\begin{ctabular}{Ol Ol}
+    \omega_{pj}   & Polstellenfrequenzen  & \omega_{zi}   & Nullstellenfrequenzen \\
+    q_{pj}        & Polstellengüten       & q_{zi}        & Nullstellengüten
+\end{ctabular}
 
 
 \subsection{Pol- und Nulstellendiagramme}
 
-\begin{minipage}[c]{0.5\columnwidth}
+\begin{minipage}[c]{0.35\columnwidth}
     \includegraphics[width=\columnwidth]{images/pol_nullstellen_diagramm.png}
 \end{minipage}
 \hfill
-\begin{minipage}[c]{0.48\columnwidth}
-    Werden die Pole und Nullstellen in der komplexen Zahlenebene dargestellt, so spricht man von einem Pol-/Nullstell-Diagramm \\
-    In Mathlab erzeugt der Befehl 'pzmap' einen solchen Plot \\ % Schriftart von 'pzmap' ändern?
+\begin{minipage}[c]{0.63\columnwidth}
+    Werden die Pole und Nullstellen in der komplexen Zahlenebene dargestellt, so spricht man von einem Pol-/Nullstellen-Diagramm.
+
+    In Matlab erzeugt der Befehl \texttt{pzmap} einen solchen Plot
 
     \begin{tabular}{ll}
         Pole    & Kreuze \\
@@ -100,21 +98,21 @@ $$ H(s) = \underbrace{\frac{b_m}{a_m}}_{K} \cdot
 \end{minipage}
 \hfill
 \begin{minipage}[c]{0.48\columnwidth}
-    $$(s - p_1) \cdot (s -p_2) = s^2 + 2 \sigma_p s + (\sigma_p^2 + \tilde{\omega_p^2}) $$
-    $$ \boxed{ \omega_p = \sqrt{\sigma_p^2 + \tilde{\omega_p^2}}} $$
+    $$(s - p_1) \cdot (s -p_2) = s^2 + 2 \sigma_p s + (\sigma_p^2 + \tilde{\omega}_p^2) $$
+    $$ \boxed{ \omega_p = \sqrt{\sigma_p^2 + \tilde{\omega}_p^2}} $$
     $$ \boxed{ q_p = \frac{\omega_p}{2 \sigma_p} = \frac{1}{2 \cdot \cos(\alpha)}} $$
 \end{minipage}
 
 \begin{tabular}{ll}
-    $\omega_p$  & Polfrequenz \textrightarrow Entspricht Abstand des Pols vom Ursprung \\
+    $\omega_p$  & Polfrequenz \textrightarrow\ Entspricht Abstand des Pols vom Ursprung \\
     $q_p$       & Polgüte \\
 \end{tabular}
 
 \vspace{0.2cm}
 \textbf{\myul{Grenzfälle}} \\
 \begin{tabular}{lll}
-    $\sigma_p = \omega_p$   & Doppelpol auf neg. reeller Achse  & \textrightarrow $q_p = \frac{1}{2}$ \\
-    $\sigma_p = 0$          & Polpar auf imaginärer Achse       & \textrightarrow $q_p = \infty$
+    $\sigma_p = \omega_p$   & Doppelpol auf neg. reeller Achse  & \textrightarrow\ $q_p = \frac{1}{2}$ \\
+    $\sigma_p = 0$          & Polpar auf imaginärer Achse       & \textrightarrow\ $q_p = \infty$
 \end{tabular}
 
 
@@ -128,14 +126,15 @@ $$ H(s) = \underbrace{\frac{b_m}{a_m}}_{K} \cdot
     $$ \boxed{ q_p =  \frac{\sqrt{\sigma_{p1} \cdot \sigma_{p2}}}{\sigma_{p1} + \sigma_{p2}} \leq \frac{1}{2} } $$
 \end{minipage}
 
-\textrightarrow Für einzelne (reelle) Pole ist ist die Güte $q_p$ nicht definiert. \\
-\textrightarrow Die Polfrequenz $\omega_p$ entspricht dem Abstand zum Ursprung. \\
+\begin{itemize}
+    \item[\textrightarrow] Für einzelne (reelle) Pole ist ist die Güte $q_p$ nicht definiert.
+    \item[\textrightarrow] Die Polfrequenz $\omega_p$ entspricht dem Abstand zum Ursprung.
+\end{itemize}
 
 \textbf{\myul{Identische Werte}} \\ % stimmt das...?
 \begin{tabular}{c c c}
     $\sigma_{p1} = \sigma_{p2}$ & & $q_p = \frac{1}{2}$
 \end{tabular}
-
 
 
 \subsubsection{Verallgemeinerung des Beispiels}
@@ -144,6 +143,7 @@ $$ H(s) = \underbrace{\frac{b_m}{a_m}}_{K} \cdot
 \end{minipage}
 \hfill
 \begin{minipage}[c]{0.42\columnwidth}
+    \raggedright% needed to suppress underfull hbox warning
     \textbf{Hinweise}
     \begin{itemize}
         \item Pole sind als rote Kreuze dargestellt
@@ -151,9 +151,6 @@ $$ H(s) = \underbrace{\frac{b_m}{a_m}}_{K} \cdot
             geometrischen Beziehungen wie für die Polstellen
     \end{itemize}
 \end{minipage}
-
-
-
 
 
 
