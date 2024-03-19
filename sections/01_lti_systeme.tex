@@ -12,8 +12,7 @@
 \end{tabular}
 
 
-\subsection{Zusammenhänge zwischen den Grössen}{174-176}
-\label{Zusammenhang}
+\subsection{Zusammenhänge zwischen den Grössen}{174-176}\label{Zusammenhang}
 
 Die Impulsantwort $h(t)$ und der Frequenzgang $H(j \omega)$ sind ein \\
 \textbf{Fourier-Transformationspaar}:
@@ -37,7 +36,7 @@ $$ \boxed{ y(t) = h(t) * x(t) \, \laplace \, Y(s) = H(s) \cdot X(s) } $$
     $g(t)$ & Einheitssprungantwort
 \end{tabular}
 
-$$ \boxed{ h(t) =  \frac{dg(t)}{dt}  \quad \Leftrightarrow \quad g(t) = \int\limits_{-\infty}^t  h(\tau) \, d \tau }  $$
+$$ \boxed{ h(t) =  \frac{\diff g(t)}{\diff t}  \quad \Leftrightarrow \quad g(t) = \int\limits_{-\infty}^t  h(\tau) \, \diff \tau }  $$
 $$ \boxed{ H(s) = s \cdot G(s) \quad \Leftrightarrow \quad G(s) =  \frac{1}{s} H(s) }  $$
 
 
@@ -48,7 +47,7 @@ Damit ein LTI-System kausal ist, muss dessen Impulsantwort $h(t)$ für alle $t <
 } }
 
 
-\subsection{Phasenlaufzeit $\tau_P(\omega)$}{183}
+\subsection{Phasenlaufzeit \texorpdfstring{$\tau_P(\omega)$}{tP(w)}}{183}
 Die Phasenlaufzeit ist nur für \textbf{reine Sinus-Schwingungen} exakt bestimmbar! \\
 Das System ist beschrieben durch:
 
@@ -72,14 +71,14 @@ $ \theta(\omega)$ entspricht dem Phasengang des Systems
 Eine negative Phasenlaufzeit bedeutet \textbf{nicht}, dass ein System \textbf{akausal} ist!
 
 
-\subsection{Gruppenlaufzeit $\tau_G(\omega)$ }{182}
-Definiert für Signale mit \textbf{mehreren Frequenzanteilen} \\
+\subsection{Gruppenlaufzeit \texorpdfstring{$\tau_G(\omega)$}{tG(w)} }{182}
+Definiert für Signale mit \textbf{mehreren Frequenzanteilen}\medskip
 
 Bei amplitudenmodulierten Signalen bestimmt die Gruppenlaufzeit $\tau_G(\omega)$ die \textbf{Verzögerung der Hüllkurve} der AM.
 
-$$ \boxed{ \tau_G(\omega) = \frac{- d \theta(\omega)}{d \omega} } $$
+$$ \boxed{ \tau_G(\omega) = \frac{-\diff \theta(\omega)}{\diff \omega} } $$
 
-$ \theta(\omega)$ entspricht dem Phasengang des Systems \\
+$\theta(\omega)$ entspricht dem Phasengang des Systems\medskip
 
 Die Gruppenlaufzeit kann nur dann als \textbf{Laufzeit des Signals} interpretiert werden, wenn im Frequenzbereich des Signales 
 die Gruppenlaufzeit und auch die Dämpfung ungefähr konstant sind.
@@ -95,8 +94,7 @@ $\Rightarrow$ Das System ist \textbf{nicht} akausal! \\
 Das Maximum der Hüllkurve am Ausgang kann aber \textbf{früher} als am Eingang auftreten.
 
 
-\subsection{Phasenlaufzeit / Gruppenlaufzeit identisch}{186}
-\label{Phasenlaufzeit / Gruppenlaufzeit identisch}
+\subsection{Phasenlaufzeit / Gruppenlaufzeit identisch}{186}\label{Phasenlaufzeit / Gruppenlaufzeit identisch}
 Die \textbf{Signalverzögernug, Phasenlaufzeit} $\tau_P(\omega)$ und \textbf{Gruppenlaufzeit} 
 $\tau_G(\omega)$ sind identisch, wenn
 $$ \boxed{ \theta(\omega) = - \omega \cdot t_0  } $$
@@ -127,13 +125,14 @@ Ein \textbf{Mass} für nichtlineare Verzerrungen ist der \textbf{Klirrfaktor}
 Verhältnis des \textbf{Effektivwerts} der \textbf{neu} am Ausgang eines Systems entstandenen \textbf{Harmonischen} zum 
 Effektivwert des gesamten Signals
 
-\begin{minipage}[c]{0.48\columnwidth}
-    $$ \boxed{ k = \sqrt{\frac{U_2^2 + U_3^2 + ...+ U_n^2}{U_1^2 + U_2^2 + ...+ U_n^2}}} $$
+\begin{minipage}[b]{0.48\columnwidth}
+    $$ \boxed{ k = \sqrt{\frac{U_2^2 + U_3^2 + \cdots + U_n^2}{U_1^2 + U_2^2 + \cdots + U_n^2}}} $$
 \end{minipage}
 \hfill
 \begin{minipage}[c]{0.48\columnwidth}
-    $U_1$ entspricht der Grundharmonischen
-    \textrightarrow Es gilt: $1 > k \geq 0$
+    \raggedright%
+    $U_1$ entspricht der Grundharmonischen\\
+    \textrightarrow\ Es gilt: $1 > k \geq 0$
 \end{minipage}
 
 
@@ -144,13 +143,14 @@ $$ \boxed{ a_k = 20 \cdot \log_{10} \Big( \frac{1}{k}  \Big)  } $$
 \subsubsection{Total Harmonic Disortion (THD)}
 Wird vor allem im englisch-sprachigen Raum verwendet
 
-\begin{minipage}[c]{0.48\columnwidth}
-   $$ \boxed{  \text{THD} = \sqrt{\frac{U_2^2 + U_3^2 + ...+ U_n^2}{U_1^2} } } $$
+\begin{minipage}[b]{0.48\columnwidth}
+   $$ \boxed{  \text{THD} = \sqrt{\frac{U_2^2 + U_3^2 + \cdots + U_n^2}{U_1^2} } } $$
 \end{minipage}
 \hfill
 \begin{minipage}[c]{0.48\columnwidth}
-    $U_1$ entspricht der Grundharmonischen 
-    \textrightarrow Es gilt:  $\infty > \text{THD} \geq 0$ 
+    \raggedright%
+    $U_1$ entspricht der Grundharmonischen\\
+    \textrightarrow\ Es gilt:  $\infty > \text{THD} \geq 0$ 
 \end{minipage}
 
 \vspace{0.2cm}
@@ -158,7 +158,7 @@ geringe Verzerrungen: $\text{THD} \approx k$ \qquad allgemein: $\text{THD} > k$
 
 
 \subsection{Verzerrungsfreie Übertragung von Signalen}{190}
-Frequenzgang $H(j \omega)$ und Impulsantowort $h(t)$ eines verzerrungsfreien Signals:
+Frequenzgang $H(j \omega)$ und Impulsantwort $h(t)$ eines verzerrungsfreien Signals:
 
 $$ \boxed{ H(j \omega) = \alpha \cdot e^{- j \omega t_0} = | H(j \omega)|  \cdot e^{j \theta(\omega)}  \, \laplace \,  h(t) = \alpha \cdot \delta(t - t_0) } $$
 
@@ -166,17 +166,17 @@ $$ \boxed{ H(j \omega) = \alpha \cdot e^{- j \omega t_0} = | H(j \omega)|  \cdot
 Damit ein Signal verzerrungsfrei übertragen wird, müssen folgende Bedingungen erfüllt sein:
 
 \begin{enumerate}
-    \item \textbf{Amplitude} konstant (unabhängig von der Frequenz) $\Leftrightarrow | H(j \omega)| = \text{konstant} = \alpha \neq 0$ 
-        \textrightarrow Keine Amplitudenverzerrung vorhanden
-    \item \textbf{Phase} proportional zur Frequenz $\Leftrightarrow \theta(\omega) = - \omega \, t_0$
-        (äquivalenz zu Abschnitt \ref{Phasenlaufzeit / Gruppenlaufzeit identisch})
-        \textrightarrow Keine Phasenverzerrung vorhanden
+    \item \textbf{Amplitude} konstant (unabhängig von der Frequenz) $\Leftrightarrow | H(j \omega)| = \text{konstant} = \alpha \neq 0$\\
+        \textrightarrow\ Keine Amplitudenverzerrung vorhanden
+    \item \textbf{Phase} proportional zur Frequenz $\Leftrightarrow \theta(\omega) = - \omega \, t_0$\\
+        (äquivalenz zu Abschnitt\ \ref{Phasenlaufzeit / Gruppenlaufzeit identisch})
+        \textrightarrow\ Keine Phasenverzerrung vorhanden
 \end{enumerate}
 
 
 \subsection{Übertragung stochastischer Signale}{193-194}
 Wird ein stochastisches Signal $x(t)$ (schwach stationär) durch ein LTI-System mit Impulsantowort $h(t)$ übertragen, so berechnet
-sich das Ausgangssignal $y(t)$ gemäss Abschnitt \ref{Zusammenhang} aus
+sich das Ausgangssignal $y(t)$ gemäss Abschnitt\ \ref{Zusammenhang} aus:
 
 $$ \boxed{ y(t) = h(t) * x(t) = \int\limits_{- \infty}^{\infty} x(\tau) \, h(t - \tau) \, \diff \tau  \, 
 \laplace \, Y(s) = H(s) \cdot X(s) } $$
@@ -196,12 +196,13 @@ Da $\varphi_{yy}(\tau)$ und $Y_0$ nicht von $t$ abhängen, ist auch $y(t)$ schwa
 $$ \boxed{ \varphi_{yy}(\tau) = \int\limits_{- \infty}^{\infty} \int\limits_{- \infty}^{\infty} h(\alpha) \, h(\beta) \, \varphi_{xx}(\tau + \alpha - \beta) \, \diff \alpha \, \diff \beta 
 = h(-\tau) * h(\tau) * \varphi_{xx}(\tau) } $$
 
-Es gelten folgende Zusammenhänge für die Fourier-Transformationspaare \\
+Es gelten folgende Zusammenhänge für die Fourier-Transformationspaare:
 
-\begin{tabular}{l c l | l c l}
-    $h(-\tau)$              & $\laplace$ & $H^*(j \omega)$      & $\varphi_{xx}(\tau)$ & $\laplace$ & $\Phi_{xx}(j \omega)$ \\
-    $h(\tau)$               & $\laplace$ & $H(j \omega)$        & $h(\tau) * h(-\tau)$ & $\laplace$ & $|H(j \omega)|^2$
-\end{tabular}
+
+\begin{ctabular}{O M O | O M O}
+    h(-\tau) & \laplace\ & H^*(j \omega)     & \varphi_{xx}(\tau) & \laplace\ & \Phi_{xx}(j \omega) \\
+    h(\tau)  & \laplace\ & H(j \omega)       & h(\tau) * h(-\tau) & \laplace\ & \abs{H(j \omega)}^{2}
+\end{ctabular}
 
 
 \subsubsection{Leistungsdichtespektrum (PSD)}
