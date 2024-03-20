@@ -1,14 +1,14 @@
 \begin{center}
     \begin{tikzpicture}
         [
-            scale = 0.5,
+            scale = 0.6,
             >=latex,
-            ns/.style={circle, draw=blue, fill=white, thick, inner sep=0pt, minimum size=3pt}
-            %pol/.style={cross, draw=blue, thick} not working with crosses
+            ns/.style={circle, draw=blue, fill=white, thick, inner sep=0pt, minimum size=3pt},
+            pol/.style={cross out, draw=red, inner sep=0pt, minimum size=3pt} 
         ]
         \begin{axis}
             [
-                xmin=-4, xmax=1, ymin=-5, ymax=5, axis lines=middle,
+                xmin=-4, xmax=2.5, ymin=-5, ymax=5, axis lines=middle,
                 x label style={anchor=west},
                 xlabel=$\sigma$,
                 y label style={anchor=south},
@@ -16,22 +16,41 @@
                 %grid
             ]
             
+            % defines for arch
+            \def\arrowRadius{5mm}                                           % radius of the circle that the arrow bends around
+
             % nodes
-            \node[label=right: $j \omega_0$, inner sep = 0pt]        (freq0)     at (0, 1)       {};
-            \node[ns, label=left: $z_1$]            (z1)        at (-3, 4)      {};
-            \node[ns, label=left: $z_2$]            (z2)        at (-3, -4)     {};
-            \node[ns, label=left: $z_3$]            (z3)        at (-2, 2)      {};
-            \node[ns, label=left: $z_4$]            (z4)        at (-2, -2)     {};
+            \node[label=left: $j \omega_0$, inner sep = 0pt]       (freq0)     at (0, 1)       {};
+            \draw                                                   (-0.05, 1) -- (0.05, 1);
+
+            \node[label=left: $j \omega_1$, inner sep = 0pt]        (freq1)     at (0, 3)       {};
+            \draw                                                   (-0.05, 3) -- (0.05, 3);
+
+            \node[ns, label=left: $z_1$]                            (z1)        at (-3, 4)      {};
+            \draw                                                   (z1) -- (-2, 4);
+            \draw [-latex, green, semithick]                        (-2.5, 4) arc (0:330:\arrowRadius); %(start:end:radius)
+            \node[label={[green]right:$\theta_{z1}$}]               (theta1)    at (-2.5, 4.3)    {};
+
+            \node[ns, label=left: $z_2$]                            (z2)        at (-3, -4)     {};
+            \draw                                                   (z2) -- (-2, -4);   
+            \draw [-latex, green, semithick]                        (-2.5, -4) arc (0:45:\arrowRadius);
+            \node[label={[green]right:$\theta_{z2}$}]               (theta2)    at (-2.6, -3.7)   {};
+
+            \node[pol, label=below right: $p_1$]                    (p1)        at (1, 2)      {};
+            \draw                                                   (p1) -- (2, 2); 
+            \draw [-latex, green, semithick]                        (1.5, 2) arc (0:205:\arrowRadius);
+            \node[label={[green]right:$\theta_{p1}$}]               (theta3)    at (1.5, 2.3)    {};
+
+            \node[pol, label=below: $p_2$]                          (p2)        at (1, -2)     {};
+            \draw                                                   (p2) -- (2, -2); 
+            \draw [-latex, green, semithick]                        (1.5, -2) arc (0:125:\arrowRadius);
+            \node[label={[green]right:$\theta_{p2}$}]               (theta4)    at (1.5, -1.7)    {};
+
             
-            \draw                       (-0.05, 1) -- (0.05, 1);
-            \draw[thick, orange]        (freq0) to (z1);
-            \draw[thick, orange]        (freq0) to (z2);
-            \draw[thick, orange]        (freq0) to (z3);
-            \draw[thick, orange]        (freq0) to (z4);
-            \draw                       (z1) -- (-2, 4);
-            % \draw[arc]                  at (-2, 4) +(30:60:1cm);
-            \draw[green]                (-1.4, 4) arc (0:150:2);
-            
+            \draw[thick, orange]        (freq0) to node[above]      {$A_{z1}$}  (z1);
+            \draw[thick, orange]        (freq0) to node[below]      {$A_{z2}$}  (z2);
+            \draw[thick, orange]        (freq0) to node[below right]{$A_{p1}$}  (p1);
+            \draw[thick, orange]        (freq0) to node[below left] {$A_{p2}$}  (p2);
            
         \end{axis}
         

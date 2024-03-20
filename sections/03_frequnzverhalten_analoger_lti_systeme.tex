@@ -196,11 +196,11 @@ $$ (j \omega_0 - p_1) = |j \omega_0 - z_1| \cdot e^{j \theta_{z1}} = A_{z1} \cdo
 
 
 
-Angewendet auf alle Faktoren kann der Frequenzgang $H(j \omega_0)$ in den \textcolor{orange}{Amplitudengang $|H(j \omega)|$} und den
-\textcolor{green}{Phasengang $\theta(\omega)$} separiert werden:
+Angewendet auf alle Faktoren kann der Frequenzgang $H(j \omega_0)$ in den \cor{Amplitudengang $|H(j \omega)|$} und den
+\cgn{Phasengang $\theta(\omega)$} separiert werden:
 
-$$ \boxed{ H(j \omega_0) = K \cdot \frac{\textcolor{orange}{A_{z1} \cdot A_{z2} \cdots A_{zm}} \cdot \textcolor{green}{e^{j(\theta_{z1} + \cdots + \theta_{zm})}}}
-                                        {\textcolor{orange}{A_{p1} \cdot A_{p2} \cdots A_{pm}} \cdot \textcolor{green}{e^{j(\theta_{p1} + \cdots + \theta_{pm})}}} } $$
+$$ \boxed{ H(j \omega_0) = K \cdot \frac{\cor{A_{z1} \cdot A_{z2} \cdots A_{zm}} \cdot \cgn{e^{j(\theta_{z1} + \cdots + \theta_{zm})}}}
+                                        {\cor{A_{p1} \cdot A_{p2} \cdots A_{pm}} \cdot \cgn{e^{j(\theta_{p1} + \cdots + \theta_{pm})}}} } $$
 
 \vspace{0.2cm}
 \begin{minipage}[t]{0.48\columnwidth}
@@ -223,16 +223,18 @@ $$ \boxed{ H(j \omega_0) = K \cdot \frac{\textcolor{orange}{A_{z1} \cdot A_{z2} 
 \subsubsection{Zusammenhang mit Pol- / Nullstellendiagramm}
 
 \begin{minipage}[c]{0.5\columnwidth}
-    %\input{tikz/pole_nullstellen_auswertungsfrequenz.tex}
-    Hier mit nur einer Nullstelle (keine Pole): 
-    \includegraphics[width=\columnwidth]{images/frequenzgang_amplitudengang.png}
+    \input{tikz/pole_nullstellen_auswertungsfrequenz.tex}
+    % Hier mit nur einer Nullstelle (keine Pole): 
+    % \includegraphics[width=\columnwidth]{images/frequenzgang_amplitudengang.png}
 \end{minipage}
 \hfill
 \begin{minipage}[c]{0.48\columnwidth}
-    Die Auswertungsfrequenz $j \omega_0$ ist variabel und 'wandert' auf der \textbf{imaginären Achse}.
-    Für ein bestimmte Auswertungsfrequenz $j \omega_0$ können die Faktoren von $H(j \omega_0)$ als Abstand und Phase zu den
-    Pol- bzw Nullstellen interpretiert werden.
+    Die Auswertungsfrequenz $j \omega$ ist variabel und 'wandert' auf der \textbf{imaginären Achse}.
+    Für ein bestimmte Auswertungsfrequenz $j \omega_0$ können die Faktoren von $H(j \omega_0)$ als \cor{Abstand}
+    und \cgn{Phase} zu den Pol- bzw Nullstellen interpretiert werden.
     Somit kann grafisch aus dem Pol- Nullstellendiagramm ein Rückschluss auf den Amplitudengang gezogen werden.
+    $$ H(j \omega_0) = K \cdot \frac{\cor{A_{z1} \cdot A_{z2}} \cdot \cgn{e^{j(\theta_{z1} + \theta_{z2})}}}
+    {\cor{A_{p1} \cdot A_{p2}} \cdot \cgn{e^{j(\theta_{p1} + \theta_{p2})}}}  $$
 \end{minipage}
 
 
@@ -241,16 +243,18 @@ $$ \boxed{ H(j \omega_0) = K \cdot \frac{\textcolor{orange}{A_{z1} \cdot A_{z2} 
 \begin{itemize}
     \item Es werden vor allem die \textbf{Abstände} betrachtet 
     \item Pol- und Nullstellen können sich aufheben
-    \item Nullstelle bei $\omega = 0$ \textrightarrow\ $|H(j \omega_0)| = \infty$ % stimmt das?
-    \item Pol bei $\omega = 0$ \textrightarrow\ $|H(j \omega_0)| = 0$ % stimmt das?
-    \item Weder Pol noch Nullstelle bei $\omega = 0$ \textrightarrow\ $|H(j \omega_0)|$ hat endlichen Wert
-    \item $\omega = \infty$: Zählergrad $>$ Nennergrad \textrightarrow\ $|H(j \omega_0)| = \infty$
-    \item $\omega = \infty$: Zählergrad $=$ Nennergrad \textrightarrow\ $|H(j \omega_0)|$ hat endlichen Wert
-    \item $\omega = \infty$: Zählergrad $<$ Nennergrad \textrightarrow\ $|H(j \omega_0)| = 0$
-    \item Weder Pol noch Nullstelle bei $\omega = 0$ \textrightarrow\ $\theta(j \omega_0) = 0$
-    \item Pol bei $\omega = 0$ \textrightarrow\ $\theta(j \omega_0) = \frac{\pi}{2}$
-    \item Nullstelle bei $\omega = 0$ \textrightarrow\ $\theta(j \omega_0) = -\frac{\pi}{2}$
-    \item $\omega = \infty$: \textrightarrow\ $|H(j \omega_0)| = -\frac{\pi}{2}$
+    \item Bei $\omega = 0$ gilt:
+    \begin{itemize}
+        \item Wenn Nullstelle \textrightarrow\ $|H(j \omega_0)| = \infty$ \textrightarrow\ $\theta(j \omega_0) = \frac{\pi}{2}$
+        \item Wenn Pol \textrightarrow\ $|H(j \omega_0)| = 0$ \textrightarrow\ $\theta(j \omega_0) = -\frac{\pi}{2}$
+        \item Wenn weder Pol noch NS \textrightarrow\ $|H(j \omega_0)|$ hat endlichen Wert \textrightarrow\ $\theta(j \omega_0) = 0$
+    \end{itemize}
+    \item Bei $\omega = \infty$ gilt:
+    \begin{itemize}
+        \item Wenn Zählergrad $>$ Nennergrad \textrightarrow\ $|H(j \omega_0)| = \infty$
+        \item Wenn Zählergrad $=$ Nennergrad \textrightarrow\ $|H(j \omega_0)|$ hat endlichen Wert
+        \item Wenn Zählergrad $<$ Nennergrad \textrightarrow\ $|H(j \omega_0)| = 0$
+    \end{itemize}
 \end{itemize}
 
 
