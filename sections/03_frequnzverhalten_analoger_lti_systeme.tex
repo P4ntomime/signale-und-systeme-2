@@ -12,7 +12,7 @@
 
 
 
-\subsection{Zusammenhang Frequenzgang -- UTF}
+\subsection{Zusammenhang Frequenzgang -- UTF}{211}
 
 Alle LTI-Systeme lassen sich mit einer Differntialfleichung der folgenden Form beschreiben:
 $$ a_n \frac{\diff^n y}{\diff t^n} + a_{n-1} \frac{\diff^{n-1} y}{\diff t^{n-1}} + \cdots + a_1 \frac{\diff y}{\diff t} + a_0 y =
@@ -71,7 +71,7 @@ $$ H(s) = \underbrace{\frac{b_m}{a_m}}_{K} \cdot
 \end{ctabular}
 
 
-\subsection{Pol- und Nullstellendiagramme}
+\subsection{Pol- und Nullstellendiagramme}{212}
 
 \begin{minipage}[c]{0.35\columnwidth}
     \includegraphics[width=\columnwidth]{images/pol_nullstellen_diagramm.png}
@@ -131,13 +131,14 @@ $$ H(s) = \underbrace{\frac{b_m}{a_m}}_{K} \cdot
     \item[\textrightarrow] Die Polfrequenz $\omega_p$ entspricht dem Abstand zum Ursprung.
 \end{itemize}
 
-\textbf{\myul{Identische Werte}} \\ % stimmt das...?
+\textbf{\myul{Identische Werte}} \\
 \begin{tabular}{c c c}
-    $\sigma_{p1} = \sigma_{p2}$ & & $q_p = \frac{1}{2}$
+    $\sigma_{p1} = \sigma_{p2}$ & & $| q_p | = \frac{1}{2}$
 \end{tabular}
 
 
-\subsubsection{Verallgemeinerung des Beispiels}
+\subsubsection{Verallgemeinerung des Beispiels}{214}
+
 \begin{minipage}[c]{0.55\columnwidth}
     \includegraphics[width=\columnwidth]{images/pole_nullstellen_koeffizienten.png}
 \end{minipage}
@@ -155,7 +156,7 @@ $$ H(s) = \underbrace{\frac{b_m}{a_m}}_{K} \cdot
 
 
 
-\subsection{Bestimmung Frequenzgang aus UTF}
+\subsection{Bestimmung Frequenzgang aus UTF}{216}
 
 Um den Frequenzgang zu erhalten, kann $s = j \omega$ eingesetzt werden.
 
@@ -240,30 +241,38 @@ $$ \boxed{ H(j \omega_0) = K \cdot \frac{\cor{A_{z1} \cdot A_{z2} \cdots A_{zm}}
 
 \subsubsection{Rückschlüsse auf Amplitudengang}
 
-\begin{itemize}
-    \item Es werden vor allem die \textbf{Abstände} betrachtet 
-    \item Pol- und Nullstellen können sich aufheben
-    \item Bei $\omega = 0$ gilt:
-    \begin{itemize}
-        \item Wenn Nullstelle \textrightarrow\ $|H(j \omega_0)| = \infty$ \textrightarrow\ $\theta(j \omega_0) = \frac{\pi}{2}$
-        \item Wenn Pol \textrightarrow\ $|H(j \omega_0)| = 0$ \textrightarrow\ $\theta(j \omega_0) = -\frac{\pi}{2}$
-        \item Wenn weder Pol noch NS \textrightarrow\ $|H(j \omega_0)|$ hat endlichen Wert \textrightarrow\ $\theta(j \omega_0) = 0$
-    \end{itemize}
-    \item Bei $\omega = \infty$ gilt:
-    \begin{itemize}
-        \item Wenn Zählergrad $>$ Nennergrad \textrightarrow\ $|H(j \omega_0)| = \infty$
-        \item Wenn Zählergrad $=$ Nennergrad \textrightarrow\ $|H(j \omega_0)|$ hat endlichen Wert
-        \item Wenn Zählergrad $<$ Nennergrad \textrightarrow\ $|H(j \omega_0)| = 0$
-    \end{itemize}
-\end{itemize}
+\begin{outline}
+    \1 Es werden vor allem die \textbf{Abstände} betrachtet 
+    \1 Pol- und Nullstellen können sich aufheben
+    \1 Bei $\omega = 0$ gilt:
+        \2 Wenn Nullstelle \textrightarrow\ $|H(j \omega_0)| = \infty$ \textrightarrow\ $\theta(j \omega_0) = \frac{\pi}{2}$
+        \2 Wenn Pol \textrightarrow\ $|H(j \omega_0)| = 0$ \textrightarrow\ $\theta(j \omega_0) = -\frac{\pi}{2}$
+        \2 Wenn weder Pol noch NS \textrightarrow\ $|H(j \omega_0)|$ hat endlichen Wert \textrightarrow\ $\theta(j \omega_0) = 0$
+    \1 Bei $\omega = \infty$ gilt:
+        \2 Wenn Zählergrad $>$ Nennergrad \textrightarrow\ $|H(j \omega_0)| = \infty$
+        \2 Wenn Zählergrad $=$ Nennergrad \textrightarrow\ $|H(j \omega_0)|$ hat endlichen Wert
+        \2 Wenn Zählergrad $<$ Nennergrad \textrightarrow\ $|H(j \omega_0)| = 0$
+\end{outline}
 
 
+\subsection{Minimalphasige- und nicht-minimalphasige Systeme}{220}
+
+\begin{outline}
+    \1 Minimalphasennetzwerke: 
+        \2 besitzen \textbf{keine Nullstellen in der rechten Halbebene (RHE)}
+        \2 \textbf{entweder} ein frei wählbarer Amplituden- \textbf{oder} Phasengang
+    \1 Nicht-Minimalphasennetzwerke
+        \2 Amplituden- und Phasengang unabhängig voneinander wählbar
+\end{outline}
 
 
+\example{Zerlegung nicht-minimalphasiges System}
 
-% maybe next lecture:
-% \subsection{Nicht-minimalphasige Systeme}
+Ein nicht-minimalphasiges System kann in ein minimalphasiges System und einen Allpass zerlegt werden
+(\textrightarrow\ \textbf{Multiplikation!}). 
+
+\includegraphics[width=\columnwidth]{images/beispiel_minimalphasensystem.png}
 
 
-% \subsection{Mininalphasige Systeme}
-
+\subsubsection{Allpass}
+% TODO
