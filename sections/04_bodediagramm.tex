@@ -2,6 +2,34 @@
 
 Beispiele Verschiedener Bodediagramm und zugehötiger Pol-Nullstellen-Diagramme siehe Skript, Kapitel 5.4.3 (S. 222)
 
+
+\subsection{Vorgehen: Bodediagramm zeichnen}
+
+% Von Reglelungstechnik 2 (mit Anpassungen)
+Das Diagramm wird approximativ mit \textbf{Geraden} gezeichnet!
+
+\begin{outline}
+    \1 Übertragungsfunktion $H(s)$ in folgende Form bringen:
+        $$ G(s) = K \cdot (s)^v \cdot \frac{(1 + T_{n0} \cdot s)\cdot (1 + T_{n1} \cdot s) \cdot \ldots}
+        {(1 + T_{p0} \cdot s)\cdot (1 + T_{p1} \cdot s) \cdot \ldots} \cdot e^{- s T_t} $$
+        \2 Für $\omega = 0$ sind alle $(1 + T \cdot s) = 1 = 0 \, \deci \bel$
+        \2 Für $\omega = \frac{1}{T}$ sind alle  $(1 + T \cdot s) = 1 + \jimg = \sqrt{2} \cdot e^{\jimg \frac{\pi}{4}} 
+            = 3 \, \deci \bel \angle 45 \, \degree$ % CHECK or change
+    \1 Frequenzen der Nullstellen berechnen: $\omega = \frac{1}{T_n}$
+    \1 Frequenzen der Polstellen berechnen: $\omega = \frac{1}{T_p}$
+
+    \1 Jede \textbf{Nullstelle} bewirkt
+        \2 einen Knick um $+ 20 \, \deci \bel$ / Dekade \textbf{nach oben} im Amplitudengang
+        \2 einen Phasenhub von $+ 90 \, \degree$ über 2 Dekaden \textrightarrow\ $+ 45 \, \degree$ beim Knick
+    \1 Jede \textbf{Polstelle} bewirkt
+        \2 einen Knick um $- 20 \, \deci \bel$ / Dekade \textbf{nach unten} im Amplitudengang
+        \2 einen Phasenverlust von $- 90 \, \degree$ über 2 Dekaden \textrightarrow\ $- 45 \, \degree$ beim Knick
+    \1 Einzelne Faktoren einzeichnen \textrightarrow\ Wenn Faktor quadriert ist, zwei mal einzeichnen!
+    \1 Grafische Addition der Faktoren für gesamten Frequenzgang
+\end{outline}
+
+
+
 \subsection{Bodediagramme mit Matlab}
 
 \lstinputlisting{snippets/bode.m}

@@ -255,7 +255,28 @@ $$ \boxed{ H(j \omega_0) = K \cdot \frac{\cor{A_{z1} \cdot A_{z2} \cdots A_{zm}}
 \end{outline}
 
 
-\subsection{Minimalphasige- und nicht-minimalphasige Systeme}{220}
+\subsection{Allpass(netzwerk)}{220}
+
+Ein Allpass ist ein Netzwerk, bei dem der \textbf{Amplitudengang für alle Kreisfrequenzen $\bm{\omega}$ konstant} ist
+$$ \boxed{\abs{H(\jimg \omega)} = \text{ konst } \neq 0}$$
+
+\textrightarrow\ Im Pol-Nullstellen-Diagramm ist ein Allpass dargestellt durch eine 
+\textbf{zur $\bm{\jimg \omega}$-Achse symmetrische Pol-Nullstellenkonfiguration}
+
+\includegraphics[width=\columnwidth]{images/allpass.png}
+
+$$ \boxed{ \text{UTF Allpass: } H_A(s) = K \cdot \frac{Q(-s)}{Q(s)} } $$
+
+Für einen Allpass gilt:
+\begin{itemize}
+    \item Ein stabiler Allpass besitzt einen \textbf{streng monoton abfallenden} Phasengang
+    \item Jede beliebige (realisierbare) UTF $H(S)$ kann \textbf{immer} in ein allpassfreies Netzwerk $H_M(s)$ und einen Allpass $H_A(s)$
+        \textbf{zerlegt} werden (\textrightarrow\ siehe Beispiel Abschnitt ~\ref{Beispiel Zerlegung})
+        $$ \boxed{ H(s) = H_M(s) \cdot H_A(s) }$$
+\end{itemize}
+
+
+\subsection{Minimalphasige- und nicht-minimalphasige Systeme}{221}
 
 \begin{outline}
     \1 Minimalphasennetzwerke: 
@@ -267,6 +288,7 @@ $$ \boxed{ H(j \omega_0) = K \cdot \frac{\cor{A_{z1} \cdot A_{z2} \cdots A_{zm}}
 
 
 \example{Zerlegung nicht-minimalphasiges System}
+\label{Beispiel Zerlegung}
 
 Ein nicht-minimalphasiges System kann in ein minimalphasiges System und einen Allpass zerlegt werden
 (\textrightarrow\ \textbf{Multiplikation!}). 
@@ -274,5 +296,4 @@ Ein nicht-minimalphasiges System kann in ein minimalphasiges System und einen Al
 \includegraphics[width=\columnwidth]{images/beispiel_minimalphasensystem.png}
 
 
-\subsubsection{Allpass}
-% TODO
+
