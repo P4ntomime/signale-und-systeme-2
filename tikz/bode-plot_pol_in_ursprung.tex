@@ -20,8 +20,10 @@
                 ymajorgrids=true
             ]
 
-            % K_0
-            \addplot[thick, color=blue, domain=0.1:100]{20*log10(3)};
+            \addplot[thick, color=blue, domain=0.1:100]{-20*log10(x)+6};
+
+            \addplot[dashed, color=black, domain=0.1:100]{0};
+            \addplot[dashed, color=black, domain=2:2] coordinates {(2, -20) (2, 20)};
         \end{axis}
         
     \end{tikzpicture}
@@ -43,15 +45,14 @@
                 xlabel=Frequency $\omega$,
                 y label style={anchor=south},
                 ylabel=Phase $\rad$,
-                ytick={-3.14, -1.57, 0, 1.57, -3.14},
+                ytick={-3.14, -1.57, 0, 1.57, 3.14},
                 yticklabels={$-\pi$, $-\frac{\pi}{2}$, $0$, $\frac{\pi}{2}$, $\pi$},
                 xmajorgrids=true,
                 xminorgrids=true,
                 ymajorgrids=true
             ]
             
-            % K_0
-            \addplot[thick, color=blue, domain=0.1:100]{1.57};     
+            \addplot[thick, color=blue, domain=0.1:100]{-1.57};     
 
         \end{axis}
             

@@ -2,7 +2,7 @@
     % Gain
     \begin{tikzpicture}
         [
-            scale = 0.8,
+            scale = 0.4,
             >=latex
         ]
         \begin{axis}
@@ -10,32 +10,22 @@
                 width=12cm,
                 height=4cm,
                 xmode=log,
-                xmin=0.01, xmax=100, ymin=-40, ymax=60,
+                xmin=0.1, xmax=1000, ymin=-40, ymax=10,
                 x label style={anchor=west},
                 xlabel=Frequency $\omega$,
                 y label style={anchor=south},
                 ylabel=Gain $\deci \bel$,
+                ytick={-40, -30, -20, -10, 0, 10},
+                yticklabels={-40, -30, -20, -10, 0, 10},
                 xmajorgrids=true,
                 xminorgrids=true,
                 ymajorgrids=true
             ]
 
-            % K_0
-            \addplot[thick, color=green, domain=0.01:100]{40};
-
-            % Nullstelle
-            \addplot[thick, color=violet, domain=0.01:10]{0};               % start bis Knick
-            \addplot[thick, color=violet, domain=10:100]{20*log10(x)-20};   % ab Knick nach oben    
-
-            % Polstelle
-            \addplot[thick, color=blue, domain=0.01:0.1]{0};                % start bis Knick
-            \addplot[thick, color=blue, domain=0.1:100]{-20*log10(x)-20};   % ab Knick nach oben    
+            \addplot[thick, color=blue, domain=0.1:4]{0};  
+            \addplot[thick, color=blue, domain=4:1000]{-20*log10(x)+12};   
             
-            % Grafische Addition
-            \addplot[thick, color=orange, domain=0.01:0.1]{40};    
-            \addplot[thick, color=orange, domain=0.1:10]{-20*log10(x)+20};        
-            \addplot[thick, color=orange, domain=10:100]{0};      
-           
+            \addplot[dashed, color=black, domain=4:4]coordinates {(4, -40) (4, 10)};  
         \end{axis}
         
     \end{tikzpicture}
@@ -44,7 +34,7 @@
     % Phase
     \begin{tikzpicture}
         [
-            scale = 0.8,
+            scale = 0.4,
             >=latex
         ]
         \begin{axis}
@@ -52,35 +42,25 @@
                 width=12cm,
                 height=4cm,
                 xmode=log,
-                xmin=0.01, xmax=100, ymin=-180, ymax=180,
+                xmin=0.1, xmax=1000, ymin=-3.141, ymax=3.141,
                 x label style={anchor=west},
                 xlabel=Frequency $\omega$,
                 y label style={anchor=south},
-                ylabel=Phase $\degree$,
-                ytick={-180, -90, 0, 90, 180},
-                % yticklabels={-180, -90, 0, 90, 180},
+                ylabel=Phase $\rad$,
+                ytick={-3.14, -1.57, 0, 1.57, 3.14},
+                yticklabels={$-\pi$, $-\frac{\pi}{2}$, $0$, $\frac{\pi}{2}$, $\pi$},
                 xmajorgrids=true,
                 xminorgrids=true,
                 ymajorgrids=true
             ]
             
-            % K_0
-            \addplot[thick, color=green, domain=0.01:100]{0};
-                
-            % Nullstelle
-            \addplot[thick, color=violet, domain=0.01:1]{0};              % start bis Knick
-            \addplot[thick, color=violet, domain=1:100]{45*log10(x)};     % ab Knick nach oben    
+            \addplot[thick, color=blue, domain=0.1:0.4]{0};  
+            \addplot[thick, color=blue] coordinates{(0.4, 0) (40, -1.57)};   
+            \addplot[thick, color=blue, domain=40:1000]{-1.57};  
             
-            % Polstelle
-            \addplot[thick, color=blue, domain=0.01:1]{-45*log10(x)-90};    % start bis Knick
-            \addplot[thick, color=blue, domain=1:100]{-90};                 % ab Knick gerade
-            
-            % Grafische Addition
-            \addplot[thick, color=orange, domain=0.01:1]{-45*log10(x)-90};    
-            \addplot[thick, color=orange, domain=1:100]{45*log10(x)-90};           
+            \addplot[dashed, color=black, domain=4:4] coordinates {(4, -3.14) (4, 3.14)};  
+            \addplot[dashed, color=black, domain=0.1:1000]{-0.79};  
 
-
-            
         \end{axis}
             
     \end{tikzpicture}
