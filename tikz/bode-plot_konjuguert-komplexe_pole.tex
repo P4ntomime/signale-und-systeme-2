@@ -10,7 +10,7 @@
                 width=12cm,
                 height=4cm,
                 xmode=log,
-                xmin=0.1, xmax=100, ymin=-20, ymax=20,
+                xmin=0.1, xmax=100, ymin=-40, ymax=20,
                 x label style={anchor=west},
                 xlabel=Frequency $\omega$,
                 y label style={anchor=south},
@@ -20,7 +20,14 @@
                 ymajorgrids=true
             ]
 
-            \addplot[thick, color=blue, domain=0.1:100]{40};
+            \addplot[thick, color=blue, domain=0.1:1]{0};  
+            \addplot[thick, color=blue, domain=1:2] coordinates {(1, 0) (2, 9.54) };  
+            \addplot[thick, color=blue, domain=2:4] coordinates {(2, 9.54) (4, -12)}; 
+
+            \addplot[thick, color=blue, domain=4:1000]{-40*log10(x)+ 12};   
+            
+            \addplot[dashed, color=black, domain=5:5] coordinates {(2, -40) (2, 20)};  
+
         \end{axis}
         
     \end{tikzpicture}
@@ -49,7 +56,13 @@
                 ymajorgrids=true
             ]
             
-            \addplot[thick, color=blue, domain=0.1:100]{0};                 
+            \addplot[thick, color=blue, domain=0.1:1.36]{0};  
+            \addplot[thick, color=blue] coordinates{(1.36, 0) (2.94, -3.14)};   
+            \addplot[thick, color=blue, domain=2.94:1000]{-3.14};  
+            
+            \addplot[dashed, color=black, domain=2:2] coordinates {(2, -3.14) (2, 3.14)};  
+            \addplot[dashed, color=black, domain=0.1:1000]{-1.57};           
+
         \end{axis}
             
     \end{tikzpicture}

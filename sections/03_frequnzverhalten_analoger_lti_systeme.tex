@@ -258,25 +258,33 @@ $$ \boxed{ H(j \omega_0) = K \cdot \frac{\cor{A_{z1} \cdot A_{z2} \cdots A_{zm}}
 \end{minipage}
 
 
-\subsubsection{Rückschlüsse auf Amplitudengang} % CHECK ob man das welassen soll
+% \subsubsection{Rückschlüsse auf Amplitudengang} % CHECK ob man das welassen soll
 
-\begin{outline}
-    \1 Es werden vor allem die \textbf{Abstände} betrachtet 
-    \1 Pol- und Nullstellen können sich aufheben
-    \1 Bei $\omega = 0$ gilt:
-        \2 Wenn Nullstelle \textrightarrow\ $|H(j \omega_0)| = \infty$ \textrightarrow\ $\theta(j \omega_0) = \frac{\pi}{2}$
-        \2 Wenn Pol \textrightarrow\ $|H(j \omega_0)| = 0$ \textrightarrow\ $\theta(j \omega_0) = -\frac{\pi}{2}$
-        \2 Wenn weder Pol noch NS \textrightarrow\ $|H(j \omega_0)|$ hat endlichen Wert \textrightarrow\ $\theta(j \omega_0) = 0$
-    \1 Bei $\omega = \infty$ gilt:
-        \2 Wenn Zählergrad $>$ Nennergrad \textrightarrow\ $|H(j \omega_0)| = \infty$
-        \2 Wenn Zählergrad $=$ Nennergrad \textrightarrow\ $|H(j \omega_0)|$ hat endlichen Wert
-        \2 Wenn Zählergrad $<$ Nennergrad \textrightarrow\ $|H(j \omega_0)| = 0$
-\end{outline}
+% \begin{outline}
+%     \1 Es werden vor allem die \textbf{Abstände} betrachtet 
+%     \1 Pol- und Nullstellen können sich aufheben
+%     \1 Bei $\omega = 0$ gilt:
+%         \2 Wenn Nullstelle \textrightarrow\ $|H(j \omega_0)| = \infty$ \textrightarrow\ $\theta(j \omega_0) = \frac{\pi}{2}$
+%         \2 Wenn Pol \textrightarrow\ $|H(j \omega_0)| = 0$ \textrightarrow\ $\theta(j \omega_0) = -\frac{\pi}{2}$
+%         \2 Wenn weder Pol noch NS \textrightarrow\ $|H(j \omega_0)|$ hat endlichen Wert \textrightarrow\ $\theta(j \omega_0) = 0$
+%     \1 Bei $\omega = \infty$ gilt:
+%         \2 Wenn Zählergrad $>$ Nennergrad \textrightarrow\ $|H(j \omega_0)| = \infty$
+%         \2 Wenn Zählergrad $=$ Nennergrad \textrightarrow\ $|H(j \omega_0)|$ hat endlichen Wert
+%         \2 Wenn Zählergrad $<$ Nennergrad \textrightarrow\ $|H(j \omega_0)| = 0$
+% \end{outline}
 
 
 \subsection{Vorgehen Frequenzgang aus Pol-NS-Diagramm ermitteln}
-% TODO Betty Bossi schreiben
 
+\begin{itemize}
+    \item $(\text{Schluss-Steigung } = \text{ Anzahl Nullstellen } - \text{ Anzahl Polstellen}) \cdot 20 \, \deci \bel / \Dek$
+    \item Befinden sich am gleichen Ort eine Polstelle \textbf{und} eine Nullstelle, so heben sie sich auf
+    \item Einfache reelle Nullstelle: Ab dieser Frequenz Steigung von  $+20 \, \deci \bel / \Dek$
+    \item Einfacher reeler Pol: Ab dieser Frequenz Steigung von  $-20 \, \deci \bel / \Dek$
+    \item Sind im Pol-NS-Diagramm komplex-konjugierte Polstellen vorhanden, so enthält der Amplitudengang \textbf{Überschwinger}
+    \item Sind im Pol-NS-Diagramm komplex-konjugierte Nullstellen vorhanden, so enthält der Amplitudengang \textbf{Senken}
+    \item Pole bzw. Nullstellen mit\textbf{kleinstem Abstand} zum Ursprung haben am meisten Einfluss
+\end{itemize}
 
 
 
