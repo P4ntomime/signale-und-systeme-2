@@ -1,0 +1,67 @@
+\begin{center}
+    % Gain
+    \begin{tikzpicture}
+        [
+            scale = 0.4,
+            >=latex
+        ]
+        \begin{axis}
+            [
+                width=12cm,
+                height=4cm,
+                xmode=log,
+                xmin=0.1, xmax=1000, ymin=-40, ymax=10,
+                x label style={anchor=west},
+                xlabel=Frequency $\omega$,
+                y label style={anchor=south},
+                ylabel=Gain $\deci \bel$,
+                ytick={-40, -30, -20, -10, 0, 10},
+                yticklabels={-40, -30, -20, -10, 0, 10},
+                xmajorgrids=true,
+                xminorgrids=true,
+                ymajorgrids=true
+            ]
+
+            \addplot[thick, color=blue, domain=0.1:4]{0};  
+            \addplot[thick, color=blue, domain=4:1000]{-20*log10(x)+12};   
+            
+            \addplot[dashed, color=black, domain=4:4]coordinates {(4, -40) (4, 10)};  
+        \end{axis}
+        
+    \end{tikzpicture}
+
+
+    % Phase
+    \begin{tikzpicture}
+        [
+            scale = 0.4,
+            >=latex
+        ]
+        \begin{axis}
+            [
+                width=12cm,
+                height=4cm,
+                xmode=log,
+                xmin=0.1, xmax=1000, ymin=-3.141, ymax=3.141,
+                x label style={anchor=west},
+                xlabel=Frequency $\omega$,
+                y label style={anchor=south},
+                ylabel=Phase $\rad$,
+                ytick={-3.14, -1.57, 0, 1.57, 3.14},
+                yticklabels={$-\pi$, $-\frac{\pi}{2}$, $0$, $\frac{\pi}{2}$, $\pi$},
+                xmajorgrids=true,
+                xminorgrids=true,
+                ymajorgrids=true
+            ]
+            
+            \addplot[thick, color=blue, domain=0.1:0.4]{0};  
+            \addplot[thick, color=blue] coordinates{(0.4, 0) (40, -1.57)};   
+            \addplot[thick, color=blue, domain=40:1000]{-1.57};  
+            
+            \addplot[dashed, color=black, domain=4:4] coordinates {(4, -3.14) (4, 3.14)};  
+            \addplot[dashed, color=black, domain=0.1:1000]{-0.79};  
+
+        \end{axis}
+            
+    \end{tikzpicture}
+\end{center}

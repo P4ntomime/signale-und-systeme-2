@@ -1,0 +1,67 @@
+\begin{center}
+    % Gain
+    \begin{tikzpicture}
+        [
+            scale = 0.4,
+            >=latex
+        ]
+        \begin{axis}
+            [
+                width=12cm,
+                height=4cm,
+                xmode=log,
+                xmin=0.1, xmax=1000, ymin=-10, ymax=40,
+                x label style={anchor=west},
+                xlabel=Frequency $\omega$,
+                y label style={anchor=south},
+                ylabel=Gain $\deci \bel$,
+                ytick={-10, 0, 10, 20, 30, 40},
+                yticklabels={-10, 0, 10, 20, 30, 40},
+                xmajorgrids=true,
+                xminorgrids=true,
+                ymajorgrids=true
+            ]
+
+            \addplot[thick, color=blue, domain=0.1:5]{0};  
+            \addplot[thick, color=blue, domain=5:1000]{20*log10(x)-14};   
+            
+            \addplot[dashed, color=black, domain=5:5]coordinates {(5, -10) (5, 40)};  
+
+        \end{axis}
+        
+    \end{tikzpicture}
+
+
+    % Phase
+    \begin{tikzpicture}
+        [
+            scale = 0.4,
+            >=latex
+        ]
+        \begin{axis}
+            [
+                width=12cm,
+                height=4cm,
+                xmode=log,
+                xmin=0.1, xmax=1000, ymin=-3.141, ymax=3.141,
+                x label style={anchor=west},
+                xlabel=Frequency $\omega$,
+                y label style={anchor=south},
+                ylabel=Phase $\rad$,
+                ytick={-3.14, -1.57, 0, 1.57, 3.14},
+                yticklabels={$-\pi$, $-\frac{\pi}{2}$, $0$, $\frac{\pi}{2}$, $\pi$},
+                xmajorgrids=true,
+                xminorgrids=true,
+                ymajorgrids=true
+            ]
+            
+            \addplot[thick, color=blue, domain=0.1:0.5]{0};  
+            \addplot[thick, color=blue] coordinates{(0.5, 0) (50, 1.57)};   
+            \addplot[thick, color=blue, domain=50:1000]{1.57};  
+            
+            \addplot[dashed, color=black, domain=5:5] coordinates {(5, -3.14) (5, 3.14)};  
+            \addplot[dashed, color=black, domain=0.1:1000]{0.79};                 
+        \end{axis}
+            
+    \end{tikzpicture}
+\end{center}

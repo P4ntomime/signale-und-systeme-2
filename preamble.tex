@@ -47,12 +47,10 @@
 \usetikzlibrary{shapes.misc}        % for the cross out node shape
 
 \usepackage{pgfplots}               % needed for  easy axis generation in TikZ drawings
-\pgfplotsset{compat=1.18}	        % newest version
 
-
-% \usepackage{listings}               % for nicer code display
+\usepackage{listings}               % for nicer code display
 % to use nodes inside listing see: https://texample.net/tikz/examples/tikz-listings/
-
+\usepackage{inconsolata}            % consolas font for listings and text
 
 \usepackage{hyperref}               % clickable links
 \usepackage{qrcode}                 % QR code generation (also clickable)
@@ -112,17 +110,17 @@
 
 % TODO: define color palette
 % color palette: https://colorkit.co/color-palette-generator/FF8552-9e22bd-404E7C-C32E15-225A28/
-\definecolor{green}{HTML}{1af430}
+\definecolor{green}{HTML}{11dd12}
 \definecolor{red}{HTML}{f90d09}
 \definecolor{blue}{HTML}{093ce5}
-\definecolor{orange}{HTML}{f7730e}
+\definecolor{orange}{HTML}{f79300}
 \definecolor{violet}{HTML}{a516c9}
 
 % colors for listings (code)
-% \definecolor{commentcolour}{HTML}{404E7C}
-% \definecolor{keywordcolour}{HTML}{225A28}
-% \definecolor{stringcolour}{HTML}{9e22bd}
-% \definecolor{numbercolour}{HTML}{808080}
+\definecolor{commentcolour}{HTML}{008000}
+\definecolor{keywordcolour}{HTML}{7f0055}
+\definecolor{stringcolour}{HTML}{9e22bd}
+\definecolor{numbercolour}{HTML}{808080}
 
 
 % ----------------------------------- LIST AND TABULAR SETTINGS -----------------------------------
@@ -134,7 +132,7 @@
 \renewcommand{\arraystretch}{1}               % stretch table rows
 
 
-% ----------------------------------------- TIKZ SETTINGS -----------------------------------------
+% ----------------------------------- TIKZ / PGFPLOTS SETTINGS ------------------------------------
 \usetikzlibrary{arrows}
 \usetikzlibrary{arrows.meta}
 \usetikzlibrary{bending}
@@ -146,6 +144,8 @@
 \usetikzlibrary{shapes}
 \usetikzlibrary{calc}
 
+\pgfplotsset{compat=1.17}	        % newest version
+\AtBeginEnvironment{tikzpicture}{\tracinglostchars=0\relax}
 
 % ------------------------------------ OTHER PACKAGE SETTINGS -------------------------------------
 
@@ -170,6 +170,15 @@
     \llap{\contour*{white}{#1}}%
 }
 
+% cunstom command for writing const correctly in math environment
+\newcommand{\const}{%
+    \mathrm{const}
+}
+
+% cunstom command for writing Dek correctly in math environment
+\newcommand{\Dek}{%
+    \mathrm{Dek}
+}
 
 % setup header and footer
 \pagestyle{fancy}
@@ -421,15 +430,15 @@
 
 
 % custom text rightarrow to match tikz arrows
-\renewcommand{\textrightarrow}{
-    \tikz{
+\renewcommand{\textrightarrow}{%
+    \tikz{%
         \draw[-{Stealth[length=1.7mm]},
               double]
                 (0,0) to (0.3,0);}}
 
 % custom text leftrightarrow to match tikz arrows
-\newcommand{\textlrarrow}{
-    \tikz{
+\newcommand{\textlrarrow}{%
+    \tikz{%
         \draw[{Stealth[length=1.7mm]}-{Stealth[length=1.7mm]},
               double]
                 (0,0) to (0.4,0);}}
@@ -448,6 +457,8 @@
 % custom command for absolute value
 \newcommand{\abs}[1]{\ensuremath{\left|#1\right|}}
 
+% custom command for imaginary unit, j
+\newcommand{\jimg}{\ensuremath{\mathrm{j}}}
 
 % shortcuts for colored text
 \newcommand{\cgn}[1]{{\color{green}#1}}
@@ -572,22 +583,22 @@
 % \makeatother
 
 
-% % inline lst tikz node for later referencing
+% inline lst tikz node for later referencing
 % \newcommand{\lstnode}[2][0.5ex]{
 % 	\tikz[overlay, remember picture, inner sep=0pt, yshift=#1, minimum width=0mm]\node(#2){};
 % }
 
 
 % custom inline listings with box around them
-% \newcommand{\mylstbox}[2][columns=fullflexible]{
-%     \mybox{
-%         \lstinline[#1]{#2}}}
-% \newcommand{\mytclstbox}[2][columns=fullflexible]{
-%     \mybox{
-%         \lstinline[basicstyle=\sffamily\footnotesize\color{#1}, columns=fullflexible]{#2}}}
+\newcommand{\mylstbox}[2][columns=fullflexible]{%
+    \mybox{
+        \lstinline[#1]{#2}}}
+\newcommand{\mytclstbox}[2][black]{%
+    \mybox{
+        \lstinline[basicstyle=\ttfamily\footnotesize\color{#1}, columns=fullflexible]{#2}}}
 
 
-% % renew command for lstinputlisting with less vertical spacing
+% renew command for lstinputlisting with less vertical spacing
 % \renewcommand{\lstinputlisting}[2][]{
 %     \begingroup
 %     \vspace{-0.6\abovedisplayskip}
@@ -597,67 +608,74 @@
 % }
 
 
-% % listings style (code)
-% \lstdefinestyle{mystyle}{
-%     backgroundcolor=\color{backcolour},   
-%     commentstyle=\color{commentcolour},
-%     keywordstyle=\bfseries\color{keywordcolour},
-%     numberstyle=\tiny\color{numbercolour},
-%     stringstyle=\color{stringcolour},
-%     basicstyle=\sffamily,
-%     breakatwhitespace=false,
-%     breaklines=true,
-%     captionpos=b,
-%     keepspaces=true,
-%     numbers=left,
-%     numbersep=2pt,
-%     showspaces=false,
-%     showstringspaces=false,
-%     showtabs=false,
-%     tabsize=4,
-% 	xleftmargin=1em,
-% 	language=Java,
-%     extendedchars=true,
-%     inputencoding=cp1252,
-% 	columns=[l]fullflexible	% see: https://tex.stackexchange.com/questions/99416/latex-source-code-listing-with-less-space-between-characters or manual
-% }
+% listings style (code)
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{commentcolour},
+    keywordstyle=\bfseries\color{keywordcolour},
+    numberstyle=\ttfamily\tiny\color{numbercolour},
+    stringstyle=\color{stringcolour},
+    % identifierstyle=\color{red},
+    % emphstyle=\color{blue},
+    basicstyle=\ttfamily,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,    
+    frame=single,
+    framexleftmargin=0.5ex,
+    framesep=0pt,
+    framerule=0pt,
+    linewidth=\columnwidth,
+    numbers=left,
+    numbersep=4pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=4,
+	xleftmargin=1.5em,
+	language=Matlab,
+    extendedchars=true,
+    inputencoding=cp1252,
+	columns=[l]fullflexible	% see: https://tex.stackexchange.com/questions/99416/latex-source-code-listing-with-less-space-between-characters or manual
+}
 
 
-% % custom lstinline command with custom colors
-% \def\purplst{\begingroup\color{violet}}
-% \def\greenlst{\begingroup\color{green}}
-% \def\redlst{\begingroup\color{red}}
-% \def\ywlst{\begingroup\color{orange}}
-% \def\bluelst{\begingroup\color{blue}}
-% \def\endlstcol{\endgroup}
+% custom lstinline command with custom colors
+\def\purplst{\begingroup\color{violet}}
+\def\greenlst{\begingroup\color{green}}
+\def\redlst{\begingroup\color{red}}
+\def\ywlst{\begingroup\color{orange}}
+\def\bluelst{\begingroup\color{blue}}
+\def\endlstcol{\endgroup}
 
 
-% % basic lstinline style without colors
-% \lstdefinestyle{basestyle}{
-%     backgroundcolor=\color{backcolour},
-%     keywordstyle=\bfseries,
-%     numberstyle=\tiny\color{numbercolour},
-%     basicstyle=\sffamily\footnotesize,
-%     breakatwhitespace=false,     
-%     breaklines=true,
-%     captionpos=b,
-%     keepspaces=true,
-%     numbers=none,
-%     numbersep=2pt,
-%     showspaces=false,
-%     showstringspaces=false,
-%     showtabs=false,
-%     tabsize=4,
-%     xleftmargin=0em,
-%     language=Java,
-%     columns=flexible,	% see: https://tex.stackexchange.com/questions/99416/latex-source-code-listing-with-less-space-between-characters or manual
-% }
+% basic lstinline style without colors
+\lstdefinestyle{basestyle}{
+    backgroundcolor=\color{backcolour},
+    keywordstyle=\bfseries,
+    numberstyle=\tiny\color{numbercolour},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,     
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=none,
+    numbersep=2pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=4,
+    xleftmargin=0em,
+    language=VHDL,
+    columns=flexible,	% see: https://tex.stackexchange.com/questions/99416/latex-source-code-listing-with-less-space-between-characters or manual
+}
 
-
-% \lstset{
-%     style=mystyle,
-%     morekeywords={final, override, enum, var, List, Set, Map, String, Object},
-%     moredelim=[il][\textcolor{orange}]{¦¦},
-%     moredelim=[is][\textcolor{orange}]{&&}{&&},
-%     moredelim=[is][\textcolor{violet}]{@}{@},
-% }
+\lstset{
+    style=mystyle,
+    % morekeywords={[2]bit, bit_vector, boolean, integer},
+    % keywordstyle={[2]\color{orange}},
+    % morekeywords={[3]p,q,s,co},
+    % keywordstyle={[3]\color{violet}},
+    % morecomment=[s][\color{blue!65!white}]{<}{>}
+}
