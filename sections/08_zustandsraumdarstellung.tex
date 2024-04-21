@@ -54,7 +54,6 @@ von $n$ Gleichungen $1.$ Ordnung darzustellen.
 
 
 \example{ZRD aus Schaltung aufstellen}
-% TODO
 
 \begin{minipage}[c]{0.48\columnwidth}
     \includegraphics[width=\columnwidth]{images/beispiel_zrd_aus_schaltung.png}
@@ -81,10 +80,10 @@ von $n$ Gleichungen $1.$ Ordnung darzustellen.
 \end{minipage}
 
 \begin{minipage}[c]{0.5\columnwidth}
-    \begin{empheq}[box=\fbox] {align*}
+    \begin{align*}
         L \cdot i'(t) + y(t) &= x(t) \\
         i(t) - \frac{y}{R} &= C \cdot y'(t) 
-    \end{empheq}
+    \end{align*}
 \end{minipage}
 \hfill
 \begin{minipage}[c]{0.48\columnwidth}
@@ -92,10 +91,10 @@ von $n$ Gleichungen $1.$ Ordnung darzustellen.
 \end{minipage}
 
 \begin{minipage}[c]{0.5\columnwidth}
-    \begin{empheq}[box=\fbox] {align*}
+    \begin{align*}
         i'(t) &= - \frac{1}{L} y(t) + \frac{1}{L} x(t) \\
         y'(t) &= \frac{1}{C} i(t) - \frac{1}{RC} y(t) 
-    \end{empheq}
+    \end{align*}
 \end{minipage}
 \hfill
 \begin{minipage}[c]{0.48\columnwidth}
@@ -108,32 +107,34 @@ von $n$ Gleichungen $1.$ Ordnung darzustellen.
     % \textrightarrow\ Gleichungssystem in Matrixform schreiben
 \end{minipage}
 
-$$ \begin{bmatrix} i'(t) \\ y'(t) \end{bmatrix} = \underbrace{ \begin{bmatrix} 0 & -\frac{1}{L} \\ \frac{1}{C} & -\frac{1}{RC} \end{bmatrix} }_{\bm{A}}
-\cdot \begin{bmatrix} i(t) \\ y(t) \end{bmatrix} + \underbrace{ \begin{bmatrix} \frac{1}{L} \\ 0 \end{bmatrix} }_{\bm{B}} \cdot x(t) $$
-
 \begin{empheq}[box=\fbox] {align*}
     \begin{bmatrix} i'(t) \\ y'(t) \end{bmatrix} &= \underbrace{ \begin{bmatrix} 0 & -\frac{1}{L} \\ \frac{1}{C} & -\frac{1}{RC} \end{bmatrix} }_{\bm{A}}
     \cdot \begin{bmatrix} i(t) \\ y(t) \end{bmatrix} + \underbrace{ \begin{bmatrix} \frac{1}{L} \\ 0 \end{bmatrix} }_{\bm{B}} \cdot x(t) \\
-
-    y(t) &= \underbrace{ \begin{bmatrix} 0 & 1 \end{bmatrix}}_{\bm{C}} \cdot \begin{bmatrix} i(t) \\ y(t) \end{bmatrix} + \underbrace{ \begin{bmatrix} 0 \end{bmatrix} }_{\bm{D}} \cdot x(t)
+    \tilde{y}(t) &= \underbrace{ \begin{bmatrix} 0 & 1 \end{bmatrix}}_{\bm{C}} \cdot \begin{bmatrix} i(t) \\ y(t) \end{bmatrix} + \underbrace{ \begin{bmatrix} 0 \end{bmatrix} }_{\bm{D}} \cdot x(t)
 \end{empheq}
 
 
 \example{ZRD aus Signalflussdiagramm aufstellen}
 
-Das ZRD zu folgendem System soll aufgestellt werden. Dazu müssen die Matritzen $\bm{A}, \bm{B}, \bm{C}$ und $\bm{A}$ gefunden werden.
-
+Das ZRD zu folgendem System soll aufgestellt werden. Dazu müssen die Matritzen $\bm{A}, \bm{B}, \bm{C}$ und $\bm{D}$ gefunden werden.
+$$ \text{Zustandsvektor: }  \underline{q}(t) =  \begin{pmatrix} q_1(t) \\ q_2(t) \\ q_3(t) \end{pmatrix} 
+\text{ und dessen Ableitung } \underline{\dot{q}} = \begin{pmatrix} \dot{q}_1(t) \\ \dot{q}_2(t) \\ \dot{q}_3(t) \end{pmatrix} $$
 \includegraphics[width=\columnwidth]{images/beispiel_zrd_aus_sfd.png}
 
-$$ \text{Zustandsvektor: } q = \begin{pmatrix} q_1 \\ q_2 \\ q_3 \end{pmatrix}$$
-
-
-
+\begin{empheq}[box=\fbox] {align*}
+    \underbrace{ \begin{pmatrix} \dot{q}_1(t) \\ \dot{q}_2(t) \\ \dot{q}_3(t) \end{pmatrix} }_{\underline{\dot{q}}(t)} &= 
+    \underbrace{ \begin{bmatrix} 2 & -3 & 1 \\ 1 & 0 & 0 \\ 0 & 1 & 0 \end{bmatrix} }_{\bm{A}}
+    \cdot \underbrace{ \begin{pmatrix} q_1(t) \\ q_2(t) \\ q_3(t) \end{pmatrix} }_{\underline{q}(t)} 
+    + \underbrace{ \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix} }_{\bm{B}} \cdot x(t) \\
+    y(t) &= \underbrace{ \begin{bmatrix} -1 & 0 & 1 \end{bmatrix}}_{\bm{C}} 
+    \cdot \underbrace{ \begin{pmatrix} q_1(t) \\ q_2(t) \\ q_3(t) \end{pmatrix} }_{\underline{q}(t)} 
+    + \underbrace{ \begin{bmatrix} 0 \end{bmatrix} }_{\bm{D}} \cdot x(t)
+\end{empheq}
 
 
 \subsection{Ordnung eines Systems}{256}
 
-Die \textbf{Ordnung} eines Systems definiert die\textbf{kleinste Anzahl von Zustandsgrössen} $x(t)$.
+Die \textbf{Ordnung} eines Systems definiert die \textbf{kleinste Anzahl von Zustandsgrössen} $x(t)$.
 Äquivalent dazu kann die Ordnung eines Systems auch als die \textbf{Anzahl der unabhängigen Energiespeicher} definiert werden.
 
 
