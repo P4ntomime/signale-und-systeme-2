@@ -258,8 +258,6 @@ Physikalisch sinnvolle Zustandsgrössen sind:
 Oft wird die \textbf{Systemmatrix} $\bm{A}$ diagonalisiert, um \textbf{entkoppelte Zustände} zu erhalten. Anstelle der Matrix
 $\bm{\hat{A}} = \bm{ T A T}^{-1}$ wird dann üblicherweise $\bm{A_{diag}}$ verwenet.
 
-% TODO: Bild entkoppeltes System
-
 \begin{tabular}{ll}
     $\lambda_i$                     & Eigenwerte der Matrix $\bm{A}$ \\
     $\vec{v}_i$                     & Eigenvektoren der Matrix $\bm{A}$ \\
@@ -280,7 +278,6 @@ $\bm{\hat{A}} = \bm{ T A T}^{-1}$ wird dann üblicherweise $\bm{A_{diag}}$ verwe
 \end{minipage}
 
 
-
 \subsubsection{Vorgehen Matrix diagonalisieren}
 
 \begin{outline}
@@ -296,14 +293,33 @@ $\bm{\hat{A}} = \bm{ T A T}^{-1}$ wird dann üblicherweise $\bm{A_{diag}}$ verwe
 \end{outline}
 
 
-\subsubsection{Einschub -- Lineare Algebra: 2x2 Matrix invertieren}
+\subsubsection{Entkoppeltes vs. nicht-entkoppeltes System}
+
+\begin{minipage}[t]{0.4\columnwidth}
+    \begin{center}
+        \myul{\textbf{Nicht-entkoppeltes System}}
+    \end{center}
+    $$ \bm{A} = \begin{bmatrix*}[r] -2 & 7 \\ -1 & 6 \end{bmatrix*} $$
+    \includegraphics[width=\columnwidth]{images/kreuzform.png}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\columnwidth}
+    \begin{center}
+        \myul{\textbf{Entkoppeltes System}}
+    \end{center}
+    $$ \bm{A_{diag}} = \begin{bmatrix*}[r] -1 & 0 \\ 0 & 5 \end{bmatrix*} $$
+    \includegraphics[width=\columnwidth]{images/parallelform.png}
+\end{minipage}
+
+
+\subsection{Einschub -- Lineare Algebra: 2x2 Matrix invertieren}
 
 \begin{minipage}[b]{0.33\columnwidth}
     $$ \bm{A} = 
-    \begin{pmatrix}
+    \begin{bmatrix*}[r]
         a & b \\
         c & d 
-    \end{pmatrix} $$
+    \end{bmatrix*} $$
 \end{minipage}
 \hfill
 \begin{minipage}[b]{0.66\columnwidth}
