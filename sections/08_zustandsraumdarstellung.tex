@@ -244,15 +244,6 @@ Physikalisch sinnvolle Zustandsgrössen sind:
 \end{itemize}
 
 
-% \subsubsection{Bedingungen für Äquivalenz}  % TODO
-
-% % blaue Schrift auf V8, F19? -> gilt für dieses Beispiel
-% \begin{itemize}
-%     \item bla
-% \end{itemize}
-
-
-
 \subsection[Matrix bm{A} diagonalisieren]{Matrix $\bm{A}$ diagonalisieren}
 
 Oft wird die \textbf{Systemmatrix} $\bm{A}$ diagonalisiert, um \textbf{entkoppelte Zustände} zu erhalten. Anstelle der Matrix
@@ -377,8 +368,124 @@ $\bm{\hat{A}} = \bm{ T A T}^{-1}$ wird dann üblicherweise $\bm{A_{diag}}$ verwe
 \end{minipage}
 
 
+\subsection{Lösung der ZRD im Zeitbereich}{259-260}
+\label{ZRD Lösung Zeitbereich}
+
+Die Zustandsgleichung $\underline{\dot{x}}(t) = \bm{A} \underline{x}(t) + \bm{B} \underline{u}(t)$ ist eine Differentialgleichung.
+Sie soll mit dem Ansatz einer Exponentialfunktion gelöst werden. Für Systeme mit nur einem Zustand würde man den Ansatz 
+$\underline{x}(t) = e^{at}$ wählen. \\
+Da im Allgemeinen Systeme mit mehreren Zuständen betrachtet werden, wird der folgende Ansatz gewählt:
+
+$$ e^{\bm{A} t} = \bm{I} + \bm{A} t + \frac{\bm{A}^2}{2!} t^2 + \cdots + \frac{\bm{A}^k}{k!} t^k + \cdots 
+    = \sum\limits_{k=0}^{\infty} \frac{\bm{A}^k t^k}{k!} $$
+
+Der Ansatz ist beschrieben als desser \textbf{Taylor-Reihe.}
+
+Durch einsetzen des Ansatzes in die Zustandsgleichung ergibt sich für den Ausgangsvektor $\underline{y}(t)$ die folgende Lösung
+der ZRD im Zeitbereich
+
+$$ \boxed{ \underline{y}(t) = \bm{C} \, \bm{\Phi}(t) \, \underline{x}(0) + 
+    \int\limits_0^t \bm{C} \, \bm{\Phi}(t - \tau) \, \bm{B} \, \underline{u}(t) \, \diff \tau + \bm{D} \, \underline{u}(t) } $$
+
+\textbf{Hinweis:} $\bm{\Phi}(t) = e^{\bm{A} t}$ heisst \textbf{Fundamentalmatrix}. 
 
 
+\subsection{Fundamentalmatrix}{260-263}
+
+Die Fundamentalmatrix (auch Transitionsmatrix genannt) ist definiert als
+$$ \boxed{  e^{\bm{A} \cdot t} = \bm{\Phi}(t) } $$
+
+Sie wird benötigt, um die Zustandsraumdarstellung im \textbf{Zeitbereich} zu lösen.
+Es gibt mehrere Methoden, die quadratische $(n \times n)$ Fundamentalmatrix zu bestimmen
 
 
+\subsubsection{Methode 1 -- Inverse Laplace-Transformation}
 
+$$ \boxed{ \bm{\Phi}(t) = \mathcal{L}^{-1} \Bigl\{ (s \bm{I} - \bm{A}^{-1})  \Bigr\} } $$
+
+
+\example{Methode 1 -- Inverse Laplace-Transformation}
+
+Mit der \textbf{Systemmatrix} $\bm{A} = \begin{bmatrix*}[r] -1 & 0 \\ 1 & -2 \end{bmatrix*}$ ergibt sich 
+$(s \bm{I} - \bm{A}) = \begin{bmatrix*} s+1 & 0 \\ -1 & s+2 \end{bmatrix*}$
+
+Somit ist $(s \bm{I} - \bm{A})^{-1} = \frac{\begin{bmatrix*} s+1 & 0 \\ -1 & s+2 \end{bmatrix*}}{(s+1)(s+2)} \,
+\laplace \, \begin{bmatrix*} e^{-t} & 0 \\ e^{-t} - e^{-2t} & e^{-2t} \end{bmatrix*} = \bm{\Phi}(t)$
+
+
+\subsubsection{Methode 2 -- Diagonalisierung von $\bm{\Phi}(t)$}
+
+\begin{minipage}[c]{0.6\columnwidth}
+    $$ \bm{\Phi}(t) = e^{\bm{A} \cdot t} = \underbrace{ 
+    \begin{bmatrix*} 
+        e^{\lambda_1 t} &                   & \cdots        & 0      \\
+                        & e^{\lambda_2 t}   &               & \vdots \\
+        \vdots          &                   & \ddots        &        \\
+        0               & \cdots            &               & e^{\lambda_n t}
+\end{bmatrix*}}_{\bm{\Phi_{diag}(t)}} \cdot \bm{V}^{-1} $$
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.36\columnwidth}
+    Wenn $\bm{A_{diag}} = \bm{V}^{-1} \cdot A \cdot \bm{V}$ ist und $\lambda_i$ die Eigenwerte von $\bm{A}$ sind
+\end{minipage}
+
+
+\subsubsection{Methode 3 -- Spektrale Zerlegung}
+
+\textrightarrow\ Nicht in Vorlesung behandelt
+
+
+\subsubsection{Methode 4 -- Satz von Cayley-Hamilton}
+\textrightarrow\ Nicht in Vorlesung behandelt
+
+
+\subsubsection{5 -- Definition der Reihenentwicklung}
+
+% Gemäss Abschnitt ~\ref{ZRD Lösung Zeitbereich} ist die Fundamentalmatrix $\bm{\Phi}(t) = e^{\bm{A} \cdot t}$ als Taylor-Reihe
+% definiert.
+
+\begin{minipage}[c]{0.6\columnwidth}
+    Die Matrix $\bm{A}$ sei definiert als eine \textbf{Dreiecksmatrix} mit Parameteren $a$ und $c$
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.38\columnwidth}
+    $$ \bm{A} = \begin{bmatrix*} a & 0 \\ 1 & c \end{bmatrix*} $$
+\end{minipage}
+
+
+\begin{minipage}[c]{0.5\columnwidth}
+    Die Potenz der Matrix wird berechnet aus
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.48\columnwidth}
+    $$ \bm{A}^k = \begin{bmatrix*} a & 0 \\ 1 & c \end{bmatrix*}^k 
+    = \begin{bmatrix*} a^k & 0 \\ \sum\limits_{l=0}^{k-1} a^{k-l-1}  & c^k \end{bmatrix*} $$
+\end{minipage}
+
+
+%TODO: Hier sollte nächste Vorlesung noch etwas kommen
+
+
+\subsubsection{Eigenschaften der Fundamentalmatrix $\bm{\Phi(t)$}}
+
+\begin{tabular}{l c l}
+    \toprule
+    $\bm{\Phi}(0) = \bm{I} $            & & $e^{\bm{A} \cdot 0} = \bm{I}$ \\
+    \midrule
+    $\bm{\Phi}^{-1}(t) = \bm{\Phi}(-t)$ & & $\big( e^{\bm{A} \cdot t} \big)^{-1} = e^{- \bm{A} \cdot t}$ \\
+    \midrule
+    $\bm{\Phi}^k(t) = \bm{\Phi}(kt)$    & & $\big( e^{\bm{A} \cdot t} \big)^k = e^{\bm{A} \cdot k \cdot t}$ \\
+    \midrule
+    $\bm{\Phi}(t_1) \cdot \bm{\Phi}(t_2) = \bm{\Phi}(t_1 + t_2)$                & & $e^{\bm{A} \cdot t_1} \cdot e^{\bm{A} \cdot t_2} = e^{\bm{A} (t_1 + t_2)}$ \\
+    \midrule
+    $\bm{\Phi}(t_2 - t_1) \cdot \bm{\Phi}(t_1 - t_0) = \bm{\Phi}(t_2 - t_0)$    & & $e^{\bm{A} (t_2 - t_1)} \cdot e^{\bm{A} (t_1 - t_0)} = e^{\bm{A} (t_2 - t_0)}$ \\
+    \bottomrule
+\end{tabular}
+
+\vspace{0.2cm}
+\textbf{Hinweis:} ($\bm{\Phi}(t)$ ist stets invertierbar)
+
+
+\subsubsection{Fundamentalmatrix in Matlab}
+
+\lstinputlisting{snippets/fundamentalmatrix.m}
