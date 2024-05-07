@@ -489,3 +489,82 @@ Somit ist $(s \bm{I} - \bm{A})^{-1} = \frac{\begin{bmatrix*} s+1 & 0 \\ -1 & s+2
 \subsubsection{Fundamentalmatrix in Matlab}
 
 \lstinputlisting{snippets/fundamentalmatrix.m}
+
+% --------------------------------------------------------------------------------------------------
+
+\subsection{Lösung der ZRD im Zeitbereich -- SISO-Systeme}{263}
+
+
+\subsection{Stabilität von ZRDs}{275}
+
+Ein LTI-System ist \textbf{asymptotisch stabil}, wenn alle Pole in der linken Halbebene liegen (bzw. einen negativen Realteil haben). \\
+Unter Betrachtung der ZRD wird diese Bedingung interpretiert als:
+Wenn alle \textbf{Eigenwerte} der \textbf{Systemmatrix} $\bm{A}$ einen \textbf{negativen Realteil} besitzen, ist das System 
+\textbf{asymptotisch stabil}.
+
+$$ \boxed{ \abs{\lambda \bm{I} - \bm{A}}  = 0 \quad \rightarrow \forall \lambda \quad \Re{\lambda} < 0 }  $$
+
+\textbf{Achtung: Umgekehrt gilt diese Aussage nicht!} Ein asymptotisch stabiles LTI-System bedeutet \textbf{nicht}, 
+dass alle Eigenwerte der Systemmatrix $\bm{A}$ des Systems einen negativen Realteil besitzen. \\
+\textrightarrow\ Pol-/Nullstellenkürzungen
+
+
+\subsection{Beobachtbarkeit und Steuerbarkeit -- Begriffe}{277}
+
+\myul{\textbf{Beobachtbarkeit der Zustände}}
+
+\begin{itemize}
+    \item Ein System ist \textbf{beobachtbar}, wenn wir, gegeben das Eingangssignal $\underline{u}(t)$ und das Ausgangssignal $\underline{y}(t)$,
+        über eine endliche Zeitspanne $0 \geq t \geq t_1$ die Zustände $\underline{x}(t)$ eindeutig bestimmen können. % Dubach
+    \item Ein System ist \textbf{nicht beobachtbar}, wenn es Zustände $\underline{x}(t)$ gibt, die \textbf{keinen} Einfluss
+        auf die Ausgänge $\underline{y}(t)$ haben. \\   % Skript
+        \textrightarrow Man kann aus dem Verhalten von $\underline{y}(t)$ \textbf{nicht} auf die Zustände $\underline{x}(t)$ schliessen.
+\end{itemize}
+
+
+\myul{\textbf{Steuerbarkeit der Zustände}}
+
+\begin{itemize}
+    \item Ein System ist \textbf{steuerbar}, wenn es für jeden Anfangszustand $\underline{x}_0$ und jeden Endzustand $\underline{x}_1$
+        eine Steuerfunktion $\underline{u}(t)$ gibt, die das System in einer endlichen Zeitspanne $0 \geq t \geq t_1$ von
+        $\underline{x}_0$ zu $\underline{x}_1$ bringt, d.h. $\underline{x}(t_1) = \underline{x}_1$. % Definition Dubach
+    \item Ein System ist \textbf{nicht steuerbar}, wenn es Zustände $\underline{x}(t)$ gibt, die nicht von den 
+        Eingängen $\underline{u}(t)$ beeinflusst werden. % Skript 
+\end{itemize}
+
+\vspace{0.2cm}
+\textbf{Bemerkungen: }
+\begin{itemize}
+    \item System ($\bm{A}$, $\bm{B}$, $\bm{C}$, $\bm{D}$) ist bekannt 
+    \item Äquivalent reicht es, wenn wir $\underline{x}(0)$ bestimmen können
+\end{itemize}
+    
+
+\subsection{Steuerbarkeit}{277}
+
+
+
+
+\subsubsection{Steuerbarkeitsmatrix}
+
+
+
+\subsection{Beobachtbarkeit}{278}
+
+
+\subsection{Standardformen der ZRD}{267}
+
+% Formel allgemeine UTF
+
+\subsubsection{Regelungsnormalform}{267-268}
+
+
+\subsubsection{Alternative Regelungsnormalform}{268}
+
+\subsubsection{Beobachtungsnormalform}{269-270}
+
+\subsubsection{Alternative Beobachtungsnormalform}{270}
+
+\subsubsection{Diagonalform und Jordan-Normalform}{271-273}
+
+\subsubsection{Jrodan-Normalform für mehrfache, reelle Pole}{274}

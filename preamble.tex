@@ -461,6 +461,14 @@
 % custom command for imaginary unit, j
 \newcommand{\jimg}{\ensuremath{\mathrm{j}}}
 
+% custom command for real parts with argument
+% \renewcommand{\Re}[1]{\ensuremath{\operatorname{Re}\left\lgroup#1\right\rgroup}}
+\renewcommand{\Re}[1]{\ensuremath{\operatorname{Re}\left\{#1\right\}}}
+
+% custom command for imaginary parts with argument
+% \renewcommand{\Im}[1]{\ensuremath{\operatorname{Im}\left\lgroup#1\right\rgroup}}
+\renewcommand{\Im}[1]{\ensuremath{\operatorname{Im}\left\{#1\right\}}}
+
 % shortcuts for colored text
 \newcommand{\cgn}[1]{{\color{green}#1}}
 \newcommand{\crd}[1]{{\color{red}#1}}
