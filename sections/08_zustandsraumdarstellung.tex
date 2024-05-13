@@ -207,6 +207,7 @@ $$ H(s) = \frac{b_i s^i + b_{i-1} s^{i-1} \cdots b_1 s^1 + b_0}{a_i s^i + a_{i-1
 
 
 \subsection{Äquivalente Zustandsraumdarstellung (ZRD)}{257}
+\label{Äquivalente ZRD}
 
 Mit einer \textbf{Transformationsmatrix} $\bm{T}$ ($n \times n$-Matrix, nicht singulär, $\bm{T T^{-1} = I = T^{-1} T}$) kann man 
 \textbf{verschiedenste Zustandsgrössen und Zustandsraumdarstellungen} erhalten, die aber alle ein 
@@ -214,8 +215,6 @@ Mit einer \textbf{Transformationsmatrix} $\bm{T}$ ($n \times n$-Matrix, nicht si
 % Somit kann eine ZRD durch \textbf{verschiedene Schaltungen} realisiert werden, solange diese Schaltungen die 
 % \textbf{gleiche Übertragungsfunktion} liefern!
 
-
-% TODO
 \begin{minipage}[c]{0.4\columnwidth}
     \vspace{-0.3cm}
     
@@ -223,10 +222,6 @@ Mit einer \textbf{Transformationsmatrix} $\bm{T}$ ($n \times n$-Matrix, nicht si
         \underline{\dot{\xi}}(t) &= \overbrace{ \bm{ T A T}^{-1}}^{\bm{\hat{A}}} \underline{\xi}(t) + \overbrace{\bm{T B}}^{\bm{\hat{B}}}  \underline{u}(t) \\
         \underline{y}(t) &= \underbrace{\bm{C T}^{-1}}_{\bm{\hat{C}}} \underline{\xi}(t) + \underbrace{\bm{D}}_{\bm{\hat{D}}} \underline{u}(t)
     \end{empheq}
-    % \begin{tabular}{ll}
-    %     Zusammenhänge 
-    % \end{tabular}
-
 \end{minipage}
 \hfill
 \begin{minipage}[c]{0.58\columnwidth}
@@ -298,7 +293,7 @@ $\bm{\hat{A}} = \bm{ T A T}^{-1}$ wird dann üblicherweise $\bm{A_{diag}}$ verwe
     \begin{center}
         \myul{\textbf{Entkoppeltes System}}
     \end{center}
-    $$ \bm{A_{diag}} = \begin{bmatrix*}[r] -1 & 0 \\ 0 & 5 \end{bmatrix*} $$
+    $$ \bm{\hat{A}} = \bm{A_{\rm diag}} = \begin{bmatrix*}[r] -1 & 0 \\ 0 & 5 \end{bmatrix*} $$
     \includegraphics[width=\columnwidth]{images/parallelform.png}
 \end{minipage}
 
@@ -439,7 +434,7 @@ Somit ist $(s \bm{I} - \bm{A})^{-1} = \frac{\begin{bmatrix*} s+1 & 0 \\ -1 & s+2
 \textrightarrow\ Nicht in Vorlesung behandelt
 
 
-\subsubsection{5 -- Definition der Reihenentwicklung}
+\subsubsection{Methode 5 -- Definition der Reihenentwicklung}
 
 % Gemäss Abschnitt ~\ref{ZRD Lösung Zeitbereich} ist die Fundamentalmatrix $\bm{\Phi}(t) = e^{\bm{A} \cdot t}$ als Taylor-Reihe
 % definiert.
@@ -461,9 +456,6 @@ Somit ist $(s \bm{I} - \bm{A})^{-1} = \frac{\begin{bmatrix*} s+1 & 0 \\ -1 & s+2
     $$ \bm{A}^k = \begin{bmatrix*} a & 0 \\ 1 & c \end{bmatrix*}^k 
     = \begin{bmatrix*} a^k & 0 \\ \sum\limits_{l=0}^{k-1} a^{k-l-1}  & c^k \end{bmatrix*} $$
 \end{minipage}
-
-
-%TODO: Hier sollte nächste Vorlesung noch etwas kommen
 
 
 \subsubsection{Eigenschaften der Fundamentalmatrix $\bm{\Phi(t)$}}
@@ -489,3 +481,306 @@ Somit ist $(s \bm{I} - \bm{A})^{-1} = \frac{\begin{bmatrix*} s+1 & 0 \\ -1 & s+2
 \subsubsection{Fundamentalmatrix in Matlab}
 
 \lstinputlisting{snippets/fundamentalmatrix.m}
+
+% --------------------------------------------------------------------------------------------------
+
+\subsection{Lösung der ZRD im Zeitbereich -- SISO-Systeme}{263}
+
+Die Impulsantwort $h(t)$ eines SISO-Systems ist gegeben durch
+
+\begin{empheq}[box=\fbox] {align*}
+    y(t) &= \bm{C} \bm{\Phi}(t) \bm{B} * u(t) + \bm{D} u(t) = h(t) * u(t) \\
+    h(t) &= \bm{C} \bm{\Phi}(t) \bm{B} + \bm{D} \delta(t)
+\end{empheq}
+
+
+\subsection{Stabilität von ZRDs}{275}
+
+Ein LTI-System ist \textbf{asymptotisch stabil}, wenn alle Pole in der linken Halbebene liegen (bzw. einen negativen Realteil haben). \\
+Unter Betrachtung der ZRD wird diese Bedingung interpretiert als:
+Wenn alle \textbf{Eigenwerte} der \textbf{Systemmatrix} $\bm{A}$ einen \textbf{negativen Realteil} besitzen, ist das System 
+\textbf{asymptotisch stabil}.
+
+$$ \boxed{ \abs{\lambda \bm{I} - \bm{A}}  = 0 \quad \rightarrow \forall \lambda \quad \Re{\lambda} < 0 }  $$
+
+\textbf{Achtung: Umgekehrt gilt diese Aussage nicht!} Ein asymptotisch stabiles LTI-System bedeutet \textbf{nicht}, 
+dass alle Eigenwerte der Systemmatrix $\bm{A}$ des Systems einen negativen Realteil besitzen. \\
+\textrightarrow\ Pol-/Nullstellenkürzungen
+
+
+\subsection{Beobachtbarkeit und Steuerbarkeit -- Begriffe}{277}
+
+\subsubsection*{Beobachtbarkeit der Zustände}
+
+\begin{itemize}
+    \item Ein System ist \textbf{beobachtbar}, wenn wir, gegeben das Eingangssignal $\underline{u}(t)$ und das Ausgangssignal $\underline{y}(t)$,
+        über eine endliche Zeitspanne $0 \geq t \geq t_1$ die Zustände $\underline{x}(t)$ eindeutig bestimmen können. 
+    \item Ein System ist \textbf{nicht beobachtbar}, wenn es Zustände $\underline{x}(t)$ gibt, die \textbf{keinen} Einfluss
+        auf die Ausgänge $\underline{y}(t)$ haben. \\   
+        \textrightarrow Man kann aus dem Verhalten von $\underline{y}(t)$ \textbf{nicht} auf die Zustände $\underline{x}(t)$ schliessen.
+\end{itemize}
+
+
+\subsubsection*{Steuerbarkeit der Zustände}
+
+\begin{itemize}
+    \item Ein System ist \textbf{steuerbar}, wenn es für jeden Anfangszustand $\underline{x}_0$ und jeden Endzustand $\underline{x}_1$
+        eine Steuerfunktion $\underline{u}(t)$ gibt, die das System in einer endlichen Zeitspanne $0 \geq t \geq t_1$ von
+        $\underline{x}_0$ zu $\underline{x}_1$ bringt, d.h. $\underline{x}(t_1) = \underline{x}_1$. 
+    \item Ein System ist \textbf{nicht steuerbar}, wenn es Zustände $\underline{x}(t)$ gibt, die nicht von den 
+        Eingängen $\underline{u}(t)$ beeinflusst werden. 
+\end{itemize}
+
+\vspace{0.2cm}
+\textbf{Bemerkungen: }
+\begin{itemize}
+    \item System ($\bm{A}$, $\bm{B}$, $\bm{C}$, $\bm{D}$) ist bekannt 
+    \item Äquivalent reicht es, wenn wir $\underline{x}(0)$ bestimmen können
+\end{itemize}
+    
+
+\subsection{Steuerbarkeit}{277}
+
+Gemäss der äquivalenten ZRD-Darstellung (siehe Abschnitt~\ref{Äquivalente ZRD}) werden die Matritzen $\bm{\hat{A}}$,
+$\bm{\hat{B}}$, $\bm{\hat{C}}$ und $\bm{\hat{D}}$ mit einer Matrix $\bm{V}$ diagonalisert, sodass 
+$\bm{\hat{A}} = \bm{A_{\rm diag}} = \bm{V^{-1} A V}$, $\bm{\hat{B}} = \bm{V^{-1} B}$, 
+$\bm{\hat{C}} = \bm{C V}$ und $\bm{\hat{D}} = \bm{D}$
+
+\vspace{0.2cm}
+
+\fbox{\parbox{0.95\columnwidth}{
+Ein \textbf{SISO-System} mit \textbf{einfachen Eigenwerten} ist genau dann \textbf{vollständig steuerbar}, wenn nach der
+Transformation auf \textbf{Diagonalform} bzw. Parallelform ($\bm{A_{\rm diag}} = \bm{\hat{A}} =  \bm{V^{-1} A V}$), 
+\textbf{alle} Elemente von $\bm{\hat{B}} = \bm{V^{-1} B}$ \textbf{ungleich Null} sind.
+}}
+\vspace{0.2cm}
+
+\fbox{\parbox{0.95\columnwidth}{
+Ein \textbf{MIMO-System} ($m > 1$) mit \textbf{einfachen Eigenwerten} ist genau dann \textbf{vollständig steuerbar}, wenn nach der
+Transformation auf \textbf{Parallelform} ($\bm{A_{\rm diag}} = \bm{\hat{A}} =  \bm{V^{-1} A V}$), in \textbf{jeder Zeile} von 
+$\bm{\hat{B}} = \bm{V^{-1} B}$ \textbf{mindestens ein} Element \textbf{ungleich Null} ist.
+}}
+
+
+\subsubsection{Steuerbarkeitsmatrix}
+
+Ein System ist \textbf{vollständig steuerbar}, wenn
+\begin{itemize}
+    \item Der \textbf{Rang} der Steuerbarkeitsmatrix gleich der \textbf{Ordnung} $n$ des Systems
+    \item Falls nur \textbf{ein Eingang} ($m = 1$): Die \textbf{Determinante} von $\bm{Q}_{\rm Steuerbarkeit}$ 
+        \textbf{ungleich Null ist}
+\end{itemize}
+
+\begin{minipage}[c]{0.6\columnwidth}
+    $$ \boxed{ \bm{Q}_{\rm Steuerbarkeit} = 
+    \begin{bmatrix}
+        \bm{B} & \bm{A B} & \bm{A^2 B} & \cdots & \bm{A^{n-1} B} 
+    \end{bmatrix} } $$
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.38\columnwidth}
+    Dimension: $n \times n \cdot m$
+\end{minipage}
+
+
+\begin{minipage}[c]{0.48\columnwidth}
+    \begin{tabular}{ll}
+        $\bm{A}$    & Systemmatrix ($n \times n$) \\
+        $\bm{B}$    & Eingangsmatrix ($n \times m$) \\
+    \end{tabular}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.48\columnwidth}
+    \begin{tabular}{ll}
+        $n$         & Zustände \\
+        $m$         & Eingänge \\
+    \end{tabular}
+\end{minipage}
+
+
+\subsubsection*{Steuerbarkeitsmatrix in Matlab}
+
+\lstinputlisting{snippets/steuerbarkeitsmatrix.m}
+
+
+\subsection{Beobachtbarkeit}{278}
+
+Gemäss der äquivalenten ZRD-Darstellung (siehe Abschnitt~\ref{Äquivalente ZRD}) werden die Matritzen $\bm{\hat{A}}$,
+$\bm{\hat{B}}$, $\bm{\hat{C}}$ und $\bm{\hat{D}}$ mit einer Matrix $\bm{V}$ diagonalisert, sodass 
+$\bm{\hat{A}} = \bm{A_{\rm diag}} = \bm{V^{-1} A V}$, $\bm{\hat{B}} = \bm{V^{-1} B}$, 
+$\bm{\hat{C}} = \bm{C V}$ und $\bm{\hat{D}} = \bm{D}$
+
+\vspace{0.2cm}
+
+\fbox{\parbox{0.95\columnwidth}{
+Ein \textbf{SISO-System} mit \textbf{einfachen Eigenwerten} ist genau dann \textbf{vollständig beobachtbar}, wenn nach der
+Transformation auf \textbf{Diagonalform} bzw. Parallelform ($\bm{A_{\rm diag}} = \bm{\hat{A}} =  \bm{V^{-1} A V}$), 
+\textbf{alle} Elemente von $\bm{\hat{C}} = \bm{C V}$ \textbf{ungleich Null} sind.
+}}
+\vspace{0.2cm}
+
+\fbox{\parbox{0.95\columnwidth}{
+Ein \textbf{MIMO-System} ($m > 1$) mit \textbf{einfachen Eigenwerten} ist genau dann \textbf{vollständig beobachtbar}, wenn nach der
+Transformation auf \textbf{Parallelform} ($\bm{A_{\rm diag}} = \bm{\hat{A}} =  \bm{V^{-1} A V}$), in \textbf{jeder Spalte} von 
+$\bm{\hat{C}} = \bm{C V}$ \textbf{mindestens ein} Element \textbf{ungleich Null} ist.
+}}
+
+
+\subsubsection{Beobachtbarkeitsmatrix}
+
+Ein System ist \textbf{vollständig beobachtbar}, wenn
+\begin{itemize}
+    \item Der \textbf{Rang} der Beobachtbarkeitsmatrix gleich der \textbf{Ordnung} $n$ des Systems
+    \item Falls nur \textbf{ein Eingang} ($m = 1$): Die \textbf{Determinante} von $\bm{Q}_{\rm Beobachtbarkeit}$ 
+        \textbf{ungleich Null ist}
+\end{itemize}
+
+\begin{minipage}[c]{0.4\columnwidth}
+    $$ \boxed{ \bm{Q}_{\rm Beobachtbarkeit} = 
+    \begin{bmatrix}
+        \bm{C} \\ \bm{C A} \\ \bm{C A^2} \\ \vdots \\ \bm{C A^{n-1}} 
+    \end{bmatrix} } $$
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.58\columnwidth}
+    \begin{tabular}{ll}
+        Dimension:  & $k \cdot n \times n$ \\
+        $\bm{A}$    & Systemmatrix ($n \times n$) \\
+        $\bm{C}$    & Beobachtungsmatrix ($k \times m$) \\
+        $n$         & Zustände \\
+        $m$         & Eingänge \\
+        $k$         & Ausgänge 
+    \end{tabular}
+\end{minipage}
+
+
+\subsubsection*{Beobachtbarkeitsmatrix in Matlab}
+
+\lstinputlisting{snippets/beobachtbarkeitsmatrix.m}
+
+
+% \subsection{Ausgangssteuerbarkeit}{280-281}
+% nicht behandelt 
+
+% \subsubsection{Ausgangssteuerbarkeitsmatrix}
+% nicht behandelt
+
+
+\subsection{Standardformen der ZRD}{267}
+
+Die allgemeine Differentialgleichung von SISO-Systemen der Form
+
+$$ a_n \frac{\diff^n y}{\diff t^n} + a_{n-1} \frac{\diff^{n-1} y}{\diff t^{n-1}} + \cdots + a_1 \frac{\diff y}{\diff t} + a_0 y =
+    b_m \frac{\diff^m u}{\diff t^m} + b_{m-1} \frac{\diff^{m-1} u}{\diff t^{m-1}} + \cdots + b_1 \frac{\diff u}{\diff t} + b_0 u  $$
+
+ergibt mit der Laplace-Transformation und mit $m \leq n$
+$$ \boxed{ H(s) = \frac{Y(s)}{U(s)} = \frac{b_m s^m + b_{m-1} s^{m-1} + \cdots + b_1 s + b_0}
+{a_n s^n + a_{n-1} s^{n-1} + \cdots + a_1 s + a_0} }$$
+
+Diese UTF $H(s)$ kann mit verschiedenen ZRDs (\textbf{Normalformen}) abgebildet werden. \\
+\cbl{\textbf{Wichtig:} Für alle folgenden Normalformen werden die Zustände $x_i$ im blockdiagramm
+\textbf{unmittelbar nach den Integratoren} verwendet.}
+
+
+\subsubsection{Regelungsnormalform}{267-268}
+
+Die Regelungsnormalform kann \textbf{direkt aus der UTF} $H(s)$ aufgestellt werden.
+
+Für $m = n$ gilt sieht die Regelungsnormalform folgendermassen aus:
+\begin{empheq}[box=\fbox] {align*}
+    \begin{bmatrix} \dot{x}_1(t) \\ \dot{x}_2(t) \\ \vdots \\ \dot{x}_{n-1}(t) \\ \dot{x}_n(t)  \end{bmatrix} &= 
+    \begin{bmatrix} 
+        0       & 1         & 0         & \cdots    & 0     \\
+        0       & 0         & 1         & \cdots    & 0     \\
+        \vdots  & \vdots    & \vdots    & \ddots    & \vdots\\
+        0       & 0         & 0         & \cdots    & 1     \\
+        -a_0    & -a_1      & -a_2      & \cdots    & -a_{n-1} 
+    \end{bmatrix}
+    \cdot
+    \begin{bmatrix} x_1(t) \\ x_2(t) \\ \vdots \\ x_{n-1}(t) \\ x_n(t) \end{bmatrix}
+    + 
+    \begin{bmatrix} 0 \\ 0 \\ \vdots \\ 0 \\ 1 \end{bmatrix} 
+    \cdot u(t) \\
+    y(t) &= \begin{bmatrix} b_0 - a_0 b_n & b_1 - a_1 b_n & \cdots& b_{n-1} - a_{n-1} b_n \end{bmatrix}
+    \cdot
+    \begin{bmatrix} x_1(t) \\ x_2(t) \\ \vdots \\ x_{n-1}(t) \\ x_n(t) \end{bmatrix}
+    + \begin{bmatrix} b_n \end{bmatrix} \cdot u(t)
+\end{empheq}
+
+In den meisten Fällen ist $m < n$ und die \textbf{Ausgangsgleichung} vereinfacht sich zu:
+\begin{empheq}[box=\fbox] {align*}
+    y(t) &= \begin{bmatrix} b_0 &  b_1 & \cdots & b_m & 0 & \cdots & 0 \end{bmatrix}
+    \cdot
+    \begin{bmatrix} x_1(t) \\ x_2(t) \\ \vdots \\ x_{n-1}(t) \\ x_n(t) \end{bmatrix}
+    + \begin{bmatrix} 0 \end{bmatrix} \cdot u(t)
+\end{empheq}
+
+
+% \subsubsection{Alternative Regelungsnormalform}{268}
+% nicht behandelt
+
+
+\subsubsection{Beobachtungsnormalform}{269-270}
+
+Ein System, welches in Beobachtungsnormalform dargestellt werden kann, ist \textbf{beobachtbar!}
+ür $m = n$ gilt sieht die Regelungsnormalform folgendermassen aus:
+\begin{empheq}[box=\fbox] {align*}
+    \begin{bmatrix} \dot{x}_1(t) \\ \dot{x}_2(t) \\ \vdots \\ \dot{x}_{n-1}(t) \\ \dot{x}_n(t)  \end{bmatrix} &= 
+    \begin{bmatrix} 
+        0       & 0         & 0         & \cdots    & -a_0  \\
+        1       & 0         & 0         & \cdots    & -a_1  \\
+        0       & 1         & 0         & \cdots    & -a_2  \\
+        \vdots  & \vdots    & \ddots    & 0         & \vdots\\
+        0       & 0         & \cdots    & 1         & -a_{n-1} 
+    \end{bmatrix}
+    \cdot
+    \begin{bmatrix} x_1(t) \\ x_2(t) \\ \vdots \\ x_{n-1}(t) \\ x_n(t) \end{bmatrix}
+    + 
+    \begin{bmatrix} b_0 - a_0 b_n \\ b_1 - a_1 b_n \\ b_2 - a_2 b_n \\ \vdots \\ b_{n-1} - a_{n-1} b_n \end{bmatrix} 
+    \cdot u(t) \\
+    y(t) &= \begin{bmatrix} 0 & 0 & \cdots & 1 \end{bmatrix}
+    \cdot
+    \begin{bmatrix} x_1(t) \\ x_2(t) \\ \vdots \\ x_{n-1}(t) \\ x_n(t) \end{bmatrix}
+    + \begin{bmatrix} b_n \end{bmatrix} \cdot u(t)
+\end{empheq}
+
+In den meisten Fällen ist $m < n$ und die \textbf{Zustandsgleichung} vereinfacht sich zu:
+\begin{empheq}[box=\fbox] {align*}
+    \begin{bmatrix} \dot{x}_1(t) \\ \dot{x}_2(t) \\ \vdots \\ \dot{x}_{n-1}(t) \\ \dot{x}_n(t)  \end{bmatrix} &= 
+    \begin{bmatrix} 
+        0       & 0         & 0         & \cdots    & -a_0  \\
+        1       & 0         & 0         & \cdots    & -a_1  \\
+        0       & 1         & 0         & \cdots    & -a_2  \\
+        \vdots  & \vdots    & \ddots    & 0         & \vdots\\
+        0       & 0         & \cdots    & 1         & -a_{n-1} 
+    \end{bmatrix}
+    \cdot
+    \begin{bmatrix} x_1(t) \\ x_2(t) \\ \vdots \\ x_{n-1}(t) \\ x_n(t) \end{bmatrix}
+    + 
+    \begin{bmatrix} b_0  \\ b_1 \\ b_2 \\ \vdots \\ b_{n-1} \end{bmatrix} 
+    \cdot u(t) \\
+\end{empheq}
+
+
+\subsubsection{Zusammenhang Regelungsnormalform -- Beobachtungsnormalform}
+
+Die beiden Formen sind \textbf{dual} und weisen folgende Zusammenhänge auf:
+
+\begin{itemize}
+    \item $\bm{A}$ ist an der Hauptdiagonalen gespiegelt 
+    \item $\bm{B}$ und $\bm{C}$ sind vertauscht
+    \item $\bm{D}$ bleibt gleich
+\end{itemize}
+
+
+% \subsubsection{Alternative Beobachtungsnormalform}{270}
+% nicht behandelt
+
+
+\subsubsection{Diagonalform und Jordan-Normalform}{271-273}
+% TODO: Fragen, was der Unterschied zw. Jordan und Diagonalform ist -> Praktikum vs. Skript
+\cor{TO BE DONE LATER}
+
+
+% \subsubsection{Jorodan-Normalform für mehrfache, reelle Pole}{274}
+% nicht behandelt
