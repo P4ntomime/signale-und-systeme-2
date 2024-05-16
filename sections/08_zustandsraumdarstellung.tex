@@ -5,12 +5,13 @@ von $n$ Gleichungen $1.$ Ordnung darzustellen.
 
 
 \subsection{Vorteile der ZRD}{253-254}
+
 \begin{itemize}
     \item Innere Systemstabilitäten können erkannt werden, die bei der Untersuchung der UTF 
         nicht festgestellt werden können \textrightarrow\ Einblick in den \textbf{inneren Aufbau} eines Systems
     \item Wichtig in der Regelungstechnik
     \item ZRD hat Vorteile bei der \textbf{numerischen} Behandlung von Systemen
-    \item Beschreibung durch \textbf{Energiespeicher}, in der Elektrotechnik L und C
+    \item Beschreibung durch \textbf{Energiespeicher}, in der Elektrotechnik $L$ und $C$
     \item \textbf{Nur Integratoren} werden verwendet, keine Differentiatoren
 \end{itemize}
 
@@ -31,7 +32,6 @@ von $n$ Gleichungen $1.$ Ordnung darzustellen.
         $\underline{x}(t)$   & Zustandsvektor ($n$ Zeilen) \\
         $\underline{y}(t)$   & Ausgangsvektor ($k$ Zeilen) \\
     \end{tabular}
-
 \end{minipage}
 \hfill
 \begin{minipage}[c]{0.58\columnwidth}
@@ -118,17 +118,17 @@ von $n$ Gleichungen $1.$ Ordnung darzustellen.
 \example{ZRD aus Signalflussdiagramm aufstellen}
 
 Das ZRD zu folgendem System soll aufgestellt werden. Dazu müssen die Matritzen $\bm{A}, \bm{B}, \bm{C}$ und $\bm{D}$ gefunden werden.
-$$ \text{Zustandsvektor: }  \underline{q}(t) =  \begin{pmatrix} q_1(t) \\ q_2(t) \\ q_3(t) \end{pmatrix} 
-\text{ und dessen Ableitung } \underline{\dot{q}}(t) = \begin{pmatrix} \dot{q}_1(t) \\ \dot{q}_2(t) \\ \dot{q}_3(t) \end{pmatrix} $$
+$$ \text{Zustandsvektor: }  \underline{q}(t) =  \begin{bmatrix} q_1(t) \\ q_2(t) \\ q_3(t) \end{bmatrix} 
+\text{ und dessen Ableitung } \underline{\dot{q}}(t) = \begin{bmatrix} \dot{q}_1(t) \\ \dot{q}_2(t) \\ \dot{q}_3(t) \end{bmatrix} $$
 \includegraphics[width=\columnwidth]{images/beispiel_zrd_aus_sfd.png}
 
 \begin{empheq}[box=\fbox] {align*}
-    \underbrace{ \begin{pmatrix} \dot{q}_1(t) \\ \dot{q}_2(t) \\ \dot{q}_3(t) \end{pmatrix} }_{\underline{\dot{q}}(t)} &= 
+    \underbrace{ \begin{bmatrix} \dot{q}_1(t) \\ \dot{q}_2(t) \\ \dot{q}_3(t) \end{bmatrix} }_{\underline{\dot{q}}(t)} &= 
     \underbrace{ \begin{bmatrix} 2 & -3 & 1 \\ 1 & 0 & 0 \\ 0 & 1 & 0 \end{bmatrix} }_{\bm{A}}
-    \cdot \underbrace{ \begin{pmatrix} q_1(t) \\ q_2(t) \\ q_3(t) \end{pmatrix} }_{\underline{q}(t)} 
+    \cdot \underbrace{ \begin{bmatrix} q_1(t) \\ q_2(t) \\ q_3(t) \end{bmatrix} }_{\underline{q}(t)} 
     + \underbrace{ \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix} }_{\bm{B}} \cdot x(t) \\
     y(t) &= \underbrace{ \begin{bmatrix} -1 & 0 & 1 \end{bmatrix}}_{\bm{C}} 
-    \cdot \underbrace{ \begin{pmatrix} q_1(t) \\ q_2(t) \\ q_3(t) \end{pmatrix} }_{\underline{q}(t)} 
+    \cdot \underbrace{ \begin{bmatrix} q_1(t) \\ q_2(t) \\ q_3(t) \end{bmatrix} }_{\underline{q}(t)} 
     + \underbrace{ \begin{bmatrix} 0 \end{bmatrix} }_{\bm{D}} \cdot x(t)
 \end{empheq}
 
@@ -242,18 +242,18 @@ Physikalisch sinnvolle Zustandsgrössen sind:
 \subsection[Matrix bm{A} diagonalisieren]{Matrix $\bm{A}$ diagonalisieren}
 
 Oft wird die \textbf{Systemmatrix} $\bm{A}$ diagonalisiert, um \textbf{entkoppelte Zustände} zu erhalten. Anstelle der Matrix
-$\bm{\hat{A}} = \bm{ T A T}^{-1}$ wird dann üblicherweise $\bm{A_{diag}}$ verwenet.
+$\bm{\hat{A}} = \bm{ T A T}^{-1}$ wird dann üblicherweise $\bm{A_{\rm diag}}$ verwendet.
 
 \begin{tabular}{ll}
-    $\lambda_i$                     & Eigenwerte der Matrix $\bm{A}$ \\
-    $\vec{v}_i$                     & Eigenvektoren der Matrix $\bm{A}$ \\
-    $\bm{V}$                        & Matrix mit Eigenvektoren von $\bm{A}$ \\
-    $\bm{A_{diag}} = \bm{\Lambda}$  & Diagonalisierte Matix $\bm{A}$ mit Eigenwerten $\lambda_i$ auf Diagonale \\
-    $\bm{T}$                        & Transformationsmatrix 
+    $\lambda_i$                         & Eigenwerte der Matrix $\bm{A}$ \\
+    $\vec{v}_i$                         & Eigenvektoren der Matrix $\bm{A}$ \\
+    $\bm{V}$                            & Matrix mit Eigenvektoren von $\bm{A}$ \\
+    $\bm{A_{\rm diag}} = \bm{\Lambda}$  & Diagonalisierte Matix $\bm{A}$ mit Eigenwerten $\lambda_i$ auf Diagonale \\
+    $\bm{T}$                            & Transformationsmatrix 
 \end{tabular}
 
 \begin{minipage}[c]{0.48\columnwidth}
-    $$ \boxed{\bm{A_{diag}} = \bm{\Lambda} =  \bm{V}^{-1} \cdot \bm{A} \cdot \bm V} $$
+    $$ \boxed{\bm{A_{\rm diag}} = \bm{\Lambda} =  \bm{V}^{-1} \cdot \bm{A} \cdot \bm V} $$
 \end{minipage}
 \hfill
 \begin{minipage}[c]{0.48\columnwidth}
@@ -421,7 +421,7 @@ Somit ist $(s \bm{I} - \bm{A})^{-1} = \frac{\begin{bmatrix*} s+1 & 0 \\ -1 & s+2
 \end{minipage}
 \hfill
 \begin{minipage}[c]{0.36\columnwidth}
-    Wenn $\bm{A_{diag}} = \bm{V}^{-1} \cdot A \cdot \bm{V}$ ist und $\lambda_i$ die Eigenwerte von $\bm{A}$ sind
+    Wenn $\bm{A_{\rm diag}} = \bm{V}^{-1} \cdot A \cdot \bm{V}$ ist und $\lambda_i$ die Eigenwerte von $\bm{A}$ sind
 \end{minipage}
 
 
@@ -762,7 +762,7 @@ In den meisten Fällen ist $m < n$ und die \textbf{Zustandsgleichung} vereinfach
 \end{empheq}
 
 
-\subsubsection{Zusammenhang Regelungsnormalform -- Beobachtungsnormalform}
+\subsubsection{Regelungsnormalform $\Leftrightarrow$ Beobachtungsnormalform}
 
 Die beiden Formen sind \textbf{dual} und weisen folgende Zusammenhänge auf:
 
