@@ -1,0 +1,79 @@
+\section{Filter}
+
+
+\subsection{Grundtypen}{291}
+
+Filter sind mehrheitlich \textbf{frequnezselektive, lineare Netzwerke}, welche gewisse Frequenzbereiche übertragen
+und andere dämpfen. Die fünf \textbf{frequnezselektiven Grundtypen} sind: 
+
+\begin{minipage}[t]{0.25\columnwidth}
+    \begin{itemize}
+        \item Tiefpass (TP)
+        \item Hochpass (HP)
+    \end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.35\columnwidth}
+    \begin{itemize}
+        \item Bandpass (BP)
+        \item Bandsperre, Notch (BS)
+    \end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.25\columnwidth}
+    \begin{itemize}
+        \item Allpass
+    \end{itemize}
+\end{minipage}
+
+
+\subsection{Filterbauarten}{292}
+
+\textrightarrow\ Siehe Skript S. 292
+
+% \begin{tabular}{|l|l|l|l|}
+%     \hline
+%     \multirow{7}{*}{\rotatebox[origin=c]{90}{zeitdiskret}}         & \multirow{7}{*}{aktiv}    & \multirow{3}{*}{\begin{tabular}[c]{@{}l@{}}diskrete\\ Werte\end{tabular}}         & Filter mit Signalprozessor           \\ \cline{4-4} 
+%                                       &                            &                                                                                   & Filter mit Gate Logic                \\ \cline{4-4} 
+%                                       &                            &                                                                                   & etc.                                 \\ \cline{3-4} 
+%                                       &                            & \multirow{4}{*}{\begin{tabular}[c]{@{}l@{}}analoge\\ Werte\end{tabular}}          & SC-Filter (Switched Capacitor)       \\ \cline{4-4} 
+%                                       &                            &                                                                                   & SI-Filter (Switched Current)         \\ \cline{4-4} 
+%                                       &                            &                                                                                   & N-Pfad Filter                        \\ \cline{4-4} 
+%                                       &                            &                                                                                   & etc.                                 \\ \hline
+%     \multirow{16}{*}{\rotatebox[origin=c]{90}{kontinurierlich}}    & \multirow{5}{*}{aktive RC} & \multirow{5}{*}{\begin{tabular}[c]{@{}l@{}}konz. \\ Bauteile\end{tabular}}        & 'Simultion' von LC-Filtern           \\ \cline{4-4} 
+%                                       &                            &                                                                                   & Gekoppelte Filterstrukturen          \\ \cline{4-4} 
+%                                       &                            &                                                                                   & Filter Parallelform                  \\ \cline{4-4} 
+%                                       &                            &                                                                                   & Filter in Kaskadenbauweise           \\ \cline{4-4} 
+%                                       &                            &                                                                                   & etc.                                 \\ \cline{2-4} 
+%                                       & \multirow{11}{*}{passiv}   & \multirow{4}{*}{\begin{tabular}[c]{@{}l@{}}verteilte\\ Bauteile\end{tabular}}     & SAW-Filter (Surfaec Acoustic Wave)   \\ \cline{4-4} 
+%                                       &                            &                                                                                   & Hohlraumresonatoren (Topfkreisfilter \\ \cline{4-4} 
+%                                       &                            &                                                                                   & Leisutngsfilter                      \\ \cline{4-4} 
+%                                       &                            &                                                                                   & etc.                                 \\ \cline{3-4} 
+%                                       &                            & \multirow{7}{*}{\begin{tabular}[c]{@{}l@{}}konzentrierte\\ Bauteile\end{tabular}} & Keramische Filter                    \\ \cline{4-4} 
+%                                       &                            &                                                                                   & Quarz-Filter                         \\ \cline{4-4} 
+%                                       &                            &                                                                                   & RLC-Filter                           \\ \cline{4-4} 
+%                                       &                            &                                                                                   & RC-Filter                            \\ \cline{4-4} 
+%                                       &                            &                                                                                   & LC-Filter                            \\ \cline{4-4} 
+%                                       &                            &                                                                                   & LC-Filter mit Quarz                  \\ \cline{4-4} 
+%                                       &                            &                                                                                   & etc.                                 \\ \hline
+% \end{tabular}
+
+
+\subsection{Ideales Tiefpassfilter}{297}
+
+unendlich lange Impulsantwort, akausal -> nicht realisierbar
+
+
+
+
+
+\subsection{Filterspezifikation (Stempel und Matritze)}{297}
+
+Amplitudengang soll zwischen den Rechtecken durch gehen
+-> normiert auf $\Omega$
+
+Normierungsgrössen als Formel
+
+Entnormierung $S$ in normierter Funktion durch $\frac{s}{\omega_r}$ ersetzen
+
+\subsection{RC-Filer 1. Ordnung}    % In Video von Mathis Woche 11

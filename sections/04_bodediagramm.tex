@@ -216,7 +216,7 @@ $$ \text{UTF Tiefpass 2. Ordnung:} \quad H(s) = \frac{\omega_p^2}{s^2 + s \frac{
 \subsubsection{Spezialfall $q = 1$}
 
 \renewcommand{\arraystretch}{1.5}
-\begin{minipage}[t]{0.55\columnwidth}    
+\begin{minipage}[c]{0.55\columnwidth}    
     \begin{tabular}{ll}
         Frequenz:  & $ \omega_{max} = \omega_p \cdot \sqrt{1 - \frac{1}{2}} = \frac{\omega_p}{\sqrt{2}}$ \\
         Höhe:      & $ \abs{H(\omega_{max})} = \frac{1}{\sqrt{1 - \frac{1}{4}}} = 1.15$ \\
@@ -224,15 +224,14 @@ $$ \text{UTF Tiefpass 2. Ordnung:} \quad H(s) = \frac{\omega_p^2}{s^2 + s \frac{
 
 \end{minipage}
 \hfill
-\begin{minipage}[t]{0.43\columnwidth}
-    % TODO Skizze gemäss Vorlesung aber in besser...
-
+\begin{minipage}[c]{0.43\columnwidth}
+    \input{tikz/konjugiert_komplexe_pole_q_1.tex}
 \end{minipage}
 
 
 \subsubsection{Spezialfall $q = \frac{1}{2}$}
 
-\begin{minipage}[t]{0.55\columnwidth}
+\begin{minipage}[c]{0.55\columnwidth}
     \begin{tabular}{ll}
             Frequenz:  & $ \omega_{max} = \omega_p \cdot \sqrt{1 - \frac{1}{2 \big(\frac{1}{2} \big)^2 }}$ \\
                        & $ = \omega_p \cdot \sqrt{1-2} \in \mathbb{C}$ \\
@@ -240,15 +239,14 @@ $$ \text{UTF Tiefpass 2. Ordnung:} \quad H(s) = \frac{\omega_p^2}{s^2 + s \frac{
     \end{tabular}
 \end{minipage}
 \hfill
-\begin{minipage}[t]{0.43\columnwidth}
-    % TODO Skizze gemäss Vorlesung aber in besser...
-
+\begin{minipage}[c]{0.43\columnwidth}
+    \input{tikz/konjugiert_komplexe_pole_q_05.tex}
 \end{minipage}
 
 
 \subsubsection{Spezialfall $q =\frac{1}{\sqrt{2}}$}
 
-\begin{minipage}[t]{0.55\columnwidth}
+\begin{minipage}[c]{0.55\columnwidth}
 
     \begin{tabular}{ll}
         Frequenz:   & $ \omega_{max} = 0$ \\
@@ -257,7 +255,7 @@ $$ \text{UTF Tiefpass 2. Ordnung:} \quad H(s) = \frac{\omega_p^2}{s^2 + s \frac{
     \renewcommand{\arraystretch}{2}
 \end{minipage}
 \hfill
-\begin{minipage}[t]{0.43\columnwidth}
-        % TODO Skizze gemäss Vorlesung aber in besser..
+\begin{minipage}[c]{0.43\columnwidth}
+        \input{tikz/konjugiert_komplexe_pole_q_1_wurzel2.tex}
 \end{minipage}
 \renewcommand{\arraystretch}{1}

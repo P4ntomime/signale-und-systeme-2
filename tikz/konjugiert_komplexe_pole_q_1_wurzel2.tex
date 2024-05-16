@@ -1,0 +1,47 @@
+
+
+\begin{tikzpicture}
+	[
+	x=1cm, y=1cm, scale=0.63, font=\footnotesize, >=latex 
+	%Voreinstellung für Pfeilspitzen
+	]
+	
+	%Raster im Hintergrund
+	%\draw[step=0.1, gray!50!white, very thin] (0,0) grid (5.5,2.5);
+	%\draw[step=1, gray!80!white, thin] (0,0) grid (5.5,2.5);
+	
+	%Länge x Achse
+	\draw [-latex] (0,0) -- ++(5.5,0) node[right] {$\omega$};
+	
+	%Länge y Achse
+	\draw [-latex] (0,0) -- ++(0,2.5) node[above] {$\left\lvert H\left(\omega\right) \right\rvert $};
+	
+	%Zahlen auf y-Achse 
+	\foreach \y in {0,1.5}
+	\draw[shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt);
+	\foreach \y in {2}
+	\draw[shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt);
+	
+	%Zahlen auf x-Achse
+	\foreach \x in {0}
+	\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt);
+	
+	%gestrichelte linie
+	\draw [dashed, gray, thick] (0,1.5) -- (4,1.5);		
+	\draw [dashed, red, thick] (4,-0.05) -- (4,1.5);
+	
+	%Beschriftungen
+	\draw [] (0,2) node[left] {$0 \, \deci \bel$};
+	\draw [] (0,1.5) node[left] {$3 \, \deci \bel$};
+	\draw [] (4,0) node[red, below] {$\omega_p$};	
+	\draw [] (2,2.3) node[] {maximal flach};	
+
+	%Geschwungene Linie
+	\draw[thick, blue] plot[smooth] coordinates {(0,2) (1,1.95) (2,1.85) (3,1.7) (4,1.5) (4.7,1.24) (5.4,0.9)};
+	
+	\draw [-latex, thick] (1,2.25) -- (0.1,2.05);
+
+	%Punkte
+	\fill [red] (4,1.5) circle (0.06cm);
+	
+\end{tikzpicture}
