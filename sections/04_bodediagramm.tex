@@ -11,98 +11,90 @@ siehe Skript, Kapitel 5.4.3 (S. 222)
 
 \subsection{Approximationen im Bodediagramm}{230}
 
-\begin{minipage}[t]{0.48\columnwidth}
-    \raggedright
-    \subsubsection{Pol im Ursprung}
-
-    \begin{outline}
-        \1 $H(s) = \frac{\alpha}{s} \cbl{= \frac{2}{s}}$
-            \2 Betrag $=$ Gerade mit Steigung $- 20 \, \deci \bel / \Dek$, Schnittpunkt mit $0 \, \deci\bel$-Linie bei $\omega = \alpha$
-            \2 Phase $- \frac{\pi}{2} = \const$
-    \end{outline}
-\end{minipage}
-\hfill
-\begin{minipage}[t]{0.48\columnwidth}
-    \raggedright
-    \subsubsection{Nullstelle im Ursprung}
-
-    \begin{outline}
-        \1 $H(s) = \alpha \cdot s \cbl{= 3\cdot s}$
-            \2 Betrag $=$ Gerade mit Steigung $+ 20 \, \deci \bel / \Dek$, Schnittpunkt mit $0 \, \deci\bel$-Linie bei $\omega = \frac{1}{\alpha}$
-            \2 Phase $+ \frac{\pi}{2} = \const$
-    \end{outline}
-\end{minipage}
+\subsubsection{Pol im Ursprung}
 
 \begin{minipage}[t]{0.48\columnwidth}
+    $$ H(s) = \frac{\alpha}{s} \cbl{= \frac{2}{s}} $$
     \include{tikz/bode-plot_pol_in_ursprung}
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.48\columnwidth}
-    \include{tikz/bode-plot_nullstelle_in_ursprung}
+    % TODO: step by step guide 
+    \begin{itemize}
+        \item Betrag $=$ Gerade mit Steigung $- 20 \, \deci \bel / \Dek$, Schnittpunkt mit $0 \, \deci\bel$-Linie bei $\omega = \alpha$
+        \item Phase $- \frac{\pi}{2} = \const$
+    \end{itemize}
 \end{minipage}
 
 
-\begin{minipage}[t]{0.48\columnwidth}
-    \raggedright
-    \subsubsection{Reeller Pol}
+\subsubsection{Nullstelle im Ursprung}
 
-    \begin{outline}
-        \1 $H(s) = \frac{\alpha}{s + \alpha} = \frac{1}{\frac{s}{\alpha} + 1} \cbl{= \frac{4}{s + 4}}$
-            \2 Betrag $=$ Konstante mit Wert $0 \, \deci \bel$ von $\omega = 0$ bis $\omega = \alpha$; 
-                für $\omega > \alpha$ Gerade mit Steigung $- 20 \, \deci \bel / \Dek$ 
-                durch Punkt mit Amplitude $0 \, \deci \bel$ und $\omega = \alpha$
-            \2 Phase $=$ Konstante mit Wert $0$ bis $\omega < \frac{\alpha}{10}$; 
-                für $\omega > 10 \alpha$ Konstante mit Wert $- \frac{\pi}{2}$; dazwischen eine Gerade
-                (bei $\omega = \alpha$ beträgt Phase $- \frac{\pi}{4}$)
-    \end{outline}
+\begin{minipage}[t]{0.48\columnwidth}
+    $$ H(s) = \alpha \cdot s \cbl{= 3\cdot s} $$
+    \include{tikz/bode-plot_nullstelle_in_ursprung}
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.48\columnwidth}
-    \raggedright
-    \subsubsection{Reelle Nullstelle}
-
-    \begin{outline}
-        \1 $H(s) = \frac{s + \alpha}{\alpha} = \frac{s}{\alpha} + 1 \cbl{= \frac{s + 5}{5}}$
-            \2 Betrag $=$ Konstante mit Wert $0 \, \deci \bel$ von $\omega = 0$ bis $\omega = \alpha$; 
-                für $\omega > \alpha$ Gerade mit Steigung $+ 20 \, \deci \bel / \Dek$ 
-                durch Punkt mit Amplitude $0 \, \deci \bel$ und $\omega = \alpha$
-            \2 Phase $=$ Konstante mit Wert $0$ bis $\omega < \frac{\alpha}{10}$; 
-                für $\omega > 10 \alpha$ Konstante mit Wert $+ \frac{\pi}{2}$; dazwischen eine Gerade
-                (bei $\omega = \alpha$ beträgt Phase $+ \frac{\pi}{4}$)
-    \end{outline}
-
+    % TODO: step by step guide 
+    \begin{itemize}
+        \item Betrag $=$ Gerade mit Steigung $+ 20 \, \deci \bel / \Dek$, Schnittpunkt mit $0 \, \deci\bel$-Linie bei $\omega = \frac{1}{\alpha}$
+        \item Phase $+ \frac{\pi}{2} = \const$
+    \end{itemize}
 \end{minipage}
 
+
+\subsubsection{Reeller Pol}
+
 \begin{minipage}[t]{0.48\columnwidth}
+    $$ H(s) = \frac{\alpha}{s + \alpha} = \frac{1}{\frac{s}{\alpha} + 1} \cbl{= \frac{4}{s + 4}} $$
     \include{tikz/bode-plot_reeller_pol}
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.48\columnwidth}
+    % TODO: step by step guide 
+    \begin{itemize}
+        \item Betrag $=$ Konstante mit Wert $0 \, \deci \bel$ von $\omega = 0$ bis $\omega = \alpha$; 
+                für $\omega > \alpha$ Gerade mit Steigung $- 20 \, \deci \bel / \Dek$ 
+                durch Punkt mit Amplitude $0 \, \deci \bel$ und $\omega = \alpha$
+        \item Phase $=$ Konstante mit Wert $0$ bis $\omega < \frac{\alpha}{10}$; 
+                für $\omega > 10 \alpha$ Konstante mit Wert $- \frac{\pi}{2}$; dazwischen eine Gerade
+                (bei $\omega = \alpha$ beträgt Phase $- \frac{\pi}{4}$)
+    \end{itemize}
+\end{minipage}
+
+
+\subsubsection{Reelle Nullstelle}
+
+\begin{minipage}[t]{0.48\columnwidth}
+    $$ H(s) = \frac{s + \alpha}{\alpha} = \frac{s}{\alpha} + 1 \cbl{= \frac{s + 5}{5}} $$
     \include{tikz/bode-plot_reelle_nullstelle}
 \end{minipage}
 \hfill
+\begin{minipage}[t]{0.48\columnwidth}
+    % TODO: step by step guide 
+    \begin{itemize}
+        \item Betrag $=$ Konstante mit Wert $0 \, \deci \bel$ von $\omega = 0$ bis $\omega = \alpha$; 
+                für $\omega > \alpha$ Gerade mit Steigung $+ 20 \, \deci \bel / \Dek$ 
+                durch Punkt mit Amplitude $0 \, \deci \bel$ und $\omega = \alpha$
+        \item Phase $=$ Konstante mit Wert $0$ bis $\omega < \frac{\alpha}{10}$; 
+                für $\omega > 10 \alpha$ Konstante mit Wert $+ \frac{\pi}{2}$; dazwischen eine Gerade
+                (bei $\omega = \alpha$ beträgt Phase $+ \frac{\pi}{4}$)
+    \end{itemize}
+\end{minipage}
+    
+
+\subsubsection{Konjugiert-komplexe Pole}
 
 \begin{minipage}[t]{0.48\columnwidth}
     \raggedright
-    \subsubsection{Konj.-komplexe Pole}
+    \begin{center}
+        Voraussetzung: $\abs{q_p} > \frac{1}{2}$
+    \end{center}
+    $$ H(s) = \frac{\omega_p^2}{s^2 + s \frac{\omega_p}{q_p} + \omega_p^2} \cbl{= \frac{2^2}{s^2 + s \frac{2}{3} + 2^2}} $$
 
-    Voraussetzung: $\abs{q_p} > \frac{1}{2}$\\
-    \begin{itemize}
-        \item $H(s) = \frac{\omega_p^2}{s^2 + s \frac{\omega_p}{q_p} + \omega_p^2} \cbl{= \frac{2^2}{s^2 + s \frac{2}{3} + 2^2}}$\\
-    \end{itemize}
-
+    \include{tikz/bode-plot_konjuguert-komplexe_pole}
 \end{minipage}
 \hfill
-\begin{minipage}[t]{0.48\columnwidth}
-    \raggedright
-    \subsubsection{Konj.-komplexe NS} 
-
-    Voraussetzung: $\abs{q_z} > \frac{1}{2}$
-    \begin{itemize}
-        \item $H(s) = \frac{s^2 + s \frac{\omega_z}{q_z} + \omega_z^2}{\omega_z^2} \cbl{= \frac{s^2 + s \frac{2}{3} + 2^2}{2^2}}$\\
-    \end{itemize}
-\end{minipage}
-
 \begin{minipage}[t]{0.48\columnwidth}
     \myul{Betrag zeichnen}
         \begin{enumerate}
@@ -120,6 +112,19 @@ siehe Skript, Kapitel 5.4.3 (S. 222)
             \item Gerade zwischen $0$ und $\pi$ Geraden
             \item ($- \frac{\pi}{2}$ bei $\omega = \omega_p$)
         \end{enumerate}
+\end{minipage}
+
+
+\subsubsection{Konjugiert-komplexe Nullstellen} 
+
+\begin{minipage}[t]{0.48\columnwidth}
+    \raggedright
+    \begin{center}
+        Voraussetzung: $\abs{q_z} > \frac{1}{2}$
+    \end{center}
+    $$ H(s) = \frac{s^2 + s \frac{\omega_z}{q_z} + \omega_z^2}{\omega_z^2} \cbl{= \frac{s^2 + s \frac{2}{3} + 2^2}{2^2}} $$
+
+    \include{tikz/bode-plot_konjuguert-komplexe_nullstellen}
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.48\columnwidth}
@@ -141,15 +146,6 @@ siehe Skript, Kapitel 5.4.3 (S. 222)
         \end{enumerate}
 \end{minipage}
 
-
-\begin{minipage}[t]{0.48\columnwidth}
-    \include{tikz/bode-plot_konjuguert-komplexe_pole}
-\end{minipage}
-\hfill
-\begin{minipage}[t]{0.48\columnwidth}
-    \include{tikz/bode-plot_konjuguert-komplexe_nullstellen}
-\end{minipage}
-
 \textbf{Hinweis: Berechnungs-Tabelle aus Skript, S. 235} 
 
 \begingroup
@@ -169,6 +165,7 @@ siehe Skript, Kapitel 5.4.3 (S. 222)
 
 \vspace{0.2cm}
 
+% nicht ändern
 \begin{minipage}[t]{0.48\columnwidth}
     \raggedright
     \subsubsection{Konstanter Faktor}
