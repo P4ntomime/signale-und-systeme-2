@@ -764,7 +764,7 @@ In den meisten Fällen ist $m < n$ und die \textbf{Zustandsgleichung} vereinfach
 
 \subsubsection{Regelungsnormalform $\Leftrightarrow$ Beobachtungsnormalform}
 
-Die beiden Formen sind \textbf{dual} und weisen folgende Zusammenhänge auf:
+Die beiden Formen sind \textbf{dual} und weisen folgende Zusammenhänge auf (\textbf{Transposition}):
 
 \begin{itemize}
     \item $\bm{A}$ ist an der Hauptdiagonalen gespiegelt 
@@ -777,10 +777,53 @@ Die beiden Formen sind \textbf{dual} und weisen folgende Zusammenhänge auf:
 % nicht behandelt
 
 
-\subsubsection{Diagonalform und Jordan-Normalform}{271-273}
-% TODO: Fragen, was der Unterschied zw. Jordan und Diagonalform ist -> Praktikum vs. Skript
-\cor{TO BE DONE LATER}
+\subsubsection{Jordan-Normalform}{271-273}
 
+Die UTF wird mittels einer \textbf{Partialbruchzerlegung} dargestellt. Die Parameter der Partialbruchzerlegung können dann
+direkt in die Matrix $A = A_{\rm diag}$ eingetragen werden.
+$$ H(s) = \frac{Y(s)}{U(s)} = \frac{b_m s^m + b_{m-1} s^{m-1} + \cdots + b_1 s + b_0}
+{a_n s^n + a_{n-1} s^{n-1} + \cdots + a_1 s + a_0} = b_n + \frac{\alpha_1}{s - p_1} + \frac{\alpha_2}{s - p_2} + \ldots + \frac{\alpha_n}{s - p_n}$$
+
+\vspace{0.2cm}
+Die Diagronalform für \textbf{einfache, reelle Pole} mit $m = n$ ist:
+\begin{empheq}[box=\fbox] {align*}
+    \begin{bmatrix} \dot{x}_1(t) \\ \dot{x}_2(t) \\ \vdots \\ \dot{x}_{n-1}(t) \\ \dot{x}_n(t)  \end{bmatrix} &= 
+    \begin{bmatrix} 
+        p_1     & 0         & 0         & \cdots    & 0  \\
+        0       & p_2       & 0         & \cdots    & 0  \\
+        0       & 0         & p_3       & \cdots    & 0  \\
+        \vdots  & \vdots    & \ddots    & P_{n-1}  & \vdots\\
+        0       & 0         & \cdots    & 0         & p_n
+    \end{bmatrix}
+    \cdot
+    \begin{bmatrix} x_1(t) \\ x_2(t) \\ \vdots \\ x_{n-1}(t) \\ x_n(t) \end{bmatrix}
+    + 
+    \begin{bmatrix} 1 \\ 1 \\ 1\\ \vdots \\ 1 \end{bmatrix} 
+    \cdot u(t) \\
+    y(t) &= \begin{bmatrix} \alpha_1 & \alpha_2 & \cdots & \alpha_n \end{bmatrix}
+    \cdot
+    \begin{bmatrix} x_1(t) \\ x_2(t) \\ \vdots \\ x_{n-1}(t) \\ x_n(t) \end{bmatrix}
+    + \begin{bmatrix} b_n \end{bmatrix} \cdot u(t)
+\end{empheq}
+
+\textbf{Hinweis:} Mit $m < n$ vereinfacht sich die \textbf{Ausgangsgleichung} zu:
+\begin{empheq}[box=\fbox] {align*}
+    y(t) &= \begin{bmatrix} \alpha_1 & \alpha_2 & \cdots & \alpha_n \end{bmatrix}
+    \cdot
+    \begin{bmatrix} x_1(t) \\ x_2(t) \\ \vdots \\ x_{n-1}(t) \\ x_n(t) \end{bmatrix}
+    + \begin{bmatrix} 0 \end{bmatrix} \cdot u(t)
+\end{empheq}
+
+
+\subsubsection{Diagonalform}{271-273}
+
+Eine weitere Darstellungsform der Diagonalform ergibt sich mittels \textbf{Transposition} der Jordan-Normalform:
+
+\begin{itemize}
+    \item $\bm{A}$ ist an der Hauptdiagonalen gespiegelt (ergibt wiederum $\bm{A}$)
+    \item $\bm{B}$ und $\bm{C}$ sind vertauscht
+    \item $\bm{D}$ bleibt gleich
+\end{itemize}
 
 % \subsubsection{Jorodan-Normalform für mehrfache, reelle Pole}{274}
 % nicht behandelt

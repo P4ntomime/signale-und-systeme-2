@@ -27,9 +27,9 @@ und andere dämpfen. Die fünf \textbf{frequnezselektiven Grundtypen} sind:
 \end{minipage}
 
 
-\subsection{Filterbauarten}{292}
+% \subsection{Filterbauarten}{292}
 
-\textrightarrow\ Siehe Skript S. 292
+% \textrightarrow\ Siehe Skript S. 292
 
 % \begin{tabular}{|l|l|l|l|}
 %     \hline
@@ -59,10 +59,37 @@ und andere dämpfen. Die fünf \textbf{frequnezselektiven Grundtypen} sind:
 % \end{tabular}
 
 
+\subsection[Frequnezgang H(jimg omega) -- Übertragungsfunktion H(s)]{Frequnezgang $H(\jimg \omega)$ -- Übertragungsfunktion $H(s)$}{294}
+
+Für den Frequnezgang $H(\jimg \omega)$ und die Übertragungsfunktion $H(s)$ gelten die folgenden Zusammenhänge
+
+$$ | H(\jimg \omega) |^2 = H(\jimg \omega) \cdot H^*(\jimg \omega) = H(\jimg \omega) \cdot H(- \jimg \omega) = H(s) \cdot H(-s) \Big|_{s = \jimg \omega} $$
+$$ H(s) \cdot H(-s) = | H(\jimg \omega) |^2 \Big|_{\omega^2 = -s^2} $$
+\textbf{Hinweis:} $| H(\jimg \omega) |^2$ ist immer eine Funktion in $\omega^2$, da der Amplitudengang eine gerade Funktion ist!
+
+\vspace{0.2cm}
+
+Da in der Praxis \textbf{jeweils nur $\bm{H(s)}$ interessant} ist, muss $H(s)$ aus $| H(\jimg \omega) |^2$ 'isoliert' werden. 
+Dies ist durch den folgenden Zusammenhang möglich.
+
+$$ \boxed{ \underbrace{ \frac{N(s)}{D(s)} }_{H(s)} \cdot  \underbrace{ \frac{N(-s)}{D(-s)} }_{H(-s)} = | H(\jimg \omega) |^2 \Big|_{\omega^2 = -s^2} } $$
+\textbf{Hinweis:} $D(s)$ muss aus Stabilitätsgründen ein Hurwitz-Polynom sein!
+
+
+\subsection{Approximation im Frequnezbereich}
+
+Die wichtigste Aufgabe der Filtertheorie ist die \textbf{Bestimmung der Übertragungsfunktion, die einen vorgegebenen 
+Frequenzgang gewährleistet.} Zuerst soll der \textbf{Amplitudengang} $| H(\jimg \omega) |$ im Frequnezbereich approximiert werden.
+Der vorgeschriebene Phasengang wird dann allenfalls mit zusätzlichen Allpass-Filtern erreicht. 
+
+
+\subsubsection{Toleranzschema (Stempel und Matritze) -- Filterspezifikation}
+
+
+
 \subsection{Ideales Tiefpassfilter}{297}
 
 unendlich lange Impulsantwort, akausal -> nicht realisierbar
-
 
 
 
@@ -76,4 +103,12 @@ Normierungsgrössen als Formel
 
 Entnormierung $S$ in normierter Funktion durch $\frac{s}{\omega_r}$ ersetzen
 
-\subsection{RC-Filer 1. Ordnung}    % In Video von Mathis Woche 11
+\subsection{RC-Filter 1. Ordnung}    % In Video von Mathis Woche 11
+
+
+\subsection{Standard-Filtertypen}
+
+% gemäss Praktikum Vorteile und Nachteile von jedem Filter auflisten
+
+
+\subsection{Approximation nach Butterworth}
