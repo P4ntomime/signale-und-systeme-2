@@ -84,31 +84,268 @@ Der vorgeschriebene Phasengang wird dann allenfalls mit zusätzlichen Allpass-Fi
 
 
 \subsubsection{Toleranzschema (Stempel und Matritze) -- Filterspezifikation}
+\label{Toleranzschema}
 
+\begin{minipage}[c]{0.48\columnwidth}
+    \includegraphics[width=\columnwidth]{images/filter_toleranzschema.png}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.48\columnwidth}
+    Die Anforderungen an ein Filter werden häufig im \textbf{Toleranzschema beschrieben}. Dieses steht jeweils 'auf dem Kopf'.
+
+    \begin{itemize}
+        \item Im \textbf{Durchlassbereich (DB)} bestimmt der Stempel die maximal zulässige \textbf{Dämpfung} $A_{\rm max}$
+        \item Im \textbf{Sperrbereich (SB)} bestimmt die Matritze die minimal nötige \textbf{Dämpfung} $A_{\rm min}$
+    \end{itemize}
+\end{minipage}
+
+
+\subsubsection{Frequenznormierung}
+ 
+Um möglist kompakte \textbf{Tabellen} zu haben, wird auf Frequenzen normiert. Grundsätzlich kann auf eine beliebige Frequenz normiert
+werden. Allerdings gilt grundsätzlich:
+
+\begin{itemize}
+    \item \textbf{HP / TP:} Normierung bezüglich \textbf{Grenzfrequenz} des Durchlassbereichs $\omega_r = \omega_D$
+    \item BP / BS: Normierung bezüglich der Mittenfrequenz $\omega_r = \omega_m$
+\end{itemize}
+\vspace{0.2cm}
+
+\begin{minipage}[c]{0.48\columnwidth}
+    \includegraphics[width=\columnwidth]{images/filter_toleranzschema_frequenznormierung.png}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.48\columnwidth}
+    \begin{center}
+       \textbf{\myul{Normierte Grössen}}  
+    \end{center}
+    
+    % TODO: formatting
+    \begin{tabular}{c c c}
+        $ \boxed{ S = \frac{s}{\omega_r}} $             & & $\boxed{ \Omega = \frac{\omega}{\omega_r} }$ \\
+        \\
+        $ \boxed{ \sigma' = \frac{\sigma}{\omega_r}}$   & & \\
+    \end{tabular}
+    \textbf{Hinweis:} Zur Entnormierung wird jeweisl $S$ in der normierter Funktion durch $\frac{s}{\omega_r}$ ersetzt.
+\end{minipage}
 
 
 \subsection{Ideales Tiefpassfilter}{297}
 
-unendlich lange Impulsantwort, akausal -> nicht realisierbar
+\begin{minipage}[c]{0.48\columnwidth}
+    \includegraphics[width=\columnwidth]{images/filter_toleranzschema_idealer_tiefpass.png}
+
+    \begin{itemize}
+        \item DB: keine Dämpfung
+        \item SB: kein Ausgangssignal
+    \end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.42\columnwidth}
+    \includegraphics[width=\columnwidth]{images/filter_impulsantwort_idealer_tiefpass.png}
+    
+    \begin{itemize}
+        \item Akausale Impulsantwort $h(t)$
+    \end{itemize}
+\end{minipage}
+
+\vspace{0.2cm}
+\textrightarrow\ Ideales Tierpass ist physikaltisch nicht realisierbar. \textrightarrow\ \textbf{Approximationen}
 
 
+\subsection[Amplitudengang mit char. Funktion K(Omega2)]{Amplitudengang mit char. Funktion $K(\Omega^2)$}
+\label{Amplitudengang mit char. Funktion}
+
+Um Wurzelausdrücke zu vermeiden, wird der folgenden Ansatz verwendet
+$$ \boxed{ | H(\jimg \Omega) |^2 = \frac{1}{1 + K(\Omega^2)}} $$
+
+Im Fall des (idealen) Tiefpasses gilt füt die charakteristische Funktion $K(\Omega^2)$
+
+\begin{tabular}{l r l l}
+    Durchlassbereich (DB)   & $0 \leq K(\Omega^2) \ll 1$    & für $0 \leq \Omega < 1$   & \textrightarrow\ $| H(\jimg \Omega) |^2 \approx 1$ \\
+    Sperrbereich (SB)       & $K(\Omega^2) \gg 1$           & für $ \Omega > 1$         & \textrightarrow\ $| H(\jimg \Omega) |^2 \approx 0$ \\   
+\end{tabular}
 
 
-\subsection{Filterspezifikation (Stempel und Matritze)}{297}
+% TODO: example
+\subsection{Approximation mittels kritisch-gedämpfter Filter}{299}
 
-Amplitudengang soll zwischen den Rechtecken durch gehen
--> normiert auf $\Omega$
+Tiefpassfilter $n.$ Ordnung mit kritischer Dämpfung haben jeweilen einen $\bm{n}$\textbf{-fachen Pol} auf der \textbf{negativen}
+$\sigma$-Achse.
 
-Normierungsgrössen als Formel
+\begin{itemize}
+    \item Impuls- und Sprungantwort können nicht oszillieren
+    \item Geringe Flankensteilheit im Übergangsbereich
+\end{itemize}
+\vspace{0.2cm}
 
-Entnormierung $S$ in normierter Funktion durch $\frac{s}{\omega_r}$ ersetzen
+Die Übertragungsfunktion $H(s)$ ergibt sich als:
 
-\subsection{RC-Filter 1. Ordnung}    % In Video von Mathis Woche 11
+\begin{minipage}[c]{0.48\columnwidth}
+    $$ \boxed{ H(s) = \frac{1}{\Big( 1 + \frac{s}{\omega_c} \Big)^n} } $$
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.48\columnwidth}
+    \begin{tabular}{ll}
+        $n$         & Ordnung des Filters \\
+        $\omega_c$  & $3 \, \deci \bel$-Punkt jedes der $\bm{n}$ \textbf{Teilfilter}
+    \end{tabular}
+\end{minipage}
+
+\vspace{0.2cm}
+Will man bei der Kreisfrequenz $\omega_D$ eine Dämpfung von $\alpha \, \deci \bel$ haben, so muss $\omega_c$ (der $n$ identischen
+Teilfilter) gewählt werden als
+$$ \boxed{ \omega_c = \frac{\omega_D}{\sqrt{10^{\frac{\alpha}{10 \cdot n}} -1}} } $$ 
 
 
-\subsection{Standard-Filtertypen}
+\subsubsection{Eigenschaten kritisch-gedämpfte Filter}
 
-% gemäss Praktikum Vorteile und Nachteile von jedem Filter auflisten
+\begin{itemize}
+    \item Alle Pole am \textbf{gleichen Ort} auf negativer $\sigma$-Achse \textrightarrow\ Allpolfilter
+    \item Für $\Omega = 0$ ist für sämtliche $n$: $|H(0)| = H_{\rm max} = 1$
+    \item Für $\Omega = 1$ ist für sämtliche $n$: $|H(\jimg)| = \frac{H_{\rm max}}{\sqrt{2}} = \frac{1}{\sqrt{2}}$
+        \textrightarrow\ $3 \, \deci \bel$ Dämpfung
+    \item Für $\Omega \gg 1$ wird $|H(\jimg \Omega)| \approx \frac{1}{\Omega^n}$ \textrightarrow\ $\bm{- n \cdot 20 \, \deci \bel /}$ \textbf{Dekade}
+    \item Amplitudengang bei $\Omega = 0$ maximal flach, da alle Ableitungen $=0$ sind
+    \item Amplitudengang ist streng-monoton fallend \textrightarrow\ keine Welligkeit
+    \item Pole verschieben sich bei höherer Ordnung in Richtung imaginäre Achse
+    \item Gruppenlaufzeit konstant bis $\omega_D$
+\end{itemize}
 
 
-\subsection{Approximation nach Butterworth}
+\begin{minipage}[c]{0.4\columnwidth}
+    \begin{center}
+        \textbf{\myul{Amplitudengänge}}
+    \end{center}
+    \includegraphics[width=\columnwidth]{images/filter_kritisch_gedaempft_normierter_amplitudengang.png}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.4\columnwidth}
+    \begin{center}
+        \textbf{\myul{Pol-Lagen}}
+    \end{center}
+    \includegraphics[width=\columnwidth]{images/filter_kritisch_gedaempft_pollagen.png}
+\end{minipage}
+
+
+\subsection{Standard-Filtertypen -- Überblick}
+\label{Standard-Filtertypen}
+
+\begin{outline}
+    \1 \textbf{Butterworth}
+        \2[+] \textbf{Kein Rippel} im Durchlass- und Sperrbereich
+        \2[+] Im Durchlassbereich ist der Amplitudengang \textbf{maximal flach}
+        \2[-] Überhöhung in der Gruppenlaufzeit der Grenzfrequenz
+        \2[-] Braucht \textbf{hohe Ordnung} für steilen Übergang von Durchlass- zu Sperrbereich
+
+    \1 \textbf{Bessel}
+        \2[+] \textbf{Flachster Übergag} von Durchlass- und Sperrbereich von allen Filtern
+        \2[+] Konstante Gruppenlaufzeit
+        \2[-] Für steile Filter im Durchlass- und Sperrbereich nicht geeignet
+
+    \1 \textbf{Tschebyscheff-\uproman{1}}
+        \2[+] Schon für kleine Ordnungen \textbf{relativ steil} im Übergang von Durchlass- und Sperrbereich
+        \2[-] \textbf{Rippel} im Durchlassbereich
+        \2[-] Keine konstante Gruppenlaufzeit
+\end{outline}
+
+
+% CHECK: Wohin mit dieser Subsection?
+\subsection{Vorgehen Filter dimensionieren / auslegen}
+
+\begin{enumerate}
+    \item Gemäss Anforderungen geeigneten Filtertyp wählen (\textrightarrow\ \ref{Standard-Filtertypen})
+    \item Toleranzschema gemäss Anforderungen erstellen inkl. Normierung (\textrightarrow\ \ref{Toleranzschema})
+    \item Ordnung des Filters bestimmen (Formel oder Nomogramm \textrightarrow\ \ref{Nomogramme})
+    \item Übertragungsfunktion bestimmen (\textrightarrow\ Matlab)
+    \item Komponenten mittels Entnormierung bestimmen (Tabellen \textrightarrow\ \ref{Tabellen})
+\end{enumerate}
+
+
+% CHECK: Wohin mit dieser Subsection?
+\subsection{Nomogramme}
+\label{Nomogramme}
+
+Nomogramme können verwendet werden, um die \textbf{Ordnung eines Filters}  zu bestimmen.
+
+\begin{minipage}[c]{0.42\columnwidth}
+    \includegraphics[width=\columnwidth]{images/filter_nomogramme.png}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.56\columnwidth}
+    \begin{center}
+        \textbf{\myul{Benutzung von Nomogrammen}}
+    \end{center}
+    
+    \begin{enumerate}
+        \item $P_1$: Verbindung von $A_{\rm max}$ zu $A_{\rm min}$
+        \item $P_2$: Verlängerung von $P_1$ bis zum 'Diagramm-Rand'
+        \item $P_3$: Horizontale Linie vom Rand in Diagramm hinein
+        \item $P_4$: Bei $\Omega = \frac{\Omega_S}{\Omega_D} = \frac{\omega_S}{\omega_D} = \frac{f_S}{f_D}$ vertikale Linie ziehen
+        \item $P_5$: Schnittpunkt: 'hochfahren' zur nächsten Kurve \textrightarrow\ Ordnung $n$ der Kurve ablesen
+    \end{enumerate}
+\end{minipage}
+
+
+% CHECK: Wohin mit dieser Subsection?
+\subsection{Tabellen}
+\label{Tabellen}
+% TODO
+
+\subsection{Approximation nach Butterworth}{303}
+
+Das die charakteristische Funktion wird bei der Butterworth-Approximation als \\
+$K(\Omega^2) = (\Omega^2)^n = \Omega^{2n}$ gewählt.
+
+\begin{minipage}[c]{0.48\columnwidth}
+    \begin{center}
+        \textbf{\myul{Allgemein}}
+    \end{center}
+    $$ | H(\jimg \Omega) |^2 = \frac{1}{1 + K(\Omega^2)} $$
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.48\columnwidth}
+    \begin{center}
+        \textbf{\myul{Butterworth}}
+    \end{center}
+    $$\boxed{ |H(\jimg \Omega)| = \frac{1}{\sqrt{ 1 +\Omega^{2n}}} } $$
+\end{minipage}
+
+\textrightarrow\ $|H(\jimg \Omega)|$ ist streng-monoton fallend!
+
+
+\subsubsection{Eigenschaften der Butterworth-Approximation}{303}
+%TODO
+
+\subsubsection[Bestimmung von H(s) aus |H(jimg Omega)|]{Bestimmung von $H(s)$ aus $|H(\jimg \Omega)|$}{304}
+%TODO
+
+\subsubsection{Bestimmung der Pol-Lage}{307}
+%TODO
+% \includegraphics[width=\columnwidth]{images/filter_pollage_butterworth.png}
+
+
+\subsubsection{Bestimmung der Filterordnung}{308}
+
+Aus dem Toleranzschema lassen sich für die 'Ecken' die folgenden beiden Bedingungen aufstellen:
+
+\begin{minipage}[c]{0.48\columnwidth}
+    $$ A(\Omega_D) = 10 \cdot \log_{10}(1 + \Omega_D^{2n}) = A_{\rm max} $$
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.48\columnwidth}
+    $$ A(\Omega_S) = 10 \cdot \log_{10}(1 + \Omega_S^{2n}) = A_{\rm min} $$
+\end{minipage}
+
+\vspace{0.2cm}
+\begin{minipage}[c]{0.48\columnwidth}
+    Mittels Umformungen und aufgelöst nach $n$ ergibt sich die Filter-Ordnung als \\
+    $\left\lceil . \right\rceil $ bedeutet '\textbf{aufrunden} auf ganze Zahl'
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.48\columnwidth}
+    $$ \boxed{ n =  \left\lceil \frac{\log_{10} \Bigl( \frac{10^{A_{\rm min / 10}} - 1}{10^{A_{\rm max / 10}} - 1}  \Bigr) }
+        {2 \cdot \log_{10}\Bigl( \frac{\Omega_S}{\Omega_D} \Bigr)}  \right\rceil } $$
+\end{minipage}
+
+\textrightarrow\ Alternativ kann die Ordnung $n$ auch mit dem Nomogramm bestimmt werden.
