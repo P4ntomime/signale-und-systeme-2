@@ -364,7 +364,36 @@ Durch Auflösen der Gleichung nach $S$ kommen die Pole auf dem \textbf{Einheitsk
 
 
 \example{Butterworth 2. Ordnung -- $H(s)$ und Pol-Lage bestimmen}
-%TODO gemäss Vorlesung Mathis
+
+$$ \text{Ansatz:} \quad H(S) \cdot H(-S) = \frac{1}{D(s)} \cdot \frac{1}{H(s)} = \frac{1}{ 1 + (-S^2)^n} $$
+
+Für die Ordnung $n = 2$ ergibt sich das Nennerpolynom zu:
+$$ D(S) \cdot D(-S) = 1 + (-S^4) \quad \Leftrightarrow \quad S^4 = -1 \quad \Leftrightarrow \quad
+    e^{\jimg \bigl( \frac{\pi}{4} + k \frac{\pi}{2} \bigr)}$$
+
+\begin{minipage}[c]{0.3\columnwidth}
+    \includegraphics[width=\columnwidth]{images/filter_butterworth_pollagen_ordnung_2.png}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.58\columnwidth}
+    Aufgelöst nach $S$ liegen die Nullstellen auf dem Einheitskreis mit Abstand $\frac{\pi}{4}$ verteilt.
+    \vspace{0.2cm}
+
+    \renewcommand{\arraystretch}{1.3}
+    \begin{tabular}{c c}
+        \textbf{Rechte Halbebene}                             & \textbf{Linke Halbebene} \\
+        $P_1 = \frac{1}{\sqrt{2}} + \jimg \frac{1}{\sqrt{2}}$ & $P_2 = - \frac{1}{\sqrt{2}} + \jimg \frac{1}{\sqrt{2}}$ \\
+        $P_4 = \frac{1}{\sqrt{2}} - \jimg \frac{1}{\sqrt{2}}$ & $P_3 = - \frac{1}{\sqrt{2}} - \jimg \frac{1}{\sqrt{2}}$ \\
+    \end{tabular}
+    \renewcommand{\arraystretch}{1}
+
+    \vspace{0.2cm}
+    \textrightarrow Für die Übertragungsfunktion $H(s)$ sind nur die Nullstellen in der \textbf{linken Halbebene} relevant!
+\end{minipage}
+
+\vspace{0.2cm}
+Die Übertragungsfunktion $H(s)$ ergibt sich aus
+$$ H(s) = \frac{1}{D(s)} = \frac{1}{(S - P_2) \cdot (S - P_3)} = \frac{1}{S^2 + \sqrt{2} S + 1} $$
 
 
 
