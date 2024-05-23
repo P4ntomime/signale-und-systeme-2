@@ -263,7 +263,7 @@ $$ \boxed{ \omega_c = \frac{\omega_D}{\sqrt{10^{\frac{\alpha}{10 \cdot n}} -1}} 
 
 
 % CHECK: Wohin mit dieser Subsection?
-\subsection{Nomogramme}
+\subsection{Nomogramme}{393}
 \label{Nomogramme}
 
 Nomogramme können verwendet werden, um die \textbf{Ordnung eines Filters}  zu bestimmen.
@@ -288,9 +288,11 @@ Nomogramme können verwendet werden, um die \textbf{Ordnung eines Filters}  zu b
 
 
 % CHECK: Wohin mit dieser Subsection?
-\subsection{Tabellen}
+\subsection[Tabellen zum Entwurf von LC-Filtern]{Tabellen zum Entwurf von $LC$-Filtern}{409}
 \label{Tabellen}
-% TODO
+
+\textbf{Achtung:} Normierung der Widerstände beachten!
+
 
 \subsection{Approximation nach Butterworth}{303}
 
@@ -315,14 +317,55 @@ $K(\Omega^2) = (\Omega^2)^n = \Omega^{2n}$ gewählt.
 
 
 \subsubsection{Eigenschaften der Butterworth-Approximation}{303}
-%TODO
+
+\begin{outline}
+    \1 \textbf{Durchlassbereich}
+        \2 Für $\Omega = 0$ ist für sämtliche $n$: $|H(0)| = H_{\rm max} = 1$
+        \2 Für $\Omega = 1$ ist für sämtliche $n$: $|H(\jimg)| = \frac{H_{\rm max}}{\sqrt{2}} = \frac{1}{\sqrt{2}}$
+            \textrightarrow\ $3 \, \deci \bel$ Dämpfung
+        \2 Amplitudengang bei $\Omega = 0$ maximal flach, da alle Ableitungen $=0$ sind
+
+    \1 \textbf{Sperrbereich}
+        \2 Für $\Omega \gg 1$ wird $|H(\jimg \Omega)| \approx \frac{1}{\Omega^n}$ 
+            \textrightarrow\ $\bm{- n \cdot 20 \, \deci \bel /}$ \textbf{Dekade}
+    \1 \textbf{Allgemein}
+        \2 Amplitudengang ist streng-monoton fallend \textrightarrow\ keine Welligkeit
+\end{outline}
+
 
 \subsubsection[Bestimmung von H(s) aus |H(jimg Omega)|]{Bestimmung von $H(s)$ aus $|H(\jimg \Omega)|$}{304}
-%TODO
+\label{Bestimmung UTF aus Amplitudengang}
+
+Aus dem Ansatz 
+$$ | H(\jimg \Omega) |^2 = \frac{1}{1 + K(\Omega^2)} \Big|_{\Omega^2 = -S^2} = \frac{1}{s + (-S^2)^n} = \cbl{H(S)} \cdot H(-S)
+    = \cbl{\frac{1}{D(S)}} \cdot \frac{1}{D(-S)} $$
+kann der folgende Teil isoliert betrachtet werden ($D(S)$ ist ein Hurwitz-Polynom):
+$$ \boxed{ D(S) \cdot D(-S) = 1 + (-S^2)^n } $$
+
+% TODO: Vorgehen gemäss Skript mit Koeffizientenvergleich 
+
 
 \subsubsection{Bestimmung der Pol-Lage}{307}
-%TODO
-% \includegraphics[width=\columnwidth]{images/filter_pollage_butterworth.png}
+
+Der Zusammenhang aus Abschnitt~\ref{Bestimmung UTF aus Amplitudengang} kann für die Bestimmung der Pole auf Null gesetzt werden:
+$$ \boxed{ D(S) \cdot D(-S) = 1 + (-S^2)^n \overset{!}{=} 0 } $$
+Durch Auflösen der Gleichung nach $S$ kommen die Pole auf dem \textbf{Einheitskreis} zu liegen.
+
+\begin{itemize}
+    \item Abstand zwischen den Polen: $\frac{\pi}{n}$
+    \item Ordnung $n$ gerade: keine reellen Pole
+    \item Ordnung $n$ ungerade: zwei reelle Pole bei $\pm 1$
+    \item \textbf{Für Nennerpolynom $\bm{D(S) = \frac{1}{H(S)}}$ müssen nur Pole in der linken Halbebene berücksichtigt werden!}
+\end{itemize}
+
+\begin{center}
+    \includegraphics[width=0.8\columnwidth]{images/filter_pollage_butterworth.png}
+\end{center}
+
+
+\example{Butterworth 2. Ordnung -- $H(s)$ und Pol-Lage bestimmen}
+%TODO gemäss Vorlesung Mathis
+
 
 
 \subsubsection{Bestimmung der Filterordnung}{308}
@@ -349,3 +392,4 @@ Aus dem Toleranzschema lassen sich für die 'Ecken' die folgenden beiden Bedingu
 \end{minipage}
 
 \textrightarrow\ Alternativ kann die Ordnung $n$ auch mit dem Nomogramm bestimmt werden.
+
