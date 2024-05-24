@@ -119,14 +119,22 @@ werden. Allerdings gilt grundsätzlich:
     \begin{center}
        \textbf{\myul{Normierte Grössen}}  
     \end{center}
-    
-    % TODO: formatting
-    \begin{tabular}{c c c}
-        $ \boxed{ S = \frac{s}{\omega_r}} $             & & $\boxed{ \Omega = \frac{\omega}{\omega_r} }$ \\
-        \\
-        $ \boxed{ \sigma' = \frac{\sigma}{\omega_r}}$   & & \\
-    \end{tabular}
-    \textbf{Hinweis:} Zur Entnormierung wird jeweisl $S$ in der normierter Funktion durch $\frac{s}{\omega_r}$ ersetzt.
+
+    \vspace{-0.3cm}
+    \begin{minipage}[c]{0.3\columnwidth}
+        $$ \boxed{ S = \frac{s}{\omega_r}} $$
+    \end{minipage}
+    \hfill
+    \begin{minipage}[c]{0.3\columnwidth}
+        $$ \boxed{ \Omega = \frac{\omega}{\omega_r}} $$
+    \end{minipage}
+    \hfill
+    \begin{minipage}[c]{0.3\columnwidth}
+        $$ \boxed{ \sigma' = \frac{\sigma}{\omega_r}} $$ 
+    \end{minipage}
+
+    \vspace{0.2cm}
+    \textbf{Hinweis:} Zur Entnormierung wird jeweils $S$ in der normierter Funktion durch $\frac{s}{\omega_r}$ ersetzt.
 \end{minipage}
 
 
@@ -167,7 +175,6 @@ Im Fall des (idealen) Tiefpasses gilt füt die charakteristische Funktion $K(\Om
 \end{tabular}
 
 
-% TODO: example
 \subsection{Approximation mittels kritisch-gedämpfter Filter}{299}
 
 Tiefpassfilter $n.$ Ordnung mit kritischer Dämpfung haben jeweilen einen $\bm{n}$\textbf{-fachen Pol} auf der \textbf{negativen}
@@ -296,24 +303,18 @@ Nomogramme können verwendet werden, um die \textbf{Ordnung eines Filters}  zu b
 
 \subsection{Approximation nach Butterworth}{303}
 
-Das die charakteristische Funktion wird bei der Butterworth-Approximation als \\
-$K(\Omega^2) = (\Omega^2)^n = \Omega^{2n}$ gewählt.
-
-\begin{minipage}[c]{0.48\columnwidth}
-    \begin{center}
-        \textbf{\myul{Allgemein}}
-    \end{center}
-    $$ | H(\jimg \Omega) |^2 = \frac{1}{1 + K(\Omega^2)} $$
+\begin{minipage}[c]{0.45\columnwidth}
+    \includegraphics[width=\columnwidth]{images/filter_butterworth_amplitudengang.png}
 \end{minipage}
 \hfill
 \begin{minipage}[c]{0.48\columnwidth}
-    \begin{center}
-        \textbf{\myul{Butterworth}}
-    \end{center}
+    Die charakteristische Funktion wird bei der Butterworth-Approximation als\\
+    $K(\Omega^2) = (\Omega^2)^n = \Omega^{2n}$ gewählt.
+
+    Der Amplitudengang $|H(\jimg \Omega)|$ folgt somit der Gleichung
+
     $$\boxed{ |H(\jimg \Omega)| = \frac{1}{\sqrt{ 1 +\Omega^{2n}}} } $$
 \end{minipage}
-
-\textrightarrow\ $|H(\jimg \Omega)|$ ist streng-monoton fallend!
 
 
 \subsubsection{Eigenschaften der Butterworth-Approximation}{303}
@@ -342,8 +343,9 @@ $$ | H(\jimg \Omega) |^2 = \frac{1}{1 + K(\Omega^2)} \Big|_{\Omega^2 = -S^2} = \
 kann der folgende Teil isoliert betrachtet werden ($D(S)$ ist ein Hurwitz-Polynom):
 $$ \boxed{ D(S) \cdot D(-S) = 1 + (-S^2)^n } $$
 
-% TODO: Vorgehen gemäss Skript mit Koeffizientenvergleich 
-
+Mit dem Ansatz 
+$$ \boxed{ D(S) = \prod\limits_{j=1}^{t} (S^2 + a_j \cdot S + b_j) \prod\limits_{j=2t+1}^{n} (S - c_j) } $$
+wird das Produkt $D(S) \cdot D(-S)$ bestimmt. Anschliessend wird ein Koeffizientenvergleich durchgeführt.
 
 \subsubsection{Bestimmung der Pol-Lage}{307}
 
@@ -368,7 +370,7 @@ Durch Auflösen der Gleichung nach $S$ kommen die Pole auf dem \textbf{Einheitsk
 $$ \text{Ansatz:} \quad H(S) \cdot H(-S) = \frac{1}{D(s)} \cdot \frac{1}{H(s)} = \frac{1}{ 1 + (-S^2)^n} $$
 
 Für die Ordnung $n = 2$ ergibt sich das Nennerpolynom zu:
-$$ D(S) \cdot D(-S) = 1 + (-S^4) \quad \Leftrightarrow \quad S^4 = -1 \quad \Leftrightarrow \quad
+$$ D(S) \cdot D(-S) = 1 + S^4 \quad \Leftrightarrow \quad S^4 = -1 \quad \Leftrightarrow \quad
     e^{\jimg \bigl( \frac{\pi}{4} + k \frac{\pi}{2} \bigr)}$$
 
 \begin{minipage}[c]{0.3\columnwidth}
@@ -395,6 +397,14 @@ $$ D(S) \cdot D(-S) = 1 + (-S^4) \quad \Leftrightarrow \quad S^4 = -1 \quad \Lef
 Die Übertragungsfunktion $H(s)$ ergibt sich aus
 $$ H(s) = \frac{1}{D(s)} = \frac{1}{(S - P_2) \cdot (S - P_3)} = \frac{1}{S^2 + \sqrt{2} S + 1} $$
 
+
+Alternativ kann die Übertragungsfunktion $H(S)$ auch mittels folgendem Ansatz für $D(S)$ und anschliessendem Koeffizientenvergleich
+von $D(S) \cdot D(-S)$ bestimmt werden.
+
+$$ \text{Ansatz:} \quad  D(S) =  S^2 + a_1 S + b_1 $$
+$$ \text{Koeffizientenvergleich:} \quad D(S) \cdot D(-S) = S^4 + (2 b_1 - a_1^2) \, S + b_1^2 \overset{!}{=} S^4 + 1 $$
+\textrightarrow\ $a_1 = \sqrt{2}$ und $b_1 = 1$ \quad \textrightarrow\ $S^2 + \sqrt{2} S + 1$ 
+\quad \textrightarrow\ $H(s) = \frac{1}{D(s)} = \frac{1}{S^2 + \sqrt{2} S + 1}$
 
 
 \subsubsection{Bestimmung der Filterordnung}{308}
