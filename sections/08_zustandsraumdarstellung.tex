@@ -527,7 +527,7 @@ dass alle Eigenwerte der Systemmatrix $\bm{A}$ des Systems einen negativen Realt
 
 \begin{itemize}
     \item Ein System ist \textbf{beobachtbar}, wenn wir, gegeben das Eingangssignal $\underline{u}(t)$ und das Ausgangssignal $\underline{y}(t)$,
-        über eine endliche Zeitspanne $0 \geq t \geq t_1$ die Zustände $\underline{x}(t)$ eindeutig bestimmen können. 
+        über eine endliche Zeitspanne $t_0 \leq t \leq t_1$ die Zustände $\underline{x}(t)$ eindeutig bestimmen können. 
     \item Ein System ist \textbf{nicht beobachtbar}, wenn es Zustände $\underline{x}(t)$ gibt, die \textbf{keinen} Einfluss
         auf die Ausgänge $\underline{y}(t)$ haben. \\   
         \textrightarrow Man kann aus dem Verhalten von $\underline{y}(t)$ \textbf{nicht} auf die Zustände $\underline{x}(t)$ schliessen.
@@ -538,7 +538,7 @@ dass alle Eigenwerte der Systemmatrix $\bm{A}$ des Systems einen negativen Realt
 
 \begin{itemize}
     \item Ein System ist \textbf{steuerbar}, wenn es für jeden Anfangszustand $\underline{x}_0$ und jeden Endzustand $\underline{x}_1$
-        eine Steuerfunktion $\underline{u}(t)$ gibt, die das System in einer endlichen Zeitspanne $0 \geq t \geq t_1$ von
+        eine Steuerfunktion $\underline{u}(t)$ gibt, die das System in einer endlichen Zeitspanne $t_0 \leq t \leq t_1$ von
         $\underline{x}_0$ zu $\underline{x}_1$ bringt, d.h. $\underline{x}(t_1) = \underline{x}_1$. 
     \item Ein System ist \textbf{nicht steuerbar}, wenn es Zustände $\underline{x}(t)$ gibt, die nicht von den 
         Eingängen $\underline{u}(t)$ beeinflusst werden. 
@@ -797,7 +797,7 @@ Die beiden Formen sind \textbf{dual} und weisen folgende Zusammenhänge auf (\te
 Die UTF wird mittels einer \textbf{Partialbruchzerlegung} dargestellt. Die Parameter der Partialbruchzerlegung können dann
 direkt in die Matrix $A = A_{\rm diag}$ eingetragen werden.
 $$ H(s) = \frac{Y(s)}{U(s)} = \frac{b_m s^m + b_{m-1} s^{m-1} + \cdots + b_1 s + b_0}
-{a_n s^n + a_{n-1} s^{n-1} + \cdots + a_1 s + a_0} = b_n + \frac{\alpha_1}{s - p_1} + \frac{\alpha_2}{s - p_2} + \ldots + \frac{\alpha_n}{s - p_n}$$
+{s^n + a_{n-1} s^{n-1} + \cdots + a_1 s + a_0} = b_n + \frac{\alpha_1}{s - p_1} + \frac{\alpha_2}{s - p_2} + \ldots + \frac{\alpha_n}{s - p_n}$$
 
 \vspace{0.2cm}
 Die Diagronalform für \textbf{einfache, reelle Pole} mit $m = n$ ist:
