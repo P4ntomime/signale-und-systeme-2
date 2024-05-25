@@ -457,6 +457,8 @@ Somit ist $(s \bm{I} - \bm{A})^{-1} = \frac{\begin{bmatrix*} s+1 & 0 \\ -1 & s+2
     = \begin{bmatrix*} a^k & 0 \\ \sum\limits_{l=0}^{k-1} a^{k-l-1} c^l  & c^k \end{bmatrix*} $$
 \end{minipage}
 
+\example{Methode 5 -- Definition der Reihenentwicklung}
+
 Für $a = 1$ und $c=-1$ ergibt sich für $\bm{A}^k$
 $$ \bm{A}^k = \begin{bmatrix*} a & 0 \\ 1 & c \end{bmatrix*}^k 
     = \begin{bmatrix*} \cor{(-1)^k} & 0 \\ \cgn{(-1)^k} - \cvt{(-2)^k} & cbl{(-2)^k} \end{bmatrix*} $$
@@ -465,7 +467,8 @@ Die entsprechende Fundamentalmatrix ist mittels Anwendung der Taylor-Reihe somit
 $$ e^{\bm{A} t} = \sum\limits_{k=0}^{\infty} \frac{\bm{A}^k t^k}{k!} =
     \begin{bmatrix*} \sum\limits_{k=0}^{\infty} \frac{\cor{(-1)^k}t^k}{k!} & 0 \\ 
     \sum\limits_{k=0}^{\infty} \frac{\cgn{(-1)^k}t^k}{k!} - \sum\limits_{k=0}^{\infty} \frac{\cvt{(-2)^k}t^k}{k!} 
-    & \sum\limits_{k=0}^{\infty} \frac{\cbl{(-2)^k}t^k}{k!} \end{bmatrix*} $$
+    & \sum\limits_{k=0}^{\infty} \frac{\cbl{(-2)^k}t^k}{k!} \end{bmatrix*} 
+    = \begin{bmatrix*} e^{\cor{-t}} & 0 \\ e^{\cgn{-t}} - e^{\cvt{-2t}} & e^{\cbl{-2t}} \end{bmatrix*} $$
 
 
 \subsubsection{Eigenschaften der Fundamentalmatrix $\bm{\Phi(t) = e^{\bm{A} t}$}}
