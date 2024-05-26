@@ -19,11 +19,17 @@ siehe Skript, Kapitel 5.4.3 (S. 222)
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.48\columnwidth}
-    % TODO: step by step guide 
-    \begin{itemize}
-        \item Betrag $=$ Gerade mit Steigung $- 20 \, \deci \bel / \Dek$, Schnittpunkt mit $0 \, \deci\bel$-Linie bei $\omega = \alpha$
-        \item Phase $- \frac{\pi}{2} = \const$
-    \end{itemize}
+    \myul{Betrag zeichnen}
+        \begin{enumerate}
+            \item Waagrechte Gerade fein einzeichnen\\bei $0 \, \deci \bel$
+            \item Senkrechte Gerade fein einzeichnen\\bei $\omega = \alpha$
+            \item Gerade mit $-20 \, \frac{\deci \bel}{\Dek}$ durch Schnittpunkt der beiden feinen Geraden einzeichnen\\
+        \end{enumerate}
+    
+    \myul{Phase zeichnen}
+        \begin{enumerate}
+            \item Waagrechte Gerade durch $-\frac{\pi}{2}$
+        \end{enumerate}
 \end{minipage}
 
 
@@ -35,13 +41,18 @@ siehe Skript, Kapitel 5.4.3 (S. 222)
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.48\columnwidth}
-    % TODO: step by step guide 
-    \begin{itemize}
-        \item Betrag $=$ Gerade mit Steigung $+ 20 \, \deci \bel / \Dek$, Schnittpunkt mit $0 \, \deci\bel$-Linie bei $\omega = \frac{1}{\alpha}$
-        \item Phase $+ \frac{\pi}{2} = \const$
-    \end{itemize}
+    \myul{Betrag zeichnen}
+        \begin{enumerate}
+            \item Waagrechte Gerade fein einzeichnen\\bei $0 \, \deci \bel$
+            \item Senkrechte Gerade fein einzeichnen\\bei $\omega = \frac{1}{\alpha}$
+            \item Gerade mit $+20 \, \frac{\deci \bel}{\Dek}$ durch Schnittpunkt der beiden feinen Geraden einzeichnen\\
+        \end{enumerate}
+    
+    \myul{Phase zeichnen}
+        \begin{enumerate}
+            \item Waagrechte Gerade durch $+\frac{\pi}{2}$
+        \end{enumerate}
 \end{minipage}
-
 
 \subsubsection{Reeller Pol}
 
@@ -51,15 +62,20 @@ siehe Skript, Kapitel 5.4.3 (S. 222)
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.48\columnwidth}
-    % TODO: step by step guide 
-    \begin{itemize}
-        \item Betrag $=$ Konstante mit Wert $0 \, \deci \bel$ von $\omega = 0$ bis $\omega = \alpha$; 
-                für $\omega > \alpha$ Gerade mit Steigung $- 20 \, \deci \bel / \Dek$ 
-                durch Punkt mit Amplitude $0 \, \deci \bel$ und $\omega = \alpha$
-        \item Phase $=$ Konstante mit Wert $0$ bis $\omega < \frac{\alpha}{10}$; 
-                für $\omega > 10 \alpha$ Konstante mit Wert $- \frac{\pi}{2}$; dazwischen eine Gerade
-                (bei $\omega = \alpha$ beträgt Phase $- \frac{\pi}{4}$)
-    \end{itemize}
+    \myul{Betrag zeichnen}
+    \begin{enumerate}
+        \item 0 $\text{dB}$ von $\omega=0$ bis $\omega=\alpha$
+        \item $-20\frac{\deci \bel}{\Dek}$ einzeichnen ab $\omega = \alpha$\\
+    \end{enumerate}
+
+    \myul{Phase zeichnen}
+    \begin{enumerate}
+        \item $0$ bis $\omega = \frac{\alpha}{10}$
+        \item $-\frac{\pi}{2}$ ab $\omega = 10\cdot \alpha$
+        \item Gerade zwischen beiden Geraden 
+        \item ($-\frac{\pi}{4}$ bei $\omega=\alpha$)
+    \end{enumerate}
+
 \end{minipage}
 
 
@@ -71,15 +87,20 @@ siehe Skript, Kapitel 5.4.3 (S. 222)
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.48\columnwidth}
-    % TODO: step by step guide 
-    \begin{itemize}
-        \item Betrag $=$ Konstante mit Wert $0 \, \deci \bel$ von $\omega = 0$ bis $\omega = \alpha$; 
-                für $\omega > \alpha$ Gerade mit Steigung $+ 20 \, \deci \bel / \Dek$ 
-                durch Punkt mit Amplitude $0 \, \deci \bel$ und $\omega = \alpha$
-        \item Phase $=$ Konstante mit Wert $0$ bis $\omega < \frac{\alpha}{10}$; 
-                für $\omega > 10 \alpha$ Konstante mit Wert $+ \frac{\pi}{2}$; dazwischen eine Gerade
-                (bei $\omega = \alpha$ beträgt Phase $+ \frac{\pi}{4}$)
-    \end{itemize}
+
+    \myul{Betrag zeichnen}
+    \begin{enumerate}
+        \item 0 $\text{dB}$ von $\omega=0$ bis $\omega=\alpha$
+        \item $+20\frac{\deci \bel}{\Dek}$ einzeichnen ab $\omega = \alpha$\\
+    \end{enumerate}
+
+    \myul{Phase zeichnen}
+    \begin{enumerate}
+        \item $0$ bis $\omega = \frac{\alpha}{10}$
+        \item $+\frac{\pi}{2}$ ab $\omega = 10\cdot \alpha$
+        \item Gerade zwischen beiden Geraden 
+        \item ($+\frac{\pi}{4}$ bei $\omega=\alpha$)
+    \end{enumerate}
 \end{minipage}
     
 
@@ -103,7 +124,7 @@ siehe Skript, Kapitel 5.4.3 (S. 222)
             $\rightarrow$ stark zeichnen ab $\omega = 2 \cdot \omega_p$
             \item Maximalwert $= 20\cdot \log_{10}(q_p)$ bei $\omega_p$
             \item Gerade von $\omega=\frac{\omega_p}{2}$ zu Maximalwert 
-            \item Gerade von Maximalwert zu $\omega = 2 \cdot \omega_p$
+            \item Gerade von Maximalwert zu $\omega = 2 \cdot \omega_p$\\
         \end{enumerate}
     \myul{Phase zeichnen}
         \begin{enumerate}
@@ -135,14 +156,14 @@ siehe Skript, Kapitel 5.4.3 (S. 222)
             $\rightarrow$ stark zeichnen ab $\omega = 2 \cdot \omega_z$
             \item Minimalwert $= -20\cdot \log_{10}(q_z)$ bei $\omega_z$
             \item Gerade von $\omega=\frac{\omega_z}{2}$ zu Miniimalwert 
-            \item Gerade von Minimalwert zu $\omega = 2 \cdot \omega_z$
+            \item Gerade von Minimalwert zu $\omega = 2 \cdot \omega_z$\\
         \end{enumerate}
     \myul{Phase zeichnen}
         \begin{enumerate}
             \item 0 bis $\omega < \frac{\omega_z}{10^{\frac{1}{2 q_z}}}$
             \item $+ \pi$ ab $\omega > \omega_z \cdot 10^{\frac{1}{2 q_z}}$
             \item Gerade zwischen $0$ und $- \pi$ Geraden
-            \item ($\frac{\pi}{2}$ bei $\omega = \omega_z$)
+            \item ($\frac{\pi}{2}$ bei $\omega = \omega_z$)\\
         \end{enumerate}
 \end{minipage}
 
