@@ -10,8 +10,6 @@
 \end{minipage}
 
 
-
-
 \subsection{Zusammenhang Frequenzgang -- UTF}{211}
 
 Alle LTI-Systeme lassen sich mit einer Differntialfleichung der folgenden Form beschreiben:
@@ -23,8 +21,8 @@ $$ \boxed{ H(s) = \frac{Y(s)}{X(s)} = \frac{b_m s^m + b_{m-1} s^{m-1} + \cdots +
 {a_n s^n + a_{n-1} s^{n-1} + \cdots + a_1 s + a_0}  = \frac{N(s)}{D(s)} }$$
 
 \begin{ctabular}{Ol}
-    N(s) & Zählerpolynom mit konstanten, reelen Koeffizienten \\
-    D(s) & Nennerpolynom mit konstanten, reelen Koeffizienten \\
+    N(s) & Zählerpolynom mit konstanten, reellen Koeffizienten \\
+    D(s) & Nennerpolynom mit konstanten, reellen Koeffizienten \\
     x(t) & Eingangssignal \\
     y(t) & Ausgangssignal \\
 \end{ctabular}
@@ -38,7 +36,7 @@ Die Wurzeln der Gleichung $N(s) = 0$ ergeben $m$ endliche Nullstellen; die Wurze
 \subsubsection{Praktische Schreibweise für Pol-/Nullstellen}
 
 Um die Pole bzw. Nullstellen des Systems direkt ablesen zu können, wird $H(s)$ faktorisiert. \textrightarrow\ Die UTF $H(s)$ ist durch
-die Pole, Nullstellen und den Faktor K \textbf{vollständig bestimmt}!
+die Pole, Nullstellen und den Faktor $K$ \textbf{vollständig bestimmt}!
 
 $$ H(s) = \underbrace{\frac{b_m}{a_m}}_{K} \cdot \frac{\prod\limits_{i=1}^m (s - z_i)}{\prod\limits_{j=1}^n (s - p_j)} $$
 
@@ -80,7 +78,7 @@ $$ H(s) = \underbrace{\frac{b_m}{a_m}}_{K} \cdot
 \begin{minipage}[c]{0.63\columnwidth}
     Werden die Pole und Nullstellen in der komplexen Zahlenebene dargestellt, so spricht man von einem Pol-/Nullstellen-Diagramm.
 
-    In Matlab erzeugt der Befehl \texttt{pzmap} einen solchen Plot
+    In Matlab erzeugt der Befehl \mylstbox{pzmap} einen solchen Plot
 
     \begin{tabular}{ll}
         Pole    & Kreuze \\
@@ -179,17 +177,17 @@ Für \textbf{Stabilität und Instabilität} gilt eine \textbf{ODER-Verknüpfung}
 
 \subsection{Bestimmung Frequenzgang aus UTF}{216}
 
-Um den Frequenzgang zu erhalten, kann $s = j \omega$ eingesetzt werden.
+Um den Frequenzgang zu erhalten, kann $s = \jimg \omega$ eingesetzt werden.
 
-$$ \boxed{ H(j \omega) = H(s) \Big|_{s = j \omega} = |H(j \omega)| \cdot e^{j \theta(\omega)} } $$
+$$ \boxed{ H(\jimg \omega) = H(s) \Big|_{s = \jimg \omega} = |H(\jimg \omega)| \cdot e^{\jimg \theta(\omega)} } $$
 
 \begin{center}
     \begin{tabular}{ll}
         $H(s)$              & Übertragungsfunktion (UTF) \\
-        $H(j \omega)$       & Frequenzgang 
+        $H(\jimg \omega)$       & Frequenzgang 
     \end{tabular}\hspace{5mm}
     \begin{tabular}{ll}
-        $|H(j \omega)|$     & Amplitudengang \\
+        $|H(\jimg \omega)|$     & Amplitudengang \\
         $\theta(\omega)$    & Phasengang
     \end{tabular}
 \end{center}
@@ -198,7 +196,7 @@ Der Frequenzgang bzw. Amplitudengang und Phasengang werden folgendermassen darge
 
 \begin{itemize}
     \item Nyquist-Diagramm \\
-        $H(j \omega)$ wird in Polarkoordinaten mit $\omega$ als Parameter aufgezeichnet 
+        $H(\jimg \omega)$ wird in Polarkoordinaten mit $\omega$ als Parameter aufgezeichnet 
     \item \textbf{Bode-Diagramm} \\
         $\alpha_{\deci \bel}(\omega)$ und $\theta(\omega)$ werden je in Funktion von $\log_{10}(\omega)$ aufgezeichnet
 \end{itemize}
@@ -206,23 +204,23 @@ Der Frequenzgang bzw. Amplitudengang und Phasengang werden folgendermassen darge
 
 \subsection{Bestimmung Frequenzgang aus Pol- / Nullstellendiagramm}
 
-Durch einsetzen einer beliebigen Auswertungsfrequenz $j \omega_0$ in die Übertragungsfunktion $H(s)$ ergibt sich der
-Frequenzgang $H(j \omega_0)$ als:
+Durch einsetzen einer beliebigen Auswertungsfrequenz $\jimg \omega_0$ in die Übertragungsfunktion $H(s)$ ergibt sich der
+Frequenzgang $H(\jimg \omega_0)$ als:
 
-$$ H(j \omega_0) = K \cdot \frac{(j \omega_0 - z_1) (j \omega_0 - z_2) \cdots (j \omega_0 - z_m)}
-                                {(j \omega_0 - p_1) (j \omega_0 - p_2) \cdots (j \omega_0 - p_n)}
-                                = | H(j \omega_0) | \cdot e^{j \theta (\omega_0)} $$
+$$ H(\jimg \omega_0) = K \cdot \frac{(\jimg \omega_0 - z_1) (\jimg \omega_0 - z_2) \cdots (\jimg \omega_0 - z_m)}
+                                {(\jimg \omega_0 - p_1) (\jimg \omega_0 - p_2) \cdots (\jimg \omega_0 - p_n)}
+                                = | H(\jimg \omega_0) | \cdot e^{\jimg \theta (\omega_0)} $$
 
 Die einzelnen Faktoren in Zähler und Nenner können in Betrag und Phase aufgeteilt werden, beispielsweise folgendermassen:
-$$ (j \omega_0 - p_1) = |j \omega_0 - z_1| \cdot e^{j \theta_{z1}} = A_{z1} \cdot e^{j \theta_{z1}} $$
+$$ (\jimg \omega_0 - p_1) = |\jimg \omega_0 - z_1| \cdot e^{\jimg \theta_{z1}} = A_{z1} \cdot e^{\jimg \theta_{z1}} $$
 
 
 
-Angewendet auf alle Faktoren kann der Frequenzgang $H(j \omega_0)$ in den \cor{Amplitudengang $|H(j \omega)|$} und den
+Angewendet auf alle Faktoren kann der Frequenzgang $H(\jimg \omega_0)$ in den \cor{Amplitudengang $|H(\jimg \omega)|$} und den
 \cgn{Phasengang $\theta(\omega)$} separiert werden:
 
-$$ \boxed{ H(j \omega_0) = K \cdot \frac{\cor{A_{z1} \cdot A_{z2} \cdots A_{zm}} \cdot \cgn{e^{j(\theta_{z1} + \cdots + \theta_{zm})}}}
-                                        {\cor{A_{p1} \cdot A_{p2} \cdots A_{pm}} \cdot \cgn{e^{j(\theta_{p1} + \cdots + \theta_{pm})}}} } $$
+$$ \boxed{ H(\jimg \omega_0) = K \cdot \frac{\cor{A_{z1} \cdot A_{z2} \cdots A_{zm}} \cdot \cgn{e^{\jimg(\theta_{z1} + \cdots + \theta_{zm})}}}
+                                        {\cor{A_{p1} \cdot A_{p2} \cdots A_{pm}} \cdot \cgn{e^{\jimg(\theta_{p1} + \cdots + \theta_{pm})}}} } $$
 
 \vspace{0.2cm}
 \begin{minipage}[t]{0.48\columnwidth}
@@ -230,7 +228,7 @@ $$ \boxed{ H(j \omega_0) = K \cdot \frac{\cor{A_{z1} \cdot A_{z2} \cdots A_{zm}}
         \textbf{Betrag}
     \end{center}
     \vspace{-0.2cm}
-    $$ \boxed{ | H(j \omega_0) | = K \cdot \frac{\prod_{i=1}^{m} A_{zi}}{\prod_{j=1}^{n} A_{pj}} } $$
+    $$ \boxed{ | H(\jimg \omega_0) | = K \cdot \frac{\prod\limits_{i=1}^{m} A_{zi}}{\prod\limits_{j=1}^{n} A_{pj}} } $$
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.48\columnwidth}
@@ -251,28 +249,28 @@ $$ \boxed{ H(j \omega_0) = K \cdot \frac{\cor{A_{z1} \cdot A_{z2} \cdots A_{zm}}
 \end{minipage}
 \hfill
 \begin{minipage}[c]{0.48\columnwidth}
-    Die Auswertungsfrequenz $j \omega$ ist variabel und 'wandert' auf der \textbf{imaginären Achse}.
-    Für ein bestimmte Auswertungsfrequenz $j \omega_0$ können die Faktoren von $H(j \omega_0)$ als \cor{Abstand}
+    Die Auswertungsfrequenz $\jimg \omega$ ist variabel und 'wandert' auf der \textbf{imaginären Achse}.
+    Für ein bestimmte Auswertungsfrequenz $\jimg \omega_0$ können die Faktoren von $H(\jimg \omega_0)$ als \cor{Abstand}
     und \cgn{Phase} zu den Pol- bzw Nullstellen interpretiert werden.
     Somit kann grafisch aus dem Pol- Nullstellendiagramm ein Rückschluss auf den Amplitudengang gezogen werden.
-    $$ H(j \omega_0) = K \cdot \frac{\cor{A_{z1} \cdot A_{z2}} \cdot \cgn{e^{j(\theta_{z1} + \theta_{z2})}}}
-    {\cor{A_{p1} \cdot A_{p2}} \cdot \cgn{e^{j(\theta_{p1} + \theta_{p2})}}}  $$
+    $$ H(\jimg \omega_0) = K \cdot \frac{\cor{A_{z1} \cdot A_{z2}} \cdot \cgn{e^{\jimg(\theta_{z1} + \theta_{z2})}}}
+    {\cor{A_{p1} \cdot A_{p2}} \cdot \cgn{e^{\jimg(\theta_{p1} + \theta_{p2})}}}  $$
 \end{minipage}
 
 
-% \subsubsection{Rückschlüsse auf Amplitudengang} % CHECK ob man das welassen soll
+% \subsubsection{Rückschlüsse auf Amplitudengang}
 
 % \begin{outline}
 %     \1 Es werden vor allem die \textbf{Abstände} betrachtet 
 %     \1 Pol- und Nullstellen können sich aufheben
 %     \1 Bei $\omega = 0$ gilt:
-%         \2 Wenn Nullstelle \textrightarrow\ $|H(j \omega_0)| = \infty$ \textrightarrow\ $\theta(j \omega_0) = \frac{\pi}{2}$
-%         \2 Wenn Pol \textrightarrow\ $|H(j \omega_0)| = 0$ \textrightarrow\ $\theta(j \omega_0) = -\frac{\pi}{2}$
-%         \2 Wenn weder Pol noch NS \textrightarrow\ $|H(j \omega_0)|$ hat endlichen Wert \textrightarrow\ $\theta(j \omega_0) = 0$
+%         \2 Wenn Nullstelle \textrightarrow\ $|H(\jimg \omega_0)| = \infty$ \textrightarrow\ $\theta(\jimg \omega_0) = \frac{\pi}{2}$
+%         \2 Wenn Pol \textrightarrow\ $|H(\jimg \omega_0)| = 0$ \textrightarrow\ $\theta(\jimg \omega_0) = -\frac{\pi}{2}$
+%         \2 Wenn weder Pol noch NS \textrightarrow\ $|H(\jimg \omega_0)|$ hat endlichen Wert \textrightarrow\ $\theta(\jimg \omega_0) = 0$
 %     \1 Bei $\omega = \infty$ gilt:
-%         \2 Wenn Zählergrad $>$ Nennergrad \textrightarrow\ $|H(j \omega_0)| = \infty$
-%         \2 Wenn Zählergrad $=$ Nennergrad \textrightarrow\ $|H(j \omega_0)|$ hat endlichen Wert
-%         \2 Wenn Zählergrad $<$ Nennergrad \textrightarrow\ $|H(j \omega_0)| = 0$
+%         \2 Wenn Zählergrad $>$ Nennergrad \textrightarrow\ $|H(\jimg \omega_0)| = \infty$
+%         \2 Wenn Zählergrad $=$ Nennergrad \textrightarrow\ $|H(\jimg \omega_0)|$ hat endlichen Wert
+%         \2 Wenn Zählergrad $<$ Nennergrad \textrightarrow\ $|H(\jimg \omega_0)| = 0$
 % \end{outline}
 
 
