@@ -99,6 +99,9 @@ Der vorgeschriebene Phasengang wird dann allenfalls mit zusätzlichen Allpass-Fi
     \end{itemize}
 \end{minipage}
 
+$$\boxed{ A_{\deci \bel}(\omega) = 10 \cdot \log \Biggl( \frac{1}{|H(\omega)|^2} \Biggr) = - 20 \cdot \log \bigl(|H(\omega)| \bigr) 
+    \quad \textrightarrow\ \text{Dämpfung!} } $$
+
 
 \subsubsection{Frequenznormierung}
  
@@ -432,3 +435,35 @@ Aus dem Toleranzschema lassen sich für die 'Ecken' die folgenden beiden Bedingu
 
 \textrightarrow\ Alternativ kann die Ordnung $n$ auch mit dem Nomogramm bestimmt werden.
 
+% --------------------------------------------------------------------------------------------------
+\subsection{Approximation nach Tschebyscheff-\uproman{1}}
+
+
+\subsection{Approximation nach Tschebyscheff-\uproman{2}}
+
+
+\subsection{Approximation nach Cauer}
+
+
+\subsection{Approximation nach Bessel}
+
+
+\subsection{Gegenüberstellung der Filter-Approximationen}
+
+% TODO: Tabelle Vorlesungsvideo Mathis
+
+
+\subsubsection{Frequenzgänge / Lage der Pol- und Nullstellen}
+
+\begin{minipage}[c]{0.7\columnwidth}
+    \includegraphics[width=\columnwidth]{images/filter_vergleich_frequenzgaenge.png}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.28\columnwidth}
+    \includegraphics[width=\columnwidth]{images/filter_vergleich_pollagen.png}
+\end{minipage}
+
+\begin{tabular}{ll cc ll}
+    a) & Bessel         & & & c) & Tschebyscheff ($0.1 \, \deci \bel$) \\
+    b) & Butterworth    & & & d) & Tschebyscheff ($2 \, \deci \bel$) \\
+\end{tabular}
