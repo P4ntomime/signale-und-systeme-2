@@ -238,73 +238,6 @@ $$ \boxed{ \omega_c = \frac{\omega_D}{\sqrt{10^{\frac{\alpha}{10 \cdot n}} -1}} 
 \end{minipage}
 
 
-\subsection{Standard-Filtertypen -- Überblick}
-\label{Standard-Filtertypen}
-
-\begin{outline}
-    \1 \textbf{Butterworth}
-        \2[+] \textbf{Kein Rippel} im Durchlass- und Sperrbereich
-        \2[+] Im Durchlassbereich ist der Amplitudengang \textbf{maximal flach}
-        \2[-] Überhöhung in der Gruppenlaufzeit der Grenzfrequenz
-        \2[-] Braucht \textbf{hohe Ordnung} für steilen Übergang von Durchlass- zu Sperrbereich
-
-    \1 \textbf{Bessel}
-        \2[+] \textbf{Flachster Übergag} von Durchlass- und Sperrbereich von allen Filtern
-        \2[+] Konstante Gruppenlaufzeit
-        \2[-] Für steile Filter im Durchlass- und Sperrbereich nicht geeignet
-
-    \1 \textbf{Tschebyscheff-\uproman{1}}
-        \2[+] Schon für kleine Ordnungen \textbf{relativ steil} im Übergang von Durchlass- und Sperrbereich
-        \2[-] \textbf{Rippel} im Durchlassbereich
-        \2[-] Keine konstante Gruppenlaufzeit
-\end{outline}
-
-
-% CHECK: Wohin mit dieser Subsection?
-% TODO: verbessern
-\subsection{Vorgehen Filter dimensionieren / auslegen}
-
-\begin{enumerate}
-    \item Gemäss Anforderungen geeigneten Filtertyp wählen (\textrightarrow\ \ref{Standard-Filtertypen})
-    \item Toleranzschema gemäss Anforderungen erstellen inkl. Normierung (\textrightarrow\ \ref{Toleranzschema})
-    \item Ordnung des Filters bestimmen (Formel oder Nomogramm \textrightarrow\ \ref{Nomogramme})
-    \item Übertragungsfunktion bestimmen (\textrightarrow\ Tabellen oder Matlab)
-    \item Komponenten mittels Entnormierung bestimmen (Tabellen \textrightarrow\ \ref{Tabellen})
-\end{enumerate}
-
-
-% CHECK: Wohin mit dieser Subsection?
-\subsection{Nomogramme}{393}
-\label{Nomogramme}
-
-Nomogramme können verwendet werden, um die \textbf{Ordnung eines Filters}  zu bestimmen.
-
-\begin{minipage}[c]{0.42\columnwidth}
-    \includegraphics[width=\columnwidth]{images/filter_nomogramme.png}
-\end{minipage}
-\hfill
-\begin{minipage}[c]{0.56\columnwidth}
-    \begin{center}
-        \textbf{\myul{Benutzung von Nomogrammen}}
-    \end{center}
-    
-    \begin{enumerate}
-        \item $P_1$: Verbindung von $A_{\rm max}$ zu $A_{\rm min}$
-        \item $P_2$: Verlängerung von $P_1$ bis zum 'Diagramm-Rand'
-        \item $P_3$: Horizontale Linie vom Rand in Diagramm hinein
-        \item $P_4$: Bei $\Omega = \frac{\Omega_S}{\Omega_D} = \frac{\omega_S}{\omega_D} = \frac{f_S}{f_D}$ vertikale Linie ziehen
-        \item $P_5$: Schnittpunkt: 'hochfahren' zur nächsten Kurve \textrightarrow\ Ordnung $n$ der Kurve ablesen
-    \end{enumerate}
-\end{minipage}
-
-
-% CHECK: Wohin mit dieser Subsection?
-\subsection[Tabellen zum Entwurf von LC-Filtern]{Tabellen zum Entwurf von $LC$-Filtern}{409}
-\label{Tabellen}
-
-\textbf{Achtung:} Normierung der Widerstände beachten!
-
-
 \subsection{Approximation nach Butterworth}{303}
 
 \begin{minipage}[c]{0.45\columnwidth}
@@ -437,7 +370,7 @@ Aus dem Toleranzschema lassen sich für die 'Ecken' die folgenden beiden Bedingu
 \textrightarrow\ Alternativ kann die Ordnung $n$ auch mit dem Nomogramm bestimmt werden.
 
 % --------------------------------------------------------------------------------------------------
-\subsection{Approximation nach Tschebyscheff-\uproman{1}}
+\subsection{Approximation nach Tschebyscheff-\uproman{1}}{310}
 
 \begin{minipage}[c]{0.45\columnwidth}
     \includegraphics[width=\columnwidth]{images/filter_tschebyscheff_amplitudengang.png}
@@ -485,8 +418,7 @@ Zwischen dem Rippelfaktor $e$ und der maximalen Dämpfung $A_{\rm max}$ gilt der
 $$ \boxed{ A_{\rm max} = 10 \cdot \log_{10}(1 + e^2) \quad \Leftrightarrow \quad e = \sqrt{10^{\frac{A_{\rm max}}{10}} -1} } $$
 
 
-%TODO: ändern
-\subsubsection{Eigenschaften der Tschebyscheff-\uproman{1}-Approximation}
+\subsubsection{Eigenschaften der Tschebyscheff-\uproman{1}-Approximation}{311}
 
 Im \textbf{Durchlassbereich} schwankt das Tschebyscheff-Polynom in den Grenzen $\pm 1$. Im \textbf{Sperrbereich} nimmt
 $C_n$ monoton mit $\Omega$ zu.
@@ -515,7 +447,8 @@ $C_n$ monoton mit $\Omega$ zu.
 
 
 \begin{minipage}[t]{0.48\columnwidth}
-    \subsubsection{Pol-Lagen}
+    \subsubsection{Pol-Lagen}{313}
+
     \begin{itemize}
         \item Die Pole liegen auf einer \textbf{Ellipse}
         \item Allpolfilter
@@ -524,14 +457,15 @@ $C_n$ monoton mit $\Omega$ zu.
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.48\columnwidth}
-    \subsubsection{Filterordnung}
+    \subsubsection{Filterordnung}{316}
+
     $$ \boxed{ n =  \left\lceil \frac{\arccos \Bigl( \sqrt{ \frac{10^{A_{\rm min / 10}} - 1}{10^{A_{\rm max / 10}} - 1} } \Bigr) }
         {\arccos \Bigl( \frac{\Omega_S}{\Omega_D} \Bigr)}  \right\rceil } $$
     \textrightarrow\ Nomgramme!
 \end{minipage}
 
 
-\subsection{Approximation nach Tschebyscheff-\uproman{2}}
+\subsection{Approximation nach Tschebyscheff-\uproman{2}}{319}
 
 \begin{minipage}[c]{0.45\columnwidth}
     \textbf{Inverses Tschebyscheff-Filter}
@@ -554,7 +488,8 @@ $C_n$ monoton mit $\Omega$ zu.
     \end{tabular}
 \end{minipage}
 
-\subsubsection{Pol-Lagen}
+
+\subsubsection{Pol-Lagen}{321}
 
 \begin{minipage}[c]{0.4\columnwidth}
     \includegraphics[width=\columnwidth]{images/filter_tschebyscheff_invers_pollage.png}
@@ -569,7 +504,7 @@ $C_n$ monoton mit $\Omega$ zu.
 \end{minipage}
 
 
-\subsubsection{Filterordnung}
+\subsubsection{Filterordnung}{319}
 
 \begin{minipage}[c]{0.4\columnwidth}
     $$ \boxed{ n =  \left\lceil \frac{\arccos \Bigl( \sqrt{ \frac{10^{A_{\rm min / 10}} - 1}{10^{A_{\rm max / 10}} - 1} } \Bigr) }
@@ -582,11 +517,72 @@ $C_n$ monoton mit $\Omega$ zu.
 \end{minipage}
 
 
+\subsection{Approximation nach Cauer}{322}
 
-\subsection{Approximation nach Cauer}
+\begin{minipage}[c]{0.45\columnwidth}
+    \includegraphics[width=\columnwidth]{images/filter_cauer_amplitudengang.png}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.48\columnwidth}
+    \textbf{Kombination von Tschebyscheff-\uproman{1} und Tschebyscheff-\uproman{2}} \\
+
+    Daher spricht man auch von Complete-Chebyshev- oder Chebyshev-Cauer-Filtern (CC-Filter).
+\end{minipage}
 
 
-\subsection{Approximation nach Bessel}
+\subsubsection{Pol-Lagen}{325}
+
+\begin{minipage}[c]{0.4\columnwidth}
+    \includegraphics[width=\columnwidth]{images/filter_cauer_pollage.png}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.58\columnwidth}
+    \begin{outline}
+        \1 \textbf{Kein} Allpolfilter
+            \2 Gerade Ordnung $n$: $n$ Pole und $n$ Nullstellen
+            \2 \textbf{Un}gerade Ordnung $n$: $n$ Pole und $n-1$ Nullstellen
+    \end{outline}
+\end{minipage}
+
+
+\subsubsection{Filterordnung}{326}
+
+$$ \boxed{ n = \left\lceil \frac{ K \Bigg( \Big( \frac{\Omega_D}{\Omega_S} \Big)^2 \Bigg) \, K \Bigg( 1 - \frac{A_{\rm max / 10} - 1}{A_{\rm min / 10} - 1} \Bigg) }
+    { K \Bigg( 1 -\Big( \frac{\Omega_D}{\Omega_S} \Big)^2 \Bigg) \, K \Bigg(\frac{A_{\rm max / 10} - 1}{A_{\rm min / 10} - 1} \Bigg) }  \right\rceil 
+    \quad \text{mit } K(k) = \int\limits_{0}^{\frac{\pi}{2} }  \frac{1}{\sqrt{1- k \sin^2(\theta)}} \, \diff \theta }$$
+    \textrightarrow\ Nomogramm!
+
+
+\subsection{Approximation nach Bessel}{328}
+
+\begin{minipage}[c]{0.45\columnwidth}
+    \includegraphics[width=\columnwidth]{images/filter_bessel_amplitudengang.png}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.48\columnwidth}
+    Bessel-Filter liefern eine möglichst \textbf{lineare Phase}, d.h. eine \textbf{konstante Gruppenlaufzeit}.
+
+    Die Übertragungsfunktion $H(S)$ lautet
+    $$ \boxed{ H(S) = K \cdot e^{-S T_0} } $$
+
+    Für die Gruppenlaufzeit folgt somit
+    $$ \boxed{ \tau_g(\Omega) = \frac{- \diff \theta(\Omega)}{\diff \Omega} = T_0 = \const } $$
+\end{minipage}
+
+\vspace{0.2cm}
+Ohne Einschränkung kann in der UTF $T_0 = 1$ und $K = 1$ gesetzt werden:
+$$ H(S) = e^{-S} = \frac{1}{e^S} \approx \frac{1}{D(S)} $$
+
+
+\subsubsection{Gruppenlaufzeit $\tau_g(\Omega)$ und Phasenlaufzeit $\tau_p(\Omega)$}{331}
+
+\begin{minipage}[c]{0.4\columnwidth}
+    \includegraphics[width=\columnwidth]{images/filter_bessel_gruppenlaufzeit.png}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.4\columnwidth}
+    \includegraphics[width=\columnwidth]{images/filter_bessel_phasenlaufzeit.png}
+\end{minipage}
 
 
 \subsection{Gegenüberstellung der Filter-Approximationen}
@@ -594,17 +590,17 @@ $C_n$ monoton mit $\Omega$ zu.
 \scalebox{0.68}{
 \begin{tabular}{|l|c|c|c|c|c|c|}
     \hline
-    \multicolumn{1}{|c|}{} & \textbf{Krit. Gedämpft}                                            & \textbf{Butterworth}                                                    & \textbf{Tschebyscheff 1}                              & \textbf{Tschebyscheff 2}                                       & \textbf{Cauer}       & \textbf{Bessel}                                          \\ \hline
-    \textbf{Allpolfilter}  & ja                                                                 & ja                                                                      & ja                                                    & nein                                                           & nein                 & ja                                                       \\ \hline
-    \textbf{Pol-Lage}      & \begin{tabular}[c]{@{}c@{}}reelle Achse\\ \textless 0\end{tabular} & \begin{tabular}[c]{@{}c@{}}Halbkreis\\ LHE\end{tabular}                 & \begin{tabular}[c]{@{}c@{}}Ellipse\\ LHE\end{tabular} & LHE                                                            & LHE                  & \begin{tabular}[c]{@{}c@{}}exzentr.\\ Kreis\end{tabular} \\ \hline
-    \textbf{NS-Lage}       & -                                                                  & -                                                                       & -                                                     & $\jimg \omega$-Achse                                           & $\jimg \omega$-Achse & -                                                        \\ \hline
-    \textbf{DB}            & streng monoton                                                     & \begin{tabular}[c]{@{}c@{}}streng monoton\\ steilstmöglich\end{tabular} & streng monoton                                        & \begin{tabular}[c]{@{}c@{}}wellig\\ konst. Rippel\end{tabular} & wellig               & streng monoton                                           \\ \hline
-    \textbf{SB}            & streng monoton                                                     & streng monoton                                                          & streng monoton                                        & \begin{tabular}[c]{@{}c@{}}wellig\\ konst. Rippel\end{tabular} & wellig               & streng monoton                                           \\ \hline
-    \textbf{Phasengang}    & sehr gut                                                           & mittel                                                                  & schlecht                                              & schlecht                                                       & wild                 & bestmöglich                                              \\ \hline
+    \multicolumn{1}{|c|}{} & \textbf{Krit. Gedämpft}                                            & \textbf{Butterworth}                                                    & \textbf{Tschebyscheff 1}                                        & \textbf{Tschebyscheff 2}                                       & \textbf{Cauer}       & \textbf{Bessel}                                          \\ \hline
+    \textbf{Allpolfilter}  & ja                                                                 & ja                                                                      & ja                                                              & nein                                                           & nein                 & ja                                                       \\ \hline
+    \textbf{Pol-Lage}      & \begin{tabular}[c]{@{}c@{}}reelle Achse\\ \textless 0\end{tabular} & \begin{tabular}[c]{@{}c@{}}Halbkreis\\ LHE\end{tabular}                 & \begin{tabular}[c]{@{}c@{}}Ellipse\\ LHE\end{tabular}           & LHE                                                            & LHE                  & \begin{tabular}[c]{@{}c@{}}exzentr.\\ Kreis\end{tabular} \\ \hline
+    \textbf{NS-Lage}       & -                                                                  & -                                                                       & -                                                               & $\jimg \omega$-Achse                                           & $\jimg \omega$-Achse & -                                                        \\ \hline
+    \textbf{DB}            & streng monoton                                                     & \begin{tabular}[c]{@{}c@{}}streng monoton\\ steilstmöglich\end{tabular} & \begin{tabular}[c]{@{}c@{}}wellig\\ konst. Rippel\end{tabular}  & streng monoton                                                 & wellig               & streng monoton                                           \\ \hline
+    \textbf{SB}            & streng monoton                                                     & streng monoton                                                          & streng monoton                                                  & \begin{tabular}[c]{@{}c@{}}wellig\\ konst. Rippel\end{tabular} & wellig               & streng monoton                                           \\ \hline
+    \textbf{Phasengang}    & sehr gut                                                           & mittel                                                                  & schlecht                                                        & schlecht                                                       & wild                 & bestmöglich                                              \\ \hline
 \end{tabular}}
 
 
-\subsubsection{Frequenzgänge / Lage der Pol- und Nullstellen}
+\subsubsection{Frequenzgänge / Lage der Pol- und Nullstellen}{334}
 
 \begin{minipage}[c]{0.7\columnwidth}
     \includegraphics[width=\columnwidth]{images/filter_vergleich_frequenzgaenge.png}
@@ -619,3 +615,106 @@ $C_n$ monoton mit $\Omega$ zu.
     b) & Butterworth    & & & d) & Tschebyscheff ($2 \, \deci \bel$) \\
 \end{tabular}
 
+
+% ----------------------------------------------------------------------------------------------------------------
+% ev. in einege section bzw eigenes file für "oberflächliches zeugs" packen
+% deep dive (von oben) dann auch in eigene section
+
+% CHECK: Wohin mit dieser subsection?
+\subsection{Standard-Filtertypen -- Überblick}
+\label{Standard-Filtertypen}
+
+\begin{outline}
+    % TODO: Symbol für 2. Ebene lokal bzw. hier explizit ändern? auf was?
+    \1 \textbf{kritisch-Gedämpfte Filter}
+        \2[+] \textbf{Kein Rippel} im Durchlass- und Sperrbereich
+        \2[+] Kein Überschwingen bei Impuls- und Sprungantwort
+        \2[-] Braucht \textbf{hohe Ordnung} für steilen Übergang von Durchlass- zu Sperrbereich
+        \2    Kaskadierung von $n$ wirkungsfreien, identischen Filtern 1. Ordnung
+        \2    Bei $\Omega = 1$ \textrightarrow\ Dämpfung von $3 \, \deci \bel$
+        \2    Steilheit: $- n \cdot 20 \, \deci \bel /$ Dekade
+        \2    Allpolfiler: $n$ Pole am gleichen Ort in der LHE
+
+    \1 \textbf{Butterworth}
+        \2[+] \textbf{Kein Rippel} im Durchlass- und Sperrbereich
+        \2[+] Im Durchlassbereich ist der Amplitudengang \textbf{maximal flach}
+        \2[-] Überhöhung in der Gruppenlaufzeit der Grenzfrequenz
+        \2[-] Braucht \textbf{hohe Ordnung} für steilen Übergang von Durchlass- zu Sperrbereich
+        \2    Bei $\Omega = 1$ \textrightarrow\ Dämpfung von $3 \, \deci \bel$
+        \2    Steilheit: $- n \cdot 20 \, \deci \bel /$ Dekade
+        \2    Allpolfiler: Pole auf Einheitskreis mit Abstand $\frac{\pi}{n}$ 
+
+    \1 \textbf{Tschebyscheff-\uproman{1}}
+        \2[+] Schon für kleine Ordnungen \textbf{relativ steil} im Übergang von Durchlass- und Sperrbereich
+        \2[-] \textbf{Rippel} im \textbf{Durchlassbereich} (abhängig von Ordnung $n$)
+        \2[-] Keine konstante Gruppenlaufzeit (wellig)
+        \2    Bei $\Omega = 1$ \textrightarrow\ Dämpfung abhängig von Rippelfaktor $e$
+        \2    Steilheit: $- n \cdot 20 \, \deci \bel /$ Dekade
+        \2    Allpolfiler: Pole auf einer Ellipse
+
+    \1 \textbf{Tschebyscheff-\uproman{2}}
+        \2[+] Schon für kleine Ordnungen \textbf{relativ steil} im Übergang von Durchlass- und Sperrbereich
+        \2[-] \textbf{Rippel} im \textbf{Sperrbereich} (abhängig von Ordnung $n$)
+        \2[-] Relativ konstante Gruppenlaufzeit
+        \2    Bei $\Omega = 1$ \textrightarrow\ Dämpfung abhängig von Rippelfaktor $e$
+        \2    Steilheit: $- n \cdot 20 \, \deci \bel /$ Dekade
+        \2    Kein Allpolfilter
+
+    \1 \textbf{Cauer}
+        \2[+] Steilster Übergang von Durchlass- zu Sperrbereich
+        \2[-] \textbf{Rippel} in \textbf{Durlassbereich und Sperrbereich} (abhängig von Ordnung $n$)
+        \2    \textbf{Kombination aus Tschebyscheff-\uproman{1} und Tschebyscheff-\uproman{2}}
+        % \2    Steilheit: $- n \cdot 20 \, \deci \bel /$ Dekade
+        \2    Kein Allpolfilter
+
+    \1 \textbf{Bessel}
+        \2[+] \textbf{Flachster Übergang} von Durchlass- und Sperrbereich von allen Filtern
+        \2[+] Konstante Gruppenlaufzeit
+        \2[-] Für steile Filter im Durchlass- und Sperrbereich nicht geeignet
+        \2    Allpolfilter: Pole auf exzentrischen Kreisen in LHE
+\end{outline}
+
+
+% CHECK: Wohin mit dieser Subsection?
+% TODO: verbessern
+\subsection{Vorgehen Filter dimensionieren / auslegen}
+
+\begin{enumerate}
+    \item Gemäss Anforderungen geeigneten Filtertyp wählen (\textrightarrow\ \ref{Standard-Filtertypen})
+    \item Toleranzschema gemäss Anforderungen erstellen inkl. Normierung (\textrightarrow\ \ref{Toleranzschema})
+    \item Ordnung des Filters bestimmen (Formel oder Nomogramm \textrightarrow\ \ref{Nomogramme})
+    \item Übertragungsfunktion bestimmen (\textrightarrow\ Tabellen oder Matlab)
+    \item Komponenten mittels Entnormierung bestimmen (Tabellen \textrightarrow\ \ref{Tabellen})
+\end{enumerate}
+
+
+% CHECK: Wohin mit dieser Subsection?
+\subsection{Nomogramme}{393}
+\label{Nomogramme}
+
+Nomogramme können verwendet werden, um die \textbf{Ordnung eines Filters}  zu bestimmen.
+
+\begin{minipage}[c]{0.42\columnwidth}
+    \includegraphics[width=\columnwidth]{images/filter_nomogramme.png}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.56\columnwidth}
+    \begin{center}
+        \textbf{\myul{Benutzung von Nomogrammen}}
+    \end{center}
+    
+    \begin{enumerate}
+        \item $P_1$: Verbindung von $A_{\rm max}$ zu $A_{\rm min}$
+        \item $P_2$: Verlängerung von $P_1$ bis zum 'Diagramm-Rand'
+        \item $P_3$: Horizontale Linie vom Rand in Diagramm hinein
+        \item $P_4$: Bei $\Omega = \frac{\Omega_S}{\Omega_D} = \frac{\omega_S}{\omega_D} = \frac{f_S}{f_D}$ vertikale Linie ziehen
+        \item $P_5$: Schnittpunkt: 'hochfahren' zur nächsten Kurve \textrightarrow\ Ordnung $n$ der Kurve ablesen
+    \end{enumerate}
+\end{minipage}
+
+
+% CHECK: Wohin mit dieser Subsection?
+\subsection[Tabellen zum Entwurf von LC-Filtern]{Tabellen zum Entwurf von $LC$-Filtern}{409}
+\label{Tabellen}
+
+\textbf{Achtung:} Normierung der Widerstände beachten!
