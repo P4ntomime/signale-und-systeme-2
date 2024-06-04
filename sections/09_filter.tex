@@ -104,6 +104,7 @@ $$\boxed{ A_{\deci \bel}(\omega) = 10 \cdot \log \Biggl( \frac{1}{|H(\omega)|^2}
 
 
 \subsubsection{Frequenznormierung}
+\label{Frequenznormierung}
  
 Um möglist kompakte \textbf{Tabellen} zu haben, wird auf Frequenzen normiert. Grundsätzlich kann auf eine beliebige Frequenz normiert
 werden. Allerdings gilt grundsätzlich:
@@ -137,7 +138,7 @@ werden. Allerdings gilt grundsätzlich:
     \end{minipage}
 
     \vspace{0.2cm}
-    \textbf{Hinweis:} Zur Entnormierung wird jeweils $S$ in der normierter Funktion durch $\frac{s}{\omega_r}$ ersetzt.
+    \textbf{Entnormierung:} Jeweils $S$ in der normierter Funktion durch $\frac{s}{\omega_r}$ ersetzen.
 \end{minipage}
 
 
@@ -534,6 +535,9 @@ $C_n$ monoton mit $\Omega$ zu.
 
 \begin{minipage}[c]{0.4\columnwidth}
     \includegraphics[width=\columnwidth]{images/filter_cauer_pollage.png}
+    \begin{itemize}
+        \item Pole auf $\jimg \omega$-Achse \textbf{ausserhalb vom Einheitskreis}
+    \end{itemize}
 \end{minipage}
 \hfill
 \begin{minipage}[c]{0.58\columnwidth}
@@ -585,18 +589,18 @@ $$ H(S) = e^{-S} = \frac{1}{e^S} \approx \frac{1}{D(S)} $$
 \end{minipage}
 
 
-\subsection{Gegenüberstellung der Filter-Approximationen}
+\subsection{Gegenüberstellung der Filter-Approximationen}   % CHECK mit Vorlesung 14
 
 \scalebox{0.68}{
 \begin{tabular}{|l|c|c|c|c|c|c|}
     \hline
-    \multicolumn{1}{|c|}{} & \textbf{Krit. Gedämpft}                                            & \textbf{Butterworth}                                                    & \textbf{Tschebyscheff 1}                                        & \textbf{Tschebyscheff 2}                                       & \textbf{Cauer}       & \textbf{Bessel}                                          \\ \hline
-    \textbf{Allpolfilter}  & ja                                                                 & ja                                                                      & ja                                                              & nein                                                           & nein                 & ja                                                       \\ \hline
-    \textbf{Pol-Lage}      & \begin{tabular}[c]{@{}c@{}}reelle Achse\\ \textless 0\end{tabular} & \begin{tabular}[c]{@{}c@{}}Halbkreis\\ LHE\end{tabular}                 & \begin{tabular}[c]{@{}c@{}}Ellipse\\ LHE\end{tabular}           & LHE                                                            & LHE                  & \begin{tabular}[c]{@{}c@{}}exzentr.\\ Kreis\end{tabular} \\ \hline
-    \textbf{NS-Lage}       & -                                                                  & -                                                                       & -                                                               & $\jimg \omega$-Achse                                           & $\jimg \omega$-Achse & -                                                        \\ \hline
-    \textbf{DB}            & streng monoton                                                     & \begin{tabular}[c]{@{}c@{}}streng monoton\\ steilstmöglich\end{tabular} & \begin{tabular}[c]{@{}c@{}}wellig\\ konst. Rippel\end{tabular}  & streng monoton                                                 & wellig               & streng monoton                                           \\ \hline
-    \textbf{SB}            & streng monoton                                                     & streng monoton                                                          & streng monoton                                                  & \begin{tabular}[c]{@{}c@{}}wellig\\ konst. Rippel\end{tabular} & wellig               & streng monoton                                           \\ \hline
-    \textbf{Phasengang}    & sehr gut                                                           & mittel                                                                  & schlecht                                                        & schlecht                                                       & wild                 & bestmöglich                                              \\ \hline
+    \multicolumn{1}{|c|}{} & \textbf{Krit. Gedämpft}                                            & \textbf{Butterworth}                                                    & \textbf{Tschebyscheff 1}                                        & \textbf{Tschebyscheff 2}                                       & \textbf{Cauer}                                                       & \textbf{Bessel}                                          \\ \hline
+    \textbf{Allpolfilter}  & ja                                                                 & ja                                                                      & ja                                                              & nein                                                           & nein                                                                 & ja                                                       \\ \hline
+    \textbf{Pol-Lage}      & \begin{tabular}[c]{@{}c@{}}reelle Achse\\ \textless 0\end{tabular} & \begin{tabular}[c]{@{}c@{}}Halbkreis\\ LHE\end{tabular}                 & \begin{tabular}[c]{@{}c@{}}Ellipse\\ LHE\end{tabular}           & LHE                                                            & \begin{tabular}[c]{@{}c@{}}Ellipse\\ LHE\end{tabular}                & \begin{tabular}[c]{@{}c@{}}exzentr.\\ Kreis\end{tabular} \\ \hline
+    \textbf{NS-Lage}       & -                                                                  & -                                                                       & -                                                               & $\jimg \omega$-Achse                                           & $\jimg \omega$-Achse                                                 & -                                                        \\ \hline
+    \textbf{DB}            & monoton                                                            & \begin{tabular}[c]{@{}c@{}}monoton\\ maximalflach\end{tabular}          & \begin{tabular}[c]{@{}c@{}}wellig\\ konst. Rippel\end{tabular}  & monoton                                                        & \begin{tabular}[c]{@{}c@{}}wellig\\ konst. Rippel\end{tabular}       & monoton                                                  \\ \hline
+    \textbf{SB}            & streng                                                             & monoton                                                                 & monoton                                                         & \begin{tabular}[c]{@{}c@{}}wellig\\ konst. Rippel\end{tabular} & \begin{tabular}[c]{@{}c@{}}wellig\\ konst. Rippel\end{tabular}       & monoton                                                  \\ \hline
+    \textbf{Phasengang}    & sehr gut                                                           & mittel                                                                  & schlecht                                                        & schlecht                                                       & wild                                                                 & bestmöglich                                              \\ \hline
 \end{tabular}}
 
 
@@ -676,15 +680,21 @@ $$ H(S) = e^{-S} = \frac{1}{e^S} \approx \frac{1}{D(S)} $$
 
 
 % CHECK: Wohin mit dieser Subsection?
-% TODO: verbessern
 \subsection{Vorgehen Filter dimensionieren / auslegen}
 
 \begin{enumerate}
     \item Gemäss Anforderungen geeigneten Filtertyp wählen (\textrightarrow\ \ref{Standard-Filtertypen})
-    \item Toleranzschema gemäss Anforderungen erstellen inkl. Normierung (\textrightarrow\ \ref{Toleranzschema})
-    \item Ordnung des Filters bestimmen (Formel oder Nomogramm \textrightarrow\ \ref{Nomogramme})
-    \item Übertragungsfunktion bestimmen (\textrightarrow\ Tabellen oder Matlab)
-    \item Komponenten mittels Entnormierung bestimmen (Tabellen \textrightarrow\ \ref{Tabellen})
+    \item Toleranzschema gemäss Anforderungen erstellen \textbf{inkl. Normierung} (\textrightarrow\ \ref{Toleranzschema})
+    \item Ordnung des Filters bestimmen (Formel oder \textbf{Nomogramm} \textrightarrow\ \ref{Nomogramme})
+    \item Übertragungsfunktion bestimmen (\textrightarrow\ Tabelle: Skript S. 397, Anhang 7B)
+    \item Implementierung mit LC-Filtern: Topologie wählen (\textrightarrow\ Skript S. 409, Anhang 7C)
+    \item \textbf{Normierte} Bauteilwerte aus entsprechender Tiefpass-Tabelle herauslesen (Anhang 7C)
+    \item \textbf{Falls nicht auf $\bm{\omega_r = \omega_{3 \, \deci \bel}}$ normiert wurde:} Normierte Werte auf $\Omega_{3 \, \deci \bel}$ korrigieren: \\
+         \textrightarrow\ Division durch \cbl{Korrekturfaktor} aus Skript S. 401 Tabelle 7.8
+    \item Komponenten mittels \textbf{Entnormierung} bestimmen (\textrightarrow\ \ref{Entnormierung Komponenten})
+    \item \textbf{Entnormierung} der Frequenz (\textrightarrow\ \ref{Frequenznormierung})\\
+        $\omega_{3 \, \deci \bel} = \text{\cbl{Korrekturfaktor}} \cdot \omega_D = \text{\cbl{Korrekturfaktor}} \cdot 2 \pi f_D $
+    \item Frequenztransformation (bzw. Komponenten-Transformation) zu HP, BP oder BS durchführen (\textrightarrow\ \ref{Frequenztransformation})
 \end{enumerate}
 
 
@@ -714,7 +724,76 @@ Nomogramme können verwendet werden, um die \textbf{Ordnung eines Filters}  zu b
 
 
 % CHECK: Wohin mit dieser Subsection?
-\subsection[Tabellen zum Entwurf von LC-Filtern]{Tabellen zum Entwurf von $LC$-Filtern}{409}
-\label{Tabellen}
+% \subsection[Tabellen zum Entwurf von LC-Filtern]{Tabellen zum Entwurf von $LC$-Filtern}{409}
+% \label{Tabellen}
 
-\textbf{Achtung:} Normierung der Widerstände beachten!
+% \textbf{Achtung:} Normierung der Widerstände beachten!
+
+
+
+% ------------------------------------------------------------------------------------------------------------------
+\section{Filter-Umwandlungen mittels Frequnenztransformation}
+\label{Frequenztransformation}
+
+
+\subsection{Transformation: Tiefpass -- Hochpass}{344}
+
+
+\subsubsection{Bauteiltransformationen: Tiefpass -- Hochpass}
+
+\begin{minipage}[c]{0.48\columnwidth}
+    \includegraphics[width=\columnwidth]{images/bauteiltransformation_TP_HP.png}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.48\columnwidth}
+    % Tabelle mit Erklärung der Komponenten
+\end{minipage}
+
+
+\subsection{Transformation: Tiefpass -- Bandpass}{348}
+
+
+
+\subsubsection{Bauteiltransformationen: Tiefpass -- Bandpass}
+
+\begin{minipage}[c]{0.48\columnwidth}
+    \includegraphics[width=\columnwidth]{images/bauteiltransformation_TP_BP.png}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.48\columnwidth}
+    % Tabelle mit Erklärung der Komponenten
+\end{minipage}
+
+
+\subsection{Transformation: Tiefpass -- Bandsperre}{357}
+
+
+\subsubsection{Bauteiltransformationen: Tiefpass -- Bandsperre}
+
+\begin{minipage}[c]{0.48\columnwidth}
+    \includegraphics[width=\columnwidth]{images/bauteiltransformation_TP_BS.png}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.48\columnwidth}
+    % Tabelle mit Erklärung der Komponenten
+\end{minipage}
+
+
+
+\subsection{LC-Filter: Entnormierung der Komponenten}
+\label{Entnormierung Komponenten}
+
+$$ \boxed{ L = \frac{L_{\rm norm}}{\omega_r} \cdot R_r}
+\qquad \boxed{ C = \frac{C_{\rm norm}}{\omega_r \cdot R_r }}
+\qquad \boxed{ R = R_{\rm norm} \cdot R_r } $$
+
+\begin{center}
+    \begin{tabular}{ll}
+        $L_{\rm norm}$  & normierter Wert gemäss Anhang 7C \\
+        $C_{\rm norm}$  & normierter Wert gemäss Anhang 7C \\
+        $R_{\rm norm}$  & normierter Wert gemäss Anhang 7C \\
+        $\omega_r$  & Frequenz, auf welche normiert wurde ($\omega_D$ oder $\omega_m$ gemäss \ref{Frequenznormierung}) \\
+        $R_r$       & Tatsächlicher Wert von $R_2$ gemäss Topologie Skript S. 409
+    \end{tabular}
+\end{center}
+    
