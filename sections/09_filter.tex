@@ -3,8 +3,8 @@
 
 \subsection{Grundtypen}{291}
 
-Filter sind mehrheitlich \textbf{frequnezselektive, lineare Netzwerke}, welche gewisse Frequenzbereiche übertragen
-und andere dämpfen. Die fünf \textbf{frequnezselektiven Grundtypen} sind: 
+Filter sind mehrheitlich \textbf{frequenzselektive, lineare Netzwerke}, welche gewisse Frequenzbereiche übertragen
+und andere dämpfen. Die fünf \textbf{frequenzselektiven Grundtypen} sind: 
 
 \begin{minipage}[t]{0.25\columnwidth}
     \begin{itemize}
@@ -27,41 +27,9 @@ und andere dämpfen. Die fünf \textbf{frequnezselektiven Grundtypen} sind:
 \end{minipage}
 
 
-% \subsection{Filterbauarten}{292}
-
-% \textrightarrow\ Siehe Skript S. 292
-
-% \begin{tabular}{|l|l|l|l|}
-%     \hline
-%     \multirow{7}{*}{\rotatebox[origin=c]{90}{zeitdiskret}}         & \multirow{7}{*}{aktiv}    & \multirow{3}{*}{\begin{tabular}[c]{@{}l@{}}diskrete\\ Werte\end{tabular}}         & Filter mit Signalprozessor           \\ \cline{4-4} 
-%                                       &                            &                                                                                   & Filter mit Gate Logic                \\ \cline{4-4} 
-%                                       &                            &                                                                                   & etc.                                 \\ \cline{3-4} 
-%                                       &                            & \multirow{4}{*}{\begin{tabular}[c]{@{}l@{}}analoge\\ Werte\end{tabular}}          & SC-Filter (Switched Capacitor)       \\ \cline{4-4} 
-%                                       &                            &                                                                                   & SI-Filter (Switched Current)         \\ \cline{4-4} 
-%                                       &                            &                                                                                   & N-Pfad Filter                        \\ \cline{4-4} 
-%                                       &                            &                                                                                   & etc.                                 \\ \hline
-%     \multirow{16}{*}{\rotatebox[origin=c]{90}{kontinurierlich}}    & \multirow{5}{*}{aktive RC} & \multirow{5}{*}{\begin{tabular}[c]{@{}l@{}}konz. \\ Bauteile\end{tabular}}        & 'Simultion' von LC-Filtern           \\ \cline{4-4} 
-%                                       &                            &                                                                                   & Gekoppelte Filterstrukturen          \\ \cline{4-4} 
-%                                       &                            &                                                                                   & Filter Parallelform                  \\ \cline{4-4} 
-%                                       &                            &                                                                                   & Filter in Kaskadenbauweise           \\ \cline{4-4} 
-%                                       &                            &                                                                                   & etc.                                 \\ \cline{2-4} 
-%                                       & \multirow{11}{*}{passiv}   & \multirow{4}{*}{\begin{tabular}[c]{@{}l@{}}verteilte\\ Bauteile\end{tabular}}     & SAW-Filter (Surfaec Acoustic Wave)   \\ \cline{4-4} 
-%                                       &                            &                                                                                   & Hohlraumresonatoren (Topfkreisfilter \\ \cline{4-4} 
-%                                       &                            &                                                                                   & Leisutngsfilter                      \\ \cline{4-4} 
-%                                       &                            &                                                                                   & etc.                                 \\ \cline{3-4} 
-%                                       &                            & \multirow{7}{*}{\begin{tabular}[c]{@{}l@{}}konzentrierte\\ Bauteile\end{tabular}} & Keramische Filter                    \\ \cline{4-4} 
-%                                       &                            &                                                                                   & Quarz-Filter                         \\ \cline{4-4} 
-%                                       &                            &                                                                                   & RLC-Filter                           \\ \cline{4-4} 
-%                                       &                            &                                                                                   & RC-Filter                            \\ \cline{4-4} 
-%                                       &                            &                                                                                   & LC-Filter                            \\ \cline{4-4} 
-%                                       &                            &                                                                                   & LC-Filter mit Quarz                  \\ \cline{4-4} 
-%                                       &                            &                                                                                   & etc.                                 \\ \hline
-% \end{tabular}
-
-
 \subsection[Frequenzgang H(jimg omega) -- Übertragungsfunktion H(s)]{Frequenzgang $H(\jimg \omega)$ -- Übertragungsfunktion $H(s)$}{294}
 
-Für den Frequnezgang $H(\jimg \omega)$ und die Übertragungsfunktion $H(s)$ gelten die folgenden Zusammenhänge
+Für den Frequenzgang $H(\jimg \omega)$ und die Übertragungsfunktion $H(s)$ gelten die folgenden Zusammenhänge
 
 $$ | H(\jimg \omega) |^2 = H(\jimg \omega) \cdot H^*(\jimg \omega) = H(\jimg \omega) \cdot H(- \jimg \omega) = H(s) \cdot H(-s) \Big|_{s = \jimg \omega} $$
 $$ H(s) \cdot H(-s) = | H(\jimg \omega) |^2 \Big|_{\omega^2 = -s^2} $$
@@ -76,10 +44,10 @@ $$ \boxed{ \underbrace{ \frac{N(s)}{D(s)} }_{H(s)} \cdot  \underbrace{ \frac{N(-
 \textbf{Hinweis:} $D(s)$ muss aus Stabilitätsgründen ein Hurwitz-Polynom sein!
 
 
-\subsection{Approximation im Frequnezbereich}
+\subsection{Approximation im Frequenzbereich}
 
 Die wichtigste Aufgabe der Filtertheorie ist die \textbf{Bestimmung der Übertragungsfunktion, die einen vorgegebenen 
-Frequenzgang gewährleistet.} Zuerst soll der \textbf{Amplitudengang} $| H(\jimg \omega) |$ im Frequnezbereich approximiert werden.
+Frequenzgang gewährleistet.} Zuerst soll der \textbf{Amplitudengang} $| H(\jimg \omega) |$ im Frequenzbereich approximiert werden.
 Der vorgeschriebene Phasengang wird dann allenfalls mit zusätzlichen Allpass-Filtern erreicht. 
 
 
@@ -138,7 +106,7 @@ werden. Allerdings gilt grundsätzlich:
     \end{minipage}
 
     \vspace{0.2cm}
-    \textbf{Entnormierung:} Jeweils $S$ in der normierter Funktion durch $\frac{s}{\omega_r}$ ersetzen.
+    \textbf{Entnormierung:} Jeweils $S$ in der normierten Funktion durch $\frac{s}{\omega_r}$ ersetzen.
 \end{minipage}
 
 
@@ -162,7 +130,7 @@ werden. Allerdings gilt grundsätzlich:
 \end{minipage}
 
 \vspace{0.2cm}
-\textrightarrow\ Ideales Tierpass ist physikaltisch nicht realisierbar. \textrightarrow\ \textbf{Approximationen}
+\textrightarrow\ Ideales Tiefpass ist physikatisch nicht realisierbar. \textrightarrow\ \textbf{Approximationen}
 
 
 \subsection[Amplitudengang mit char. Funktion K(Omega2)]{Amplitudengang mit char. Funktion $K(\Omega^2)$}
@@ -171,7 +139,7 @@ werden. Allerdings gilt grundsätzlich:
 Um Wurzelausdrücke zu vermeiden, wird der folgenden Ansatz verwendet
 $$ \boxed{ | H(\jimg \Omega) |^2 = \frac{1}{1 + K(\Omega^2)}} $$
 
-Im Fall des (idealen) Tiefpasses gilt füt die charakteristische Funktion $K(\Omega^2)$
+Im Fall des (idealen) Tiefpasses gilt für die charakteristische Funktion $K(\Omega^2)$
 
 \begin{tabular}{l r l l}
     Durchlassbereich (DB)   & $0 \leq K(\Omega^2) \ll 1$    & für $0 \leq \Omega < 1$   & \textrightarrow\ $| H(\jimg \Omega) |^2 \approx 1$ \\
@@ -209,7 +177,7 @@ Teilfilter) gewählt werden als
 $$ \boxed{ \omega_c = \frac{\omega_D}{\sqrt{10^{\frac{\alpha}{10 \cdot n}} -1}} } $$ 
 
 
-\subsubsection{Eigenschaten kritisch-gedämpfte Filter}
+\subsubsection{Eigenschaften kritisch-gedämpfte Filter}
 
 \begin{itemize}
     \item Alle Pole am \textbf{gleichen Ort} auf negativer $\sigma$-Achse \textrightarrow\ Allpolfilter
@@ -219,7 +187,7 @@ $$ \boxed{ \omega_c = \frac{\omega_D}{\sqrt{10^{\frac{\alpha}{10 \cdot n}} -1}} 
     \item Für $\Omega \gg 1$ wird $|H(\jimg \Omega)| \approx \frac{1}{\Omega^n}$ \textrightarrow\ $\bm{- n \cdot 20 \, \deci \bel /}$ \textbf{Dekade}
     \item Amplitudengang bei $\Omega = 0$ maximal flach, da alle Ableitungen $=0$ sind
     \item Amplitudengang ist streng-monoton fallend \textrightarrow\ keine Welligkeit
-    \item Pole verschieben sich bei höherer Ordnung in Richtung imaginäre Achse
+    \item Pole verschieben sich bei höherer Ordnung näher in Richtung imaginäre Achse
     \item Gruppenlaufzeit konstant bis $\omega_D$
 \end{itemize}
 
@@ -328,7 +296,7 @@ $$ D(S) \cdot D(-S) = 1 + S^4 \quad \Leftrightarrow \quad S^4 = -1 \quad \Leftri
     \renewcommand{\arraystretch}{1}
 
     \vspace{0.2cm}
-    \textrightarrow Für die Übertragungsfunktion $H(s)$ sind nur die Nullstellen in der \textbf{linken Halbebene} relevant!
+    \textrightarrow\ Für die Übertragungsfunktion $H(s)$ sind nur die Nullstellen in der \textbf{linken Halbebene} relevant!
 \end{minipage}
 
 \vspace{0.2cm}
@@ -359,8 +327,10 @@ Aus dem Toleranzschema lassen sich für die 'Ecken' die folgenden beiden Bedingu
 
 \vspace{0.2cm}
 \begin{minipage}[c]{0.48\columnwidth}
-    Mittels Umformungen und aufgelöst nach $n$ ergibt sich die Filter-Ordnung als \\
-    $\left\lceil . \right\rceil $ bedeutet '\textbf{aufrunden} auf ganze Zahl'
+    Mittels Umformungen und aufgelöst nach $n$ ergibt sich die Filter-Ordnung als 
+
+    \medskip
+    $\left\lceil . \right\rceil $ bedeutet '\textbf{aufrunden} auf ganze Zahl' (ceil()-Funktion)
 \end{minipage}
 \hfill
 \begin{minipage}[c]{0.48\columnwidth}
@@ -368,7 +338,7 @@ Aus dem Toleranzschema lassen sich für die 'Ecken' die folgenden beiden Bedingu
         {2 \cdot \log_{10}\Bigl( \frac{\Omega_S}{\Omega_D} \Bigr)}  \right\rceil } $$
 \end{minipage}
 
-\textrightarrow\ Alternativ kann die Ordnung $n$ auch mit dem Nomogramm bestimmt werden.
+\textrightarrow\ Alternativ kann die Ordnung $n$ auch mit dem \textbf{Nomogramm} bestimmt werden.
 
 % --------------------------------------------------------------------------------------------------
 \subsection{Approximation nach Tschebyscheff-\uproman{1}}{310}
@@ -435,9 +405,9 @@ $C_n$ monoton mit $\Omega$ zu.
         \2 Für $\Omega = 0$ ist für gerade $n$: $|H(0)| = \frac{1}{\sqrt{1 + e^2}}$
         \2 Für $\Omega = 1$ ist für sämtliche $n$: $|H(\jimg)| = \frac{1}{\sqrt{1 + e^2}}$ 
             \textrightarrow\ \textbf{nicht} $3 \, \deci \bel$ Dämpfung
-        \2 Aus der Anzahl \textbf{\cbl{Extremalstellen} und \cgn{Endpunkte}} des Amplitudengangs im \textbf{Durchlassbereich} 
+        \2 Aus der Anzahl \textbf{\cbl{Wendepunkte} und \cgn{Endpunkte}} des Amplitudengangs im \textbf{Durchlassbereich} 
             $(0 \leq \Omega \leq 1)$ lässt sich die \textbf{Ordnung $\bm{n}$} bestimmen. \\
-            \textbf{Ordnung = Summe aller \cbl{Extremalstellen} plus beide  \cgn{Endpunkte} minus 1}
+            \textbf{Ordnung = (Summe aller \cbl{Wendepunkte}) plus beide \cgn{Endpunkte} minus 1}
     \1 \textbf{Sperrbereich}
         \2 Für $\Omega \gg 1$ wird $|H(\jimg \Omega)| \approx \frac{1}{e \cdot C_n(\Omega)}$ 
             \textrightarrow\ $\bm{- n \cdot 20 \, \deci \bel /}$ \textbf{Dekade} bzw.\\
@@ -462,7 +432,7 @@ $C_n$ monoton mit $\Omega$ zu.
 
     $$ \boxed{ n =  \left\lceil \frac{\arccos \Bigl( \sqrt{ \frac{10^{A_{\rm min / 10}} - 1}{10^{A_{\rm max / 10}} - 1} } \Bigr) }
         {\arccos \Bigl( \frac{\Omega_S}{\Omega_D} \Bigr)}  \right\rceil } $$
-    \textrightarrow\ Nomgramme!
+    \textrightarrow\ \textbf{Nomogramme!}
 \end{minipage}
 
 
@@ -535,9 +505,6 @@ $C_n$ monoton mit $\Omega$ zu.
 
 \begin{minipage}[c]{0.4\columnwidth}
     \includegraphics[width=\columnwidth]{images/filter_cauer_pollage.png}
-    \begin{itemize}
-        \item Pole auf $\jimg \omega$-Achse \textbf{ausserhalb vom Einheitskreis}
-    \end{itemize}
 \end{minipage}
 \hfill
 \begin{minipage}[c]{0.58\columnwidth}
@@ -545,6 +512,7 @@ $C_n$ monoton mit $\Omega$ zu.
         \1 \textbf{Kein} Allpolfilter
             \2 Gerade Ordnung $n$: $n$ Pole und $n$ Nullstellen
             \2 \textbf{Un}gerade Ordnung $n$: $n$ Pole und $n-1$ Nullstellen
+        \1Pole auf $\jimg \omega$-Achse \textbf{ausserhalb vom Einheitskreis}
     \end{outline}
 \end{minipage}
 
@@ -855,9 +823,9 @@ $$ \boxed{ L = \frac{L_{\rm norm}}{\omega_r} \cdot R_r}
 
 \begin{center}
     \begin{tabular}{ll}
-        $L_{\rm norm}$  & normierter Wert gemäss Anhang 7C \\
-        $C_{\rm norm}$  & normierter Wert gemäss Anhang 7C \\
-        $R_{\rm norm}$  & normierter Wert gemäss Anhang 7C \\
+        $L_{\rm norm}$  & normierter Wert gemäss Skript, Anhang 7C \\
+        $C_{\rm norm}$  & normierter Wert gemäss Skript, Anhang 7C \\
+        $R_{\rm norm}$  & normierter Wert gemäss Skript, Anhang 7C \\
         $\omega_r$  & Frequenz, auf welche normiert wurde ($\omega_D$ oder $\omega_m$ gemäss \ref{Frequenznormierung}) \\
         $R_r$       & Tatsächlicher Wert von $R_2$ gemäss Topologie Skript S. 409
     \end{tabular}

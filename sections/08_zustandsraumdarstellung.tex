@@ -6,14 +6,15 @@ von $n$ Gleichungen $1.$ Ordnung darzustellen.
 
 \subsection{Vorteile der Zustandsraumdarstellung}{253-254}
 
-\begin{itemize}
-    \item Innere Systemstabilitäten können erkannt werden, die bei der Untersuchung der UTF 
+\begin{outline}
+    \1 Innere Systemstabilitäten können erkannt werden, die bei der Untersuchung der UTF 
         nicht festgestellt werden können \textrightarrow\ Einblick in den \textbf{inneren Aufbau} eines Systems
-    \item Wichtig in der Regelungstechnik
-    \item ZRD hat Vorteile bei der \textbf{numerischen} Behandlung von Systemen
-    \item Beschreibung durch \textbf{Energiespeicher}, in der Elektrotechnik $L$ und $C$
-    \item \textbf{Nur Integratoren} werden verwendet, keine Differentiatoren
-\end{itemize}
+    \1 Wichtig in der Regelungstechnik
+    \1ZRD hat Vorteile bei der \textbf{numerischen} Behandlung von Systemen
+    \1 Beschreibung durch \textbf{Energiespeicher}
+        \2 in der Elektrotechnik $L$ und $C$
+    \1 \textbf{Nur Integratoren} werden verwendet, keine Differentiatoren
+\end{outline}
 
 
 \subsection{Zustandsraumdarstellung (ZRD) im Zeitbereich}{255}
@@ -72,7 +73,7 @@ von $n$ Gleichungen $1.$ Ordnung darzustellen.
 \begin{minipage}[c]{0.5\columnwidth}
     \begin{empheq}[box=\fbox] {align*}
         \text{Maschen: } & L \cdot \frac{\partial i(t)}{\partial t} + y(t) = x(t) \\
-        \text{Knoten: }  & \frac{1}{C} \int\limits_{- \infty}^t \Big( i(\tau) - \frac{y(\tau)}{R} \Big) \, \diff \tau = y(t)
+        \text{Knoten: }  & \frac{1}{C} \int\limits_{- \infty}^t \left\lgroup i(\tau) - \frac{y(\tau)}{R}  \right\rgroup \, \diff \tau = y(t)
     \end{empheq}
 \end{minipage}
 \hfill
@@ -228,9 +229,9 @@ Mit einer \textbf{Transformationsmatrix} $\bm{T}$ ($n \times n$-Matrix, nicht si
     \includegraphics[width=\columnwidth]{images/aequivalente_zrd.png}
 \end{minipage}
 
-Die obige ZRD ist \textbf{äquivalent} zur ZRD aus Abschnitt ~\ref{ZRD Zeitbereich} bezüglich $\underline{y}(t)$ und $\underline{u}(t)$.
-Die bedeutet, dass die \textbf{Zustandsgrössen} $\underline{\xi}(t)$ und $\underline{x}(t)$ \textbf{willkürlich} gewählt 
-werden können, solange $\bm{T}$ nicht singulär ist (Determinante von $\bm{T} \neq 0$) \\
+Die obige ZRD ist \textbf{äquivalent} zur ZRD aus Abschnitt~\ref{ZRD Zeitbereich} bezüglich $\underline{y}(t)$ und $\underline{u}(t)$.
+Das bedeutet, dass die \textbf{Zustandsgrössen} $\underline{\xi}(t)$ und $\underline{x}(t)$ \textbf{willkürlich} gewählt 
+werden können, solange $\bm{T}$ nicht singulär ist (Determinante von $\bm{T} \neq 0$). \\
 
 Physikalisch sinnvolle Zustandsgrössen sind:
 \begin{itemize}
@@ -283,18 +284,18 @@ $\bm{\hat{A}} = \bm{ T A T}^{-1}$ wird dann üblicherweise $\bm{A_{\rm diag}}$ v
 
 \begin{minipage}[t]{0.4\columnwidth}
     \begin{center}
-        \myul{\textbf{Nicht-entkoppeltes System}}
-    \end{center}
-    $$ \bm{A} = \begin{bmatrix*}[r] -2 & 7 \\ -1 & 6 \end{bmatrix*} $$
-    \includegraphics[width=\columnwidth]{images/kreuzform.png}
-\end{minipage}
-\hfill
-\begin{minipage}[t]{0.48\columnwidth}
-    \begin{center}
         \myul{\textbf{Entkoppeltes System}}
     \end{center}
     $$ \bm{\hat{A}} = \bm{A_{\rm diag}} = \begin{bmatrix*}[r] -1 & 0 \\ 0 & 5 \end{bmatrix*} $$
     \includegraphics[width=\columnwidth]{images/parallelform.png}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\columnwidth}
+    \begin{center}
+        \myul{\textbf{Nicht-entkoppeltes System}}
+    \end{center}
+    $$ \bm{A} = \begin{bmatrix*}[r] -2 & 7 \\ -1 & 6 \end{bmatrix*} $$
+    \includegraphics[width=\columnwidth]{images/kreuzform.png}
 \end{minipage}
 
 
@@ -333,7 +334,7 @@ $\bm{\hat{A}} = \bm{ T A T}^{-1}$ wird dann üblicherweise $\bm{A_{\rm diag}}$ v
     \end{vmatrix*} = (\lambda + 2) \cdot (\lambda - 6) - 7 \cdot (-1) = 0 $$
 \end{minipage}
 
-\textrightarrow\ Mitternachtsformel liefert die Eigenwerte $\lambda_1 = -1$ und $\lambda_2 = 5$
+\textrightarrow\ Mitternachtsformel $\lambda_{1,2} =\frac{-b \pm \sqrt{b^2 - 4 a c}}{2a}$ liefert die Eigenwerte $\lambda_1 = -1$ und $\lambda_2 = 5$
 
 \begin{minipage}[t]{0.56\columnwidth}
     Ersten Eigenwert $\lambda_1 = -1$ in $(\lambda_1 \bm{I} - \bm{A}) \cdot \vec{v}_1 = \vec{0}$ einsetzen
@@ -351,7 +352,7 @@ $\bm{\hat{A}} = \bm{ T A T}^{-1}$ wird dann üblicherweise $\bm{A_{\rm diag}}$ v
 \end{minipage}
 \hfill
 \begin{minipage}[c]{0.56\columnwidth}
-   Gleichen Vorgehen für zweiten Eigenvektor $\vec{v}_2$
+   Gleiches Vorgehen für zweiten Eigenvektor $\vec{v}_2$
 \end{minipage}
 
 \begin{minipage}[c]{0.48\columnwidth}
@@ -367,14 +368,14 @@ $\bm{\hat{A}} = \bm{ T A T}^{-1}$ wird dann üblicherweise $\bm{A_{\rm diag}}$ v
 \label{ZRD Lösung Zeitbereich}
 
 Die Zustandsgleichung $\underline{\dot{x}}(t) = \bm{A} \underline{x}(t) + \bm{B} \underline{u}(t)$ ist eine Differentialgleichung.
-Sie soll mit dem Ansatz einer Exponentialfunktion gelöst werden. Für Systeme mit nur einem Zustand würde man den Ansatz 
+Sie soll mit dem Ansatz einer Exponentialfunktion gelöst werden. Für Systeme mit nur \textbf{einem Zustand} würde man den Ansatz 
 $\underline{x}(t) = e^{at}$ wählen. \\
-Da im Allgemeinen Systeme mit mehreren Zuständen betrachtet werden, wird der folgende Ansatz gewählt:
+Da im Allgemeinen Systeme mit \textbf{mehreren Zuständen} betrachtet werden, wird der folgende Ansatz gewählt:
 
 $$ e^{\bm{A} t} = \bm{I} + \bm{A} t + \frac{\bm{A}^2}{2!} t^2 + \cdots + \frac{\bm{A}^k}{k!} t^k + \cdots 
     = \sum\limits_{k=0}^{\infty} \frac{\bm{A}^k t^k}{k!} $$
 
-Der Ansatz ist beschrieben als desser \textbf{Taylor-Reihe.}
+Der Ansatz ist beschrieben als \textbf{Taylor-Reihe.}
 
 Durch einsetzen des Ansatzes in die Zustandsgleichung ergibt sich für den Ausgangsvektor $\underline{y}(t)$ die folgende Lösung
 der ZRD im Zeitbereich
@@ -391,7 +392,7 @@ Die Fundamentalmatrix (auch Transitionsmatrix genannt) ist definiert als
 $$ \boxed{  e^{\bm{A} t} = \bm{\Phi}(t) } $$
 
 Sie wird benötigt, um die Zustandsraumdarstellung im \textbf{Zeitbereich} zu lösen.
-Es gibt mehrere Methoden, die quadratische $(n \times n)$ Fundamentalmatrix zu bestimmen
+Es gibt mehrere Methoden, die quadratische $(n \times n)$ Fundamentalmatrix zu bestimmen.
 
 
 \subsubsection{Methode 1 -- Inverse Laplace-Transformation}
@@ -399,12 +400,12 @@ Es gibt mehrere Methoden, die quadratische $(n \times n)$ Fundamentalmatrix zu b
 $$ \boxed{ \bm{\Phi}(t) = \mathcal{L}^{-1} \Bigl\{ (s \bm{I} - \bm{A}^{-1})  \Bigr\} } $$
 
 
-\example{Methode 1 -- Inverse Laplace-Transformation}
+\example{Inverse Laplace-Transformation}
 
 Mit der \textbf{Systemmatrix} $\bm{A} = \begin{bmatrix*}[r] -1 & 0 \\ 1 & -2 \end{bmatrix*}$ ergibt sich 
 $(s \bm{I} - \bm{A}) = \begin{bmatrix*} s+1 & 0 \\ -1 & s+2 \end{bmatrix*}$
 
-Somit ist $(s \bm{I} - \bm{A})^{-1} = \frac{\begin{bmatrix*} s+1 & 0 \\ -1 & s+2 \end{bmatrix*}}{(s+1)(s+2)} \,
+Somit ist $(s \bm{I} - \bm{A})^{-1} = \dfrac{\begin{bmatrix*} s+1 & 0 \\ -1 & s+2 \end{bmatrix*}}{(s+1)(s+2)} \,
 \laplace \, \begin{bmatrix*} e^{-t} & 0 \\ e^{-t} - e^{-2t} & e^{-2t} \end{bmatrix*} = \bm{\Phi}(t)$
 
 
@@ -413,15 +414,15 @@ Somit ist $(s \bm{I} - \bm{A})^{-1} = \frac{\begin{bmatrix*} s+1 & 0 \\ -1 & s+2
 \begin{minipage}[c]{0.6\columnwidth}
     $$ \bm{\Phi}(t) = e^{\bm{A} t} = \underbrace{ 
     \begin{bmatrix*} 
-        e^{\lambda_1 t} &                   & \cdots        & 0      \\
-                        & e^{\lambda_2 t}   &               & \vdots \\
-        \vdots          &                   & \ddots        &        \\
-        0               & \cdots            &               & e^{\lambda_n t}
+        e^{\lambda_1 t} & 0                 & \cdots        & 0      \\
+        0               & e^{\lambda_2 t}   &               & \vdots \\
+        \vdots          &                   & \ddots        & 0      \\
+        0               & \cdots            & 0             & e^{\lambda_n t}
 \end{bmatrix*}}_{\bm{\Phi_{\rm diag}(t)}} \cdot \bm{V}^{-1} $$
 \end{minipage}
 \hfill
 \begin{minipage}[c]{0.36\columnwidth}
-    Wenn $\bm{A_{\rm diag}} = \bm{V}^{-1} \cdot A \cdot \bm{V}$ ist und $\lambda_i$ die Eigenwerte von $\bm{A}$ sind
+    Wenn $\bm{A_{\rm diag}} = \bm{V}^{-1} \cdot A \cdot \bm{V}$ ist und $\lambda_i$ die Eigenwerte von $\bm{A}$ sind.
 \end{minipage}
 
 
@@ -457,11 +458,11 @@ Somit ist $(s \bm{I} - \bm{A})^{-1} = \frac{\begin{bmatrix*} s+1 & 0 \\ -1 & s+2
     = \begin{bmatrix*} a^k & 0 \\ \sum\limits_{l=0}^{k-1} a^{k-l-1} c^l  & c^k \end{bmatrix*} $$
 \end{minipage}
 
-\example{Methode 5 -- Definition der Reihenentwicklung}
+\example{Definition der Reihenentwicklung}
 
 Für $a = 1$ und $c=-1$ ergibt sich für $\bm{A}^k$
 $$ \bm{A}^k = \begin{bmatrix*} a & 0 \\ 1 & c \end{bmatrix*}^k 
-    = \begin{bmatrix*} \cor{(-1)^k} & 0 \\ \cgn{(-1)^k} - \cvt{(-2)^k} & cbl{(-2)^k} \end{bmatrix*} $$
+    = \begin{bmatrix*} \cor{(-1)^k} & 0 \\ \cgn{(-1)^k} - \cvt{(-2)^k} & \cbl{(-2)^k} \end{bmatrix*} $$
 
 Die entsprechende Fundamentalmatrix ist mittels Anwendung der Taylor-Reihe somit
 $$ e^{\bm{A} t} = \sum\limits_{k=0}^{\infty} \frac{\bm{A}^k t^k}{k!} =
@@ -554,7 +555,7 @@ dass alle Eigenwerte der Systemmatrix $\bm{A}$ des Systems einen negativen Realt
 
 \subsection{Steuerbarkeit}{277}
 
-Gemäss der äquivalenten ZRD-Darstellung (siehe Abschnitt~\ref{Äquivalente ZRD}) werden die Matritzen $\bm{\hat{A}}$,
+Gemäss der äquivalenten ZRD (siehe Abschnitt~\ref{Äquivalente ZRD}) werden die Matritzen $\bm{\hat{A}}$,
 $\bm{\hat{B}}$, $\bm{\hat{C}}$ und $\bm{\hat{D}}$ mit einer Matrix $\bm{V}$ diagonalisert, sodass 
 $\bm{\hat{A}} = \bm{A_{\rm diag}} = \bm{V^{-1} A V}$, $\bm{\hat{B}} = \bm{V^{-1} B}$, 
 $\bm{\hat{C}} = \bm{C V}$ und $\bm{\hat{D}} = \bm{D}$
@@ -618,7 +619,7 @@ Ein System ist \textbf{vollständig steuerbar}, wenn
 
 \subsection{Beobachtbarkeit}{278}
 
-Gemäss der äquivalenten ZRD-Darstellung (siehe Abschnitt~\ref{Äquivalente ZRD}) werden die Matritzen $\bm{\hat{A}}$,
+Gemäss der äquivalenten ZRD (siehe Abschnitt~\ref{Äquivalente ZRD}) werden die Matritzen $\bm{\hat{A}}$,
 $\bm{\hat{B}}$, $\bm{\hat{C}}$ und $\bm{\hat{D}}$ mit einer Matrix $\bm{V}$ diagonalisert, sodass 
 $\bm{\hat{A}} = \bm{A_{\rm diag}} = \bm{V^{-1} A V}$, $\bm{\hat{B}} = \bm{V^{-1} B}$, 
 $\bm{\hat{C}} = \bm{C V}$ und $\bm{\hat{D}} = \bm{D}$
@@ -701,7 +702,7 @@ Diese UTF $H(s)$ kann mit verschiedenen ZRDs (\textbf{Normalformen}) abgebildet 
 
 Die Regelungsnormalform kann \textbf{direkt aus der UTF} $H(s)$ aufgestellt werden.
 
-Für $m = n$ gilt sieht die Regelungsnormalform folgendermassen aus:
+Für $m = n$ sieht die Regelungsnormalform folgendermassen aus:
 \begin{empheq}[box=\fbox] {align*}
     \begin{bmatrix} \dot{x}_1(t) \\ \dot{x}_2(t) \\ \vdots \\ \dot{x}_{n-1}(t) \\ \dot{x}_n(t)  \end{bmatrix} &= 
     \begin{bmatrix} 
@@ -738,7 +739,7 @@ In den meisten Fällen ist $m < n$ und die \textbf{Ausgangsgleichung} vereinfach
 \subsubsection{Beobachtungsnormalform}{269-270}
 
 Ein System, welches in Beobachtungsnormalform dargestellt werden kann, ist \textbf{beobachtbar!}
-ür $m = n$ gilt sieht die Regelungsnormalform folgendermassen aus:
+Für $m = n$ sieht die Regelungsnormalform folgendermassen aus:
 \begin{empheq}[box=\fbox] {align*}
     \begin{bmatrix} \dot{x}_1(t) \\ \dot{x}_2(t) \\ \vdots \\ \dot{x}_{n-1}(t) \\ \dot{x}_n(t)  \end{bmatrix} &= 
     \begin{bmatrix} 
@@ -777,7 +778,7 @@ In den meisten Fällen ist $m < n$ und die \textbf{Zustandsgleichung} vereinfach
 \end{empheq}
 
 
-\subsubsection{Regelungsnormalform $\Leftrightarrow$ Beobachtungsnormalform}
+\subsubsection{Regelungsnormalform \textlrarrow\ Beobachtungsnormalform}
 
 Die beiden Formen sind \textbf{dual} und weisen folgende Zusammenhänge auf (\textbf{Transposition}):
 
