@@ -356,7 +356,7 @@ $\bm{\hat{A}} = \bm{ T A T}^{-1}$ wird dann üblicherweise $\bm{A_{\rm diag}}$ v
 \end{minipage}
 
 \begin{minipage}[c]{0.48\columnwidth}
-    $$ \Lambda = \begin{bmatrix} \lambda_1 & 0 \\ 0 & \lambda_2 \end{bmatrix} $$
+    $$ \bm{\Lambda} = \bm{A_{\rm diag}} =  \begin{bmatrix} \lambda_1 & 0 \\ 0 & \lambda_2 \end{bmatrix} $$
 \end{minipage}
 \hfill
 \begin{minipage}[c]{0.48\columnwidth}
@@ -422,7 +422,7 @@ Somit ist $(s \bm{I} - \bm{A})^{-1} = \dfrac{\begin{bmatrix*} s+1 & 0 \\ -1 & s+
 \end{minipage}
 \hfill
 \begin{minipage}[c]{0.36\columnwidth}
-    Wenn $\bm{A_{\rm diag}} = \bm{V}^{-1} \cdot A \cdot \bm{V}$ ist und $\lambda_i$ die Eigenwerte von $\bm{A}$ sind.
+    Wenn $\bm{A_{\rm diag}} = \bm{V}^{-1} \cdot \bm{A} \cdot \bm{V}$ ist und $\lambda_i$ die Eigenwerte von $\bm{A}$ sind.
 \end{minipage}
 
 
@@ -460,7 +460,7 @@ Somit ist $(s \bm{I} - \bm{A})^{-1} = \dfrac{\begin{bmatrix*} s+1 & 0 \\ -1 & s+
 
 \example{Definition der Reihenentwicklung}
 
-Für $a = 1$ und $c=-1$ ergibt sich für $\bm{A}^k$
+Für $a = 1$ und $c=-2$ ergibt sich für $\bm{A}^k$
 $$ \bm{A}^k = \begin{bmatrix*} a & 0 \\ 1 & c \end{bmatrix*}^k 
     = \begin{bmatrix*} \cor{(-1)^k} & 0 \\ \cgn{(-1)^k} - \cvt{(-2)^k} & \cbl{(-2)^k} \end{bmatrix*} $$
 
