@@ -23,8 +23,8 @@ $$ \boxed{ H(s) = \frac{Y(s)}{X(s)} = \frac{b_m s^m + b_{m-1} s^{m-1} + \cdots +
 \begin{ctabular}{Ol}
     N(s) & Zählerpolynom mit konstanten, reellen Koeffizienten \\
     D(s) & Nennerpolynom mit konstanten, reellen Koeffizienten \\
-    x(t) & Eingangssignal \\
-    y(t) & Ausgangssignal \\
+    X(s) & Eingangssignal im Frequenzbereich \\
+    Y(s) & Ausgangssignal im Frequenzbereich \\
 \end{ctabular}
 
 \vspace{0.2cm}
@@ -94,17 +94,17 @@ Für \textbf{Stabilität und Instabilität} gilt eine \textbf{ODER-Verknüpfung}
 
 \begin{outline}
     \1 \textbf{Stabil:} 
-        \2 Alle Polstellen in linker Halbebene (LHE)
+        \2 Alle Polstellen in linker Halbebene (LHE) \textrightarrow\ $\sigma < 0$
         \2 Keine Polstellen vorhanden 
     \1 \textbf{Asymptotisch stabil:}
         \2 Polstellen nur in der linken Halbebene (LHE)
     \1 \textbf{Grenzstabil:} 
-        \2 \textbf{Keine} Polstellen in der rechten Halbebene (RHE)
-        \2 Mindestens eine \textbf{einfache Polstelle} auf imaginärer Achse
-        \2 \textbf{Keine doppelten} Polstellen auf der imaginären Achse
+        \2 \textbf{Keine} Polstellen in der rechten Halbebene (RHE) \textrightarrow\ $\sigma > 0$
+        \2 Mindestens eine \textbf{einfache Polstelle} auf imaginärer Achse \textrightarrow\ $\sigma = 0$
+        \2 \textbf{Keine doppelten} Polstellen auf der imaginären Achse \textrightarrow\ $\sigma = 0$
     \1 \textbf{Instabil:} 
-        \2 Mindestens eine Polstelle in der rechten Halbebene (RHE)
-        \2 Mindestens eine \textbf{mehrfache Polstelle} auf der imaginären Achse
+        \2 Mindestens eine Polstelle in der rechten Halbebene (RHE) \textrightarrow\ $\sigma > 0$
+        \2 Mindestens eine \textbf{mehrfache Polstelle} auf der imaginären Achse \textrightarrow\ $\sigma = 0$
 \end{outline}
 
 
@@ -307,7 +307,8 @@ Für einen Allpass gilt:
 
 \begin{outline}
     \1 Minimalphasennetzwerke: 
-        \2 besitzen \textbf{keine Nullstellen in der rechten Halbebene (RHE)}
+        \2 besitzen \textbf{keine Nullstellen in der rechten Halbebene (RHE)} ($\sigma \leq 0$) \\
+            \textrightarrow\ Nullstellen auf der $\jimg \omega$-Achse sind erlaubt!
         \2 \textbf{entweder} ein frei wählbarer Amplituden- \textbf{oder} Phasengang
     \1 Nicht-Minimalphasennetzwerke
         \2 Amplituden- und Phasengang unabhängig voneinander wählbar

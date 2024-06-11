@@ -1,0 +1,47 @@
+\section{Anhang}
+
+\subsection{Ableitungsregeln}
+
+%TODO
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{ll}
+    Produktregel    & $ (f(x) \cdot g(x))' = f'(x) \cdot g(x) + f(x) \cdot g'(x) $ \\
+    Quotientenregel & $\left( \frac{u(x)}{v(x)} \right) ' = \frac{u'(x) \cdot v(x) - u(x) \cdot v'(x)}{v(x) ^2}$ \\
+    Kettenregel     & $ g(f(x))' =  g'(f(x)) \cdot f'(x)$
+\end{tabular}
+\renewcommand{\arraystretch}{1}
+
+
+\subsection{Ableitungs-Tabelle}
+
+\begin{minipage}[t]{0.48\columnwidth}
+    \begin{tabular}{c c}
+        \toprule
+        \textbf{Function $\boldsymbol{f(x)$}} & \textbf{Derivative $\frac{\diff f(x)}{\diff x}$} \\
+        \midrule
+        $1$             & $0$ \\
+        $0$             & $0$ \\
+        $\frac{1}{x}$   & $-\frac{1}{x^2}$ \\
+        $x^a$           & $a \cdot x^{a-1}$ \\
+        $\sqrt{x}$      & $\frac{1}{2 \sqrt{x}}$ \\
+        $e^x$           & $e^x$ \\
+        $\ln(x)$        & $\frac{1}{x}$ \\
+        \bottomrule
+    \end{tabular}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\columnwidth}
+    \begin{tabular}{c c}
+        \toprule
+        \textbf{Function $\boldsymbol{f(x)$}} & \textbf{Derivative $\frac{\diff f(x)}{\diff x}$} \\
+        \midrule
+        $\sin(x)$       & $\cos(x)$ \\
+        $\cos(x)$        & $- \sin(x)$ \\
+        $\tan(x)$       & $\frac{1}{\cos^2(x)} = 1 + \tan^2(x)$ \\
+        $\arcsin(x)$    & $\frac{1}{\sqrt{1 - x^2}}$ \\
+        $\arccos(x)$    & $- \frac{1}{\sqrt{1 - x^2}}$ \\
+        $\arctan(x)$    & $\frac{1}{1 + x^2}$ \\
+        $a^x$           & $\ln(a) \cdot a^x$ \\
+        \bottomrule
+    \end{tabular}
+\end{minipage}
