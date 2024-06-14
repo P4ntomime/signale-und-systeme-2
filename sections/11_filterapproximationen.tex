@@ -34,8 +34,8 @@ $$ \boxed{ \omega_c = \frac{\omega_D}{\sqrt{10^{\frac{\alpha}{10 \cdot n}} -1}} 
 
 \begin{itemize}
     \item Alle Pole am \textbf{gleichen Ort} auf negativer $\sigma$-Achse \textrightarrow\ Allpolfilter
-    \item Für $\Omega = 0$ ist für sämtliche $n$: $|H(0)| = H_{\rm max} = 1$
-    \item Für $\Omega = 1$ ist für sämtliche $n$: $|H(\jimg)| = \frac{H_{\rm max}}{\sqrt{2}} = \frac{1}{\sqrt{2}}$
+    \item Für $\Omega = 0$ ist für sämtliche $n$: $|H(0)| = H_{\max} = 1$
+    \item Für $\Omega = 1$ ist für sämtliche $n$: $|H(\jimg)| = \frac{H_{\max}}{\sqrt{2}} = \frac{1}{\sqrt{2}}$
         \textrightarrow\ $3 \, \deci \bel$ Dämpfung
     \item Für $\Omega \gg 1$ wird $|H(\jimg \Omega)| \approx \frac{1}{\Omega^n}$ \textrightarrow\ $\bm{- n \cdot 20 \, \deci \bel /}$ \textbf{Dekade}
     \item Amplitudengang bei $\Omega = 0$ maximal flach, da alle Ableitungen $=0$ sind
@@ -80,8 +80,8 @@ $$ \boxed{ \omega_c = \frac{\omega_D}{\sqrt{10^{\frac{\alpha}{10 \cdot n}} -1}} 
 
 \begin{outline}
     \1 \textbf{Durchlassbereich}
-        \2 Für $\Omega = 0$ ist für sämtliche $n$: $|H(0)| = H_{\rm max} = 1$
-        \2 Für $\Omega = 1$ ist für sämtliche $n$: $|H(\jimg)| = \frac{H_{\rm max}}{\sqrt{2}} = \frac{1}{\sqrt{2}}$
+        \2 Für $\Omega = 0$ ist für sämtliche $n$: $|H(0)| = H_{\max} = 1$
+        \2 Für $\Omega = 1$ ist für sämtliche $n$: $|H(\jimg)| = \frac{H_{\max}}{\sqrt{2}} = \frac{1}{\sqrt{2}}$
             \textrightarrow\ $3 \, \deci \bel$ Dämpfung
         \2 Amplitudengang bei $\Omega = 0$ maximal flach, da alle Ableitungen $=0$ sind
 
@@ -171,11 +171,11 @@ $$ \text{Koeffizientenvergleich:} \quad D(S) \cdot D(-S) = S^4 + (2 b_1 - a_1^2)
 Aus dem Toleranzschema lassen sich für die 'Ecken' die folgenden beiden Bedingungen aufstellen:
 
 \begin{minipage}[c]{0.48\columnwidth}
-    $$ A(\Omega_D) = 10 \cdot \log_{10}(1 + \Omega_D^{2n}) = A_{\rm max} $$
+    $$ A(\Omega_D) = 10 \cdot \log_{10}(1 + \Omega_D^{2n}) = A_{\max} $$
 \end{minipage}
 \hfill
 \begin{minipage}[c]{0.48\columnwidth}
-    $$ A(\Omega_S) = 10 \cdot \log_{10}(1 + \Omega_S^{2n}) = A_{\rm min} $$
+    $$ A(\Omega_S) = 10 \cdot \log_{10}(1 + \Omega_S^{2n}) = A_{\min} $$
 \end{minipage}
 
 \vspace{0.2cm}
@@ -187,7 +187,7 @@ Aus dem Toleranzschema lassen sich für die 'Ecken' die folgenden beiden Bedingu
 \end{minipage}
 \hfill
 \begin{minipage}[c]{0.48\columnwidth}
-    $$ \boxed{ n =  \left\lceil \frac{\log_{10} \Bigl( \frac{10^{A_{\rm min / 10}} - 1}{10^{A_{\rm max / 10}} - 1}  \Bigr) }
+    $$ \boxed{ n =  \left\lceil \frac{\log_{10} \Bigl( \frac{10^{A_{\min / 10}} - 1}{10^{A_{\max / 10}} - 1}  \Bigr) }
         {2 \cdot \log_{10}\Bigl( \frac{\Omega_S}{\Omega_D} \Bigr)}  \right\rceil } $$
 \end{minipage}
 
@@ -238,8 +238,8 @@ Das Tschebyscheff-Polynom $C_n(\Omega)$ ist im Durchlassbereich und im Sperrbere
 Für die Ordnung $n \geq 2$ lässt sich das Tschebyscheff-Polynom $C_n(\Omega)$ mittels Rekursionsformel berechnen
 $$ \boxed{ C_n(\Omega) = 2 \, \Omega \, C_{n-1}(\Omega) - C_{n-2}(\Omega) }  \qquad C_0(\Omega) = 1 \qquad C_1(\Omega) = \Omega $$
 
-Zwischen dem Rippelfaktor $e$ und der maximalen Dämpfung $A_{\rm max}$ gilt der Zusammenhang:
-$$ \boxed{ A_{\rm max} = 10 \cdot \log_{10}(1 + e^2) \quad \Leftrightarrow \quad e = \sqrt{10^{\frac{A_{\rm max}}{10}} -1} } $$
+Zwischen dem Rippelfaktor $e$ und der maximalen Dämpfung $A_{\max}$ gilt der Zusammenhang:
+$$ \boxed{ A_{\max} = 10 \cdot \log_{10}(1 + e^2) \quad \Leftrightarrow \quad e = \sqrt{10^{\frac{A_{\max}}{10}} -1} } $$
 
 
 \subsubsection{Eigenschaften der Tschebyscheff-\uproman{1}-Approximation}{311}
@@ -254,7 +254,7 @@ $C_n$ monoton mit $\Omega$ zu.
 
 \begin{outline}
     \1 \textbf{Durchlassbereich}
-        \2 Für $\Omega = 0$ ist für \textbf{un}gerade $n$: $|H(0)| = H_{\rm max} = 1$
+        \2 Für $\Omega = 0$ ist für \textbf{un}gerade $n$: $|H(0)| = H_{\max} = 1$
         \2 Für $\Omega = 0$ ist für gerade $n$: $|H(0)| = \frac{1}{\sqrt{1 + e^2}}$
         \2 Für $\Omega = 1$ ist für sämtliche $n$: $|H(\jimg)| = \frac{1}{\sqrt{1 + e^2}}$ 
             \textrightarrow\ \textbf{nicht} $3 \, \deci \bel$ Dämpfung
@@ -283,7 +283,7 @@ $C_n$ monoton mit $\Omega$ zu.
 \begin{minipage}[t]{0.48\columnwidth}
     \subsubsection{Filterordnung}{316}
 
-    $$ \boxed{ n =  \left\lceil \frac{\arccos \Bigl( \sqrt{ \frac{10^{A_{\rm min / 10}} - 1}{10^{A_{\rm max / 10}} - 1} } \Bigr) }
+    $$ \boxed{ n =  \left\lceil \frac{\arccos \Bigl( \sqrt{ \frac{10^{A_{\min / 10}} - 1}{10^{A_{\max / 10}} - 1} } \Bigr) }
         {\arccos \Bigl( \frac{\Omega_S}{\Omega_D} \Bigr)}  \right\rceil } $$
     \textrightarrow\ \textbf{Nomogramme!}
 \end{minipage}
@@ -331,7 +331,7 @@ $C_n$ monoton mit $\Omega$ zu.
 \subsubsection{Filterordnung}{319}
 
 \begin{minipage}[c]{0.4\columnwidth}
-    $$ \boxed{ n =  \left\lceil \frac{\arccos \Bigl( \sqrt{ \frac{10^{A_{\rm min / 10}} - 1}{10^{A_{\rm max / 10}} - 1} } \Bigr) }
+    $$ \boxed{ n =  \left\lceil \frac{\arccos \Bigl( \sqrt{ \frac{10^{A_{\min / 10}} - 1}{10^{A_{\max / 10}} - 1} } \Bigr) }
     {\arccos \Bigl( \frac{\Omega_S}{\Omega_D} \Bigr)}  \right\rceil } $$
 \end{minipage}
 \hfill
@@ -348,7 +348,7 @@ $C_n$ monoton mit $\Omega$ zu.
 \end{minipage}
 \hfill
 \begin{minipage}[c]{0.48\columnwidth}
-    \textbf{Kombination von Tschebyscheff-\uproman{1} und Tschebyscheff-\uproman{2}} \\
+    \textbf{Kombination von Tschebyscheff-\uproman{1} und Tschebyscheff-\uproman{2}}
 
     Daher spricht man auch von Complete-Chebyshev- oder Chebyshev-Cauer-Filtern (CC-Filter).
 \end{minipage}
@@ -372,8 +372,8 @@ $C_n$ monoton mit $\Omega$ zu.
 
 \subsubsection{Filterordnung}{326}
 
-$$ \boxed{ n = \left\lceil \frac{ K \Bigg( \Big( \frac{\Omega_D}{\Omega_S} \Big)^2 \Bigg) \, K \Bigg( 1 - \frac{A_{\rm max / 10} - 1}{A_{\rm min / 10} - 1} \Bigg) }
-    { K \Bigg( 1 -\Big( \frac{\Omega_D}{\Omega_S} \Big)^2 \Bigg) \, K \Bigg(\frac{A_{\rm max / 10} - 1}{A_{\rm min / 10} - 1} \Bigg) }  \right\rceil 
+$$ \boxed{ n = \left\lceil \frac{ K \Bigg( \Big( \frac{\Omega_D}{\Omega_S} \Big)^2 \Bigg) \, K \Bigg( 1 - \frac{A_{\max / 10} - 1}{A_{\min / 10} - 1} \Bigg) }
+    { K \Bigg( 1 -\Big( \frac{\Omega_D}{\Omega_S} \Big)^2 \Bigg) \, K \Bigg(\frac{A_{\max / 10} - 1}{A_{\min / 10} - 1} \Bigg) }  \right\rceil 
     \quad \text{mit } K(k) = \int\limits_{0}^{\frac{\pi}{2} }  \frac{1}{\sqrt{1- k \sin^2(\theta)}} \, \diff \theta }$$
     \textrightarrow\ Nomogramm!
 
@@ -408,3 +408,4 @@ $$ H(S) = e^{-S} = \frac{1}{e^S} \approx \frac{1}{D(S)} $$
 \begin{minipage}[c]{0.4\columnwidth}
     \includegraphics[width=\columnwidth]{images/filter_bessel_phasenlaufzeit.png}
 \end{minipage}
+
