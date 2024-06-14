@@ -212,7 +212,7 @@ $$ H(s) = \frac{b_i s^i + b_{i-1} s^{i-1} \cdots b_1 s^1 + b_0}{a_i s^i + a_{i-1
 
 Mit einer \textbf{Transformationsmatrix} $\bm{T}$ ($n \times n$-Matrix, nicht singulär, $\bm{T T^{-1} = I = T^{-1} T}$) kann man 
 \textbf{verschiedenste Zustandsgrössen und Zustandsraumdarstellungen} erhalten, die aber alle ein 
-\textbf{identisches Systemverhalten} aufweisen. \\
+\textbf{identisches Systemverhalten} aufweisen.
 % Somit kann eine ZRD durch \textbf{verschiedene Schaltungen} realisiert werden, solange diese Schaltungen die 
 % \textbf{gleiche Übertragungsfunktion} liefern!
 
@@ -231,7 +231,7 @@ Mit einer \textbf{Transformationsmatrix} $\bm{T}$ ($n \times n$-Matrix, nicht si
 
 Die obige ZRD ist \textbf{äquivalent} zur ZRD aus Abschnitt~\ref{ZRD Zeitbereich} bezüglich $\underline{y}(t)$ und $\underline{u}(t)$.
 Das bedeutet, dass die \textbf{Zustandsgrössen} $\underline{\xi}(t)$ und $\underline{x}(t)$ \textbf{willkürlich} gewählt 
-werden können, solange $\bm{T}$ nicht singulär ist (Determinante von $\bm{T} \neq 0$). \\
+werden können, solange $\bm{T}$ nicht singulär ist (Determinante von $\bm{T} \neq 0$).
 
 Physikalisch sinnvolle Zustandsgrössen sind:
 \begin{itemize}
@@ -240,7 +240,7 @@ Physikalisch sinnvolle Zustandsgrössen sind:
 \end{itemize}
 
 
-\subsection[Matrizen diagonalisieren]{Matrizen diagonalisieren}
+\subsection{Matrizen diagonalisieren}
 
 Oft wird die \textbf{Systemmatrix} $\bm{A}$ diagonalisiert, um \textbf{entkoppelte Zustände} zu erhalten. Anstelle der Matrix
 $\bm{\hat{A}} = \bm{ T A T}^{-1}$ wird dann üblicherweise $\bm{A_{\rm diag}}$ verwendet.
@@ -253,7 +253,7 @@ $\bm{\hat{A}} = \bm{ T A T}^{-1}$ wird dann üblicherweise $\bm{A_{\rm diag}}$ v
     $\bm{T}$                            & Transformationsmatrix 
 \end{tabular}
 
-\begin{minipage}[c]{0.48\columnwidth}
+\begin{minipage}[c]{0.51\columnwidth}
     $ \boxed{\bm{A_{\rm diag}} = \bm{\Lambda} =  \bm{V}^{-1} \cdot \bm{A} \cdot \bm V} \, \boxed{\bm{B_{\rm diag}} = \bm{V}^{-1} \cdot \bm{B}}$\\
     $\boxed{\bm{C_{\rm diag}} = \bm{C} \cdot \bm V} \, \boxed{\bm{D_{\rm diag}} = \bm{D}}$
 \end{minipage}
@@ -842,3 +842,4 @@ Eine weitere Darstellungsform der Diagonalform ergibt sich mittels \textbf{Trans
 
 % \subsubsection{Jorodan-Normalform für mehrfache, reelle Pole}{274}
 % nicht behandelt
+
