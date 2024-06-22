@@ -1,8 +1,30 @@
 \section{Anhang}
 
+\subsection{Übertragungsfunktionen verschiedener Filtertypen}
+
+\begin{tabular}{l l l}
+    \toprule
+    \textbf{Filtertyp}      & \textbf{UTF} $\bm{H(s)}$          & \textbf{Bemerkung} \\
+    \midrule
+    Allpass                 & $\frac{s - a}{s + a}$             & entspricht $\frac{H(-s)}{H(s)}$ \\
+    \midrule
+    Tiefpass                & $\frac{a}{s + b}$                 & Zählergrad $=0$ \\
+    \midrule
+    Hochpass                & $\frac{a s}{s + b}$               & Zählergrad $=$ Nennergrad \\
+    \midrule
+    Bandpass                & $\frac{a  s}{s^2 + b s + c}$      & Zählergrad $\neq 0$ und Zählergrad $<$ Nennergrad \\
+    \midrule
+    Bandsperre              & $\frac{s^2 + b s + c}{a s}$       & Nennergrad $\neq 0$ und Nennergrad $<$ Zählergrad \\
+    \midrule
+    FRN (Notch)             & $K \cdot \frac{s^2 + 2 \sigma_z s + \omega_p^2}{s^2 + 2 \sigma_p s + \omega_p^2}$  &    mit $\sigma_p > \sigma_z$ \\
+    \midrule   
+    FEN                     & $ K \cdot \frac{s^2 + 2 \sigma_z s + \omega_p^2}{s^2 + 2 \sigma_p s + \omega_p^2}$ &    mit $\sigma_p < \sigma_z$ \\
+    \bottomrule    
+\end{tabular}
+
+
 \subsection{Ableitungsregeln}
 
-%TODO
 \renewcommand{\arraystretch}{1.5}
 \begin{tabular}{ll}
     Produktregel    & $ (f(x) \cdot g(x))' = f'(x) \cdot g(x) + f(x) \cdot g'(x) $ \\

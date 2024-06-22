@@ -112,7 +112,7 @@ von $n$ Gleichungen $1.$ Ordnung darzustellen.
 \begin{empheq}[box=\fbox] {align*}
     \begin{bmatrix} i'(t) \\ y'(t) \end{bmatrix} &= \underbrace{ \begin{bmatrix} 0 & -\frac{1}{L} \\ \frac{1}{C} & -\frac{1}{RC} \end{bmatrix} }_{\bm{A}}
     \cdot \begin{bmatrix} i(t) \\ y(t) \end{bmatrix} + \underbrace{ \begin{bmatrix} \frac{1}{L} \\ 0 \end{bmatrix} }_{\bm{B}} \cdot x(t) \\
-    \tilde{y}(t) &= \underbrace{ \begin{bmatrix} 0 & 1 \end{bmatrix}}_{\bm{C}} \cdot \begin{bmatrix} i(t) \\ y(t) \end{bmatrix} + \underbrace{ \begin{bmatrix} 0 \end{bmatrix} }_{\bm{D}} \cdot x(t)
+    \tilde{y}(t) &= \underbrace{ \begin{bmatrix} 0 & 1 \end{bmatrix}}_{\bm{C}} \cdot \begin{bmatrix} i(t) \\ y(t) \end{bmatrix} + \underbrace{ \begin{bmatrix} 0 \end{bmatrix} }_{\bm{D}} \cdot u(t)
 \end{empheq}
 
 
@@ -130,7 +130,7 @@ $$ \text{Zustandsvektor: }  \underline{q}(t) =  \begin{bmatrix} q_1(t) \\ q_2(t)
     + \underbrace{ \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix} }_{\bm{B}} \cdot x(t) \\
     y(t) &= \underbrace{ \begin{bmatrix} -1 & 0 & 1 \end{bmatrix}}_{\bm{C}} 
     \cdot \underbrace{ \begin{bmatrix} q_1(t) \\ q_2(t) \\ q_3(t) \end{bmatrix} }_{\underline{q}(t)} 
-    + \underbrace{ \begin{bmatrix} 0 \end{bmatrix} }_{\bm{D}} \cdot x(t)
+    + \underbrace{ \begin{bmatrix} 0 \end{bmatrix} }_{\bm{D}} \cdot u(t)
 \end{empheq}
 
 
@@ -165,6 +165,9 @@ $$ \boxed{ \underline{Y}(s) = \bm{C}(s \bm{I} - \bm{A})^{-1} \underline{x}(0)
 Mit Anfangsbedingungen $x(0) = 0$ ergibt sich folgender Zusammenhang, was der Übertragungsfunktion (UTF) entspricht,
 aber im allgemeinen Fall eine \textbf{Matrix} ist.
 $$ \boxed{ \underline{Y}(s) = \underbrace{(\bm{C}(s \bm{I} - \bm{A})^{-1} \bm{B} + \bm{D} )}_{\bm{H(s)}} \underline{U}(s) } $$
+
+\textbf{Hinweis:} Die Übertragungsmatrix $\bm{H(s)}$ lässt sich auch aus den diagonalisierten Matritzen berechnen!
+$$ \boxed{ \bm{H(s)} = \bm{C_{\rm diag}}(s \bm{I} - \bm{A_{\rm diag}})^{-1} \bm{B_{\rm diag}} + \bm{D_{\rm diag}} } $$
 
 \textbf{Hinweis:} Aus einem Signalflussdiagramm (SFD) ist es meist sehr einfach, die gesuchten Grössen der ZRD zu finden.
 
@@ -411,7 +414,7 @@ Somit ist $(s \bm{I} - \bm{A})^{-1} = \dfrac{\begin{bmatrix*} s+1 & 0 \\ -1 & s+
 \subsubsection{Methode 2 -- Diagonalisierung von $\bm{\Phi}(t) = e^{\bm{A} t}$}
 
 \begin{minipage}[c]{0.6\columnwidth}
-    $$ \bm{\Phi}(t) = e^{\bm{A} t} = \underbrace{ 
+    $$ \bm{\Phi}(t) = e^{\bm{A} t} = \bm{V} \cdot \underbrace{ 
     \begin{bmatrix*} 
         e^{\lambda_1 t} & 0                 & \cdots        & 0      \\
         0               & e^{\lambda_2 t}   &               & \vdots \\
