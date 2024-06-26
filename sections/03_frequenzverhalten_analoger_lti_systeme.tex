@@ -192,7 +192,7 @@ Der Frequenzgang bzw. Amplitudengang und Phasengang werden folgendermassen darge
     \item \textbf{Nyquist-Diagramm} \\
         $H(\jimg \omega)$ wird in Polarkoordinaten mit $\omega$ als Parameter aufgezeichnet 
     \item \textbf{Bode-Diagramm} \\
-        $\alpha_{\deci \bel}(\omega)$ und $\theta(\omega)$ werden je in Funktion von $\log_{10}(\omega)$ aufgezeichnet
+        $\alpha_{\deci \bel}(\omega)=20\log_{10}\abs{H(s)}$ und $\theta(\omega)$ werden je in Funktion von $\log_{10}(\omega)$ aufgezeichnet
 \end{itemize}
 
 
@@ -232,6 +232,7 @@ $$ \boxed{ H(\jimg \omega_0) = K \cdot \frac{\cor{A_{z1} \cdot A_{z2} \cdots A_{
     \vspace{-0.2cm}
     $$ \boxed{ \theta(\omega_0) = \underbrace{\text{Phase von } K}_{\text{meistens } 0} + \sum_{i=1}^{m} \theta_{zi} - \sum_{j=1}^{m} \theta_{pj} } $$
 \end{minipage}
+Damit Pole / NS komplex konjugiert werden: Diskriminante $D = b^2-4ac \overset{!}{<} 0$
 
 
 \subsubsection{Zusammenhang mit Pol-/Nullstellendiagramm}
