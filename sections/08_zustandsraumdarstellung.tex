@@ -54,6 +54,43 @@ von $n$ Gleichungen $1.$ Ordnung darzustellen.
         Sie bestimmt die unmittelbare Wirkung der Eingangsgrösse $\underline{u}(t)$ auf den Ausgang $\underline{y}(t)$
 \end{itemize}
 
+\example{ZDR aus Differentialgleichung aufstellen}
+
+\begin{minipage}[c]{0.48\columnwidth}
+    Gegeben ist folgende DGL:
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.48\columnwidth}
+    \begin{flushleft}
+        \( \ddot{y}(t) + \dot{y}(t) + \frac{1}{2}y(t) = u(t) \)
+    \end{flushleft}
+\end{minipage}
+\par\vspace{0.1cm}
+Die Differentialgleichung kann in zwei Gleichungen 1.Ordnung zerlegt werden: $ x_2 = y $
+und $ x_1 = \dot{y} $. Somit ergibt sich folgendes dynamisches verhalten der Zustände:
+\par\vspace{0.1cm}
+\begin{minipage}[c]{0.48\columnwidth}
+    \( \dot{x_2} = \dot{y} = x_1, \)
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.48\columnwidth}
+    \hspace*{-3.4cm}\makebox[\linewidth][l]{\( \dot{x_1} = \ddot{y} = u - \dot{y} - \frac{1}{2}y = u - x_1 - \frac{1}{2}x_2 \)}
+\end{minipage}
+\par\vspace{0.1cm}
+In Matrixschreibweise ergibt sich also die ZDR:
+\par\vspace{0.1cm}
+\begin{minipage}[c]{0.48\columnwidth}
+    \( \begin{bmatrix*}[r] \dot{x_1} \\ \dot{x_1} \end{bmatrix*} = 
+    \begin{bmatrix*}[r] -1 & -\frac{1}{2} \\ 1 & 0 \end{bmatrix*} \begin{bmatrix*}[r] x_1 \\ x_2 \end{bmatrix*} +
+    \begin{bmatrix*}[r] 1 \\ 0 \end{bmatrix*} \cdot u\)
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.48\columnwidth}
+    \begin{flushleft}
+        \( y = \begin{bmatrix*}[r] 0 & 1 \end{bmatrix*} \begin{bmatrix*}[r] x_1 \\ x_2 \end{bmatrix*} 
+        +0 \cdot u\)
+    \end{flushleft}
+\end{minipage}
 
 \example{ZRD aus Schaltung aufstellen}
 
@@ -293,10 +330,10 @@ $\bm{\hat{A}} = \bm{ T A T}^{-1}$ wird dann üblicherweise $\bm{A_{\rm diag}}$ v
 \end{minipage}
 \hfill
 \begin{minipage}[c]{0.72\columnwidth}
-    $$ \abs{\lambda \bm{I} - \bm{A}} = \begin{vmatrix*}[c]
-        \lambda + 2 & -7 \\
-        1 & \lambda - 6 
-    \end{vmatrix*} = (\lambda + 2) \cdot (\lambda - 6) - 7 \cdot (-1) = 0 $$
+    $$ \abs{\bm{A} - \lambda \bm{I}} = \begin{vmatrix*}[c]
+        -2 -\lambda & 7 \\
+        -1 & 6 - \lambda
+    \end{vmatrix*} = (-2 - \lambda) \cdot (6 - \lambda) -7 \cdot (-1) = 0 $$
 \end{minipage}
 
 \textrightarrow\ Mitternachtsformel $\lambda_{1,2} =\frac{-b \pm \sqrt{b^2 - 4 a c}}{2a}$ liefert die Eigenwerte $\lambda_1 = -1$ und $\lambda_2 = 5$
@@ -431,12 +468,98 @@ Somit ist $(s \bm{I} - \bm{A})^{-1} = \dfrac{\begin{bmatrix*} s+1 & 0 \\ -1 & s+
 
 \subsubsection{Methode 3 -- Spektrale Zerlegung}
 
-\textrightarrow\ Nicht in Vorlesung behandelt
+\textrightarrow\ TODO
 
 
 \subsubsection{Methode 4 -- Satz von Cayley-Hamilton}
-\textrightarrow\ Nicht in Vorlesung behandelt
 
+Der Satz von Caley-Hamilton besagt, dass jede quadratische Matrix $\bm{A}$ ihr eigenes charakteristisches Polynom erfüllt. Das bedeutet, wenn man das
+charakteristische Polynom $p(\lambda)$ einer Matrix $\bm{A}$ berechnet und dann die Matrix $\bm{A}$ selbst einsetzt, ergibt sich die Nullmatrix.
+$$ p(\lambda) = \det(\bm{A} - \lambda \bm{I}) = a_0 + a_1\lambda + a_2\lambda^2 + \cdots + a_n\lambda^n = 0 $$
+Der Satz von Caley-Hamilton besagt nun, dass wenn man anstelle von $\lambda$ die Matrix $\bm{A}$ selbst einsetzt, die folgende Gleichung immer noch gilt:
+$$ p(\bm{A}) = \det(\bm{A} - \lambda\bm{I}) = a_0 \bm{I} + a_1\bm{A} + a_2\bm{A}^2 + \cdots + a_n\bm{A}^n = 0 $$
+
+\subsubsection*{Beispiel: Satz von Cayley-Hamilton}
+
+Gegeben sei die \(2 \times 2\) Matrix:
+\begin{center}
+\begin{minipage}[t]{0.48\columnwidth}
+    \vspace{-0.05cm}
+    $$\bm{A} = \begin{bmatrix*} 2 & 1 \\ 0 & 3 \end{bmatrix*}$$
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\columnwidth}
+    \vspace{0cm}
+    char. Polynom: \\
+    \(p(\lambda) = \det(\bm{A} - \lambda \bm{I})\)
+\end{minipage}
+\end{center}
+Einsetzen der Werte ergibt:
+$$ p(\lambda) = \det\begin{bmatrix*}[r] 2 - \lambda & 1 \\ 0 & 3 - \lambda \end{bmatrix*} = (2 - \lambda)(3 - \lambda)
+\Rightarrow p(\lambda) = \lambda^2 - 5\lambda + 6 $$
+Der Satz von Cayley-Hamilton besagt, dass:
+$$ p(\bm{A}) = \bm{A}^2 - 5\bm{A} + 6\bm{I} = \bm{0} $$
+Alle Terme können nun eingesetzt werden:
+$$ \bm{A}^2 - 5\bm{A} + 6\bm{I} =  \begin{bmatrix*}[r] 4 & 5 \\ 0 & 9 \end{bmatrix*} - \begin{bmatrix*}[r] 10 & 5 \\ 0 & 15 \end{bmatrix*} 
++ \begin{bmatrix*}[r] 6 & 0 \\ 0 & 6 \end{bmatrix*} = \begin{bmatrix*}[r] 0 & 0 \\ 0 & 0 \end{bmatrix*} $$
+
+\subsubsection*{Zusammenhang zwischen Satz von Cayley-Hamilton und der $\bm{\Phi}(t)$}
+
+Das Ziel ist es, wie bereits im vorangegangenen Beispiel, die \textbf{Fundamentalmatrix}
+$e^{\bm{A}t}$ zu bestimmen. Dies lässt sich mithilfe der folgenden Taylor-Reihe ausdrücken:
+$$ e^{\bm{A} t} = \sum\limits_{k=0}^{\infty} \frac{\bm{A}^k t^k}{k!} $$
+Um diese Reihe zu vereinfachen, wird der \textbf{Satz von Cayley-Hamilton} eingesetzt. Dieser besagt,
+dass jede quadratische Matrix $\bm{A}^k$ ihr eigenes charakteristisches Polynom erfüllt. Dadurch können
+alle höheren Potenzen $\bm{A}^k$ mit $ k \geq n $ durch eine Linearkombination der Matrizen
+$\bm{I},\bm{A}, \cdots, \bm{A}^{n-1}$ dargestellt werden.
+\vspace{0.2cm}
+Somit ergibt sich eine endliche Darstellung der Matrixexponentialfunktion:
+$$ e^{\bm{A}t} = b_0(t)\bm{I} + b_1(t)\bm{A} + b_2(t)\bm{A}^2 + \cdots + b_2(t)\bm{A}^{n-1} $$
+Mit dem Zusammenhang der Eigenwerte ergibt sich schliesslich:
+$$ e^{\lambda_i t} = b_0(t) + b_1(t)\lambda_i + b_2(t)\lambda_i^2 + \cdots + b_{n-1}(t)\lambda_i^{n-1} $$
+\textbf{Zusammenfassung für 2x2-Matrix}:\\
+Für eine \textbf{2×2-Matrix} müssen also die \textbf{Eigenwerte} bestimmt werden und dann 
+folgendes Gleichungssystem nach $b_0(t)$ und $b_1(t)$ aufgelöst werden:
+$$ e^{\lambda_0 t} = b_0(t) + b_1(t) \cdot \lambda_0e^{\lambda_1t} = b_0(t) + b_1(t) \cdot \lambda_1$$
+Die \textbf{Fundamentalmatrix} $\bm{\Phi}(t)$ kann dann über die folgende Gleichung einfach berechnet werden:
+$$ \bm{\Phi}(t) = e^{\bm{A}t} = b_0(t) \cdot \bm{I} + b_1(t) \cdot \bm{A} $$
+
+\subsubsection*{Beispiel: Bestimmung von $\bm{\Phi}(t)$ mittels Satz von Cayley-Hamilton}
+
+Gegeben sei die Systemmatrix
+\begin{center}
+\begin{minipage}[t]{0.48\columnwidth}
+    \vspace{-0.05cm}
+    $$\bm{A} = \begin{bmatrix*} -1 & 0 \\ 1 & -2 \end{bmatrix*}$$
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\columnwidth}
+    \vspace{0cm}
+    char. Polynom: \\
+    \(\det(\bm{A} - \lambda \bm{I}) = (\lambda + 1)(\lambda + 2) = 0\)
+\end{minipage}
+\end{center}
+\vspace{0.2cm}
+Somit ergeben sich die Eigenwerte $\lambda_1 = -1$ und $\lambda_2 = -2$.
+Eingesetzt in obiges System ergibt:
+$$ e^{-1t} = b_0(t) - b_1(t)*e^{-2t} = b_0(t) - 2b_1(t) $$
+woraus sich für $b_0(t)$ und $b_1(t)$ folgende Funktionen ergeben:
+\begin{center}
+\begin{minipage}[t]{0.48\columnwidth}
+    \vspace{-0.25cm}
+    $$ b_0(t) = 2e^{-t} - e^{-2t} $$
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\columnwidth}
+    \vspace{-0.25cm}
+    $$ b_1(t) = e^{-t} - e^{-2t}$$
+\end{minipage}
+\end{center}
+Eingesetzt in: $$ \bm{\Phi}(t) = e^{\bm{A}t} = b_0(t) \cdot \bm{I} + b_1(t) \cdot \bm{A} $$
+ergibt sich die Fundamentalmatrix:
+$$ \bm{\Phi}(t) = \begin{bmatrix*} 2e^{-t} - e^{-2t} & 0 \\ 0 & 2e^{-t} - e^{-2t} \end{bmatrix*} +  
+\begin{bmatrix*} -e^{-t} + e^{-2t} & 0 \\ e^{-t} - e^{-2t} & -2e^{-t} + 2e^{-2t} \end{bmatrix*} 
+= \begin{bmatrix*} e^{-t} & 0 \\ e^{-t} - e^{-2t} & e^{-2t} \end{bmatrix*} $$
 
 \subsubsection{Methode 5 -- Definition der Reihenentwicklung}
 
@@ -619,6 +742,25 @@ Ein System ist \textbf{vollständig steuerbar}, wenn
 
 \lstinputlisting{snippets/steuerbarkeitsmatrix.m}
 
+\subsection{Ausgangssteuerbarkeit}{280-281}
+
+Vielfach ist nicht nur die Beeinflussung der \textbf{Zustände} beim Entwurf eines Regelsystems gewünscht, sondern die 
+Steuerung der Ausgänge $\underline{y}(t)$ Die \textbf{vollständige Steuerbarkeit} ist weder hinreichend noch notwendig
+für die \textbf{Ausgangssteuerbarkeit}. Die Ausgangssteuerbarkeit ist definiert als: \\
+
+\fbox{\parbox{0.95\columnwidth}{
+Ein \textbf{LTI-System} ist \textbf{vollständig ausgangssteuerbar}, wenn es eine \textbf{Steuerfunktion} $\underline{u}(t)$ gibt, welche die 
+Ausgänge $\underline{y}(t)$ innerhalb einer endlichen Zeitspanne $t_0 \leq t \leq t_1$ in einen \textbf{Endwert} $\underline{y}(t_1)$ bringt.}}
+
+\subsubsection{Ausgangssteuerbarkeitsmatrix}
+
+Es lässt sich zeigen, dass ein System nur dann vollständig ausgangssteuerbar ist, wenn die Ausgangssteuerbarkeitsmatrix
+$Q_{\rm Ausgangssteuerbarkeit}$ (\(k \times (n+1) \cdot m\)-\textbf{Matrix}) den Rang $k$ ($k := \text{Ausgänge}$) besitzt, wobei gilt:
+
+$$ \boxed{\bm{Q}_{\rm Ausgangssteuerbarkeit} = 
+\begin{bmatrix}
+    \bm{C} & \bm{CB} & \bm{CAB} & \bm{CA^2B} & \cdots & \bm{C A^{n-1}BD}
+\end{bmatrix} } $$
 
 \subsection{Beobachtbarkeit}{278}
 
@@ -675,12 +817,6 @@ Ein System ist \textbf{vollständig beobachtbar}, wenn
 
 \lstinputlisting{snippets/beobachtbarkeitsmatrix.m}
 
-
-% \subsection{Ausgangssteuerbarkeit}{280-281}
-% nicht behandelt 
-
-% \subsubsection{Ausgangssteuerbarkeitsmatrix}
-% nicht behandelt
 
 % \vfill\null
 % \columnbreak

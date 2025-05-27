@@ -171,11 +171,11 @@ $$ \text{Koeffizientenvergleich:} \quad D(S) \cdot D(-S) = S^4 + (2 b_1 - a_1^2)
 Aus dem Toleranzschema lassen sich für die 'Ecken' die folgenden beiden Bedingungen aufstellen:
 
 \begin{minipage}[c]{0.48\columnwidth}
-    $$ A(\Omega_D) = 10 \cdot \log_{10}(1 + \Omega_D^{2n}) = A_{\max} $$
+    $$ A(\Omega_D) = 10 \cdot \log_{10}(1 + \Omega_D^{2n}) = A_{pass} $$
 \end{minipage}
 \hfill
 \begin{minipage}[c]{0.48\columnwidth}
-    $$ A(\Omega_S) = 10 \cdot \log_{10}(1 + \Omega_S^{2n}) = A_{\min} $$
+    $$ A(\Omega_S) = 10 \cdot \log_{10}(1 + \Omega_S^{2n}) = A_{stop} $$
 \end{minipage}
 
 \vspace{0.2cm}
@@ -187,7 +187,7 @@ Aus dem Toleranzschema lassen sich für die 'Ecken' die folgenden beiden Bedingu
 \end{minipage}
 \hfill
 \begin{minipage}[c]{0.48\columnwidth}
-    $$ \boxed{ n =  \left\lceil \frac{\log_{10} \Bigl( \frac{10^{A_{\min / 10}} - 1}{10^{A_{\max / 10}} - 1}  \Bigr) }
+    $$ \boxed{ n =  \left\lceil \frac{\log_{10} \Bigl( \frac{10^{A_{stop }/ 10} - 1}{10^{A_{pass}/ 10} - 1}  \Bigr) }
         {2 \cdot \log_{10}\Bigl( \frac{\Omega_S}{\Omega_D} \Bigr)}  \right\rceil } $$
 \end{minipage}
 
@@ -283,8 +283,8 @@ $C_n$ monoton mit $\Omega$ zu.
 \begin{minipage}[t]{0.48\columnwidth}
     \subsubsection{Filterordnung}{316}
 
-    $$ \boxed{ n =  \left\lceil \frac{\arccos \Bigl( \sqrt{ \frac{10^{A_{\min / 10}} - 1}{10^{A_{\max / 10}} - 1} } \Bigr) }
-        {\arccos \Bigl( \frac{\Omega_S}{\Omega_D} \Bigr)}  \right\rceil } $$
+    $$ \boxed{ n =  \left\lceil \frac{\operatorname{arcosh} \Bigl( \sqrt{ \frac{10^{A_{stop}/ 10} - 1}{10^{A_{pass}/ 10} - 1} } \Bigr) }
+        {\operatorname{arcosh} \Bigl( \frac{\Omega_S}{\Omega_D} \Bigr)}  \right\rceil } $$
     \textrightarrow\ \textbf{Nomogramme!}
 \end{minipage}
 
@@ -331,7 +331,7 @@ $C_n$ monoton mit $\Omega$ zu.
 \subsubsection{Filterordnung}{319}
 
 \begin{minipage}[c]{0.4\columnwidth}
-    $$ \boxed{ n =  \left\lceil \frac{\arccos \Bigl( \sqrt{ \frac{10^{A_{\min / 10}} - 1}{10^{A_{\max / 10}} - 1} } \Bigr) }
+    $$ \boxed{ n =  \left\lceil \frac{\arccos \Bigl( \sqrt{ \frac{10^{A_{stop }/ 10} - 1}{10^{A_{pass }/ 10} - 1} } \Bigr) }
     {\arccos \Bigl( \frac{\Omega_S}{\Omega_D} \Bigr)}  \right\rceil } $$
 \end{minipage}
 \hfill
@@ -372,8 +372,8 @@ $C_n$ monoton mit $\Omega$ zu.
 
 \subsubsection{Filterordnung}{326}
 
-$$ \boxed{ n = \left\lceil \frac{ K \Bigg( \Big( \frac{\Omega_D}{\Omega_S} \Big)^2 \Bigg) \, K \Bigg( 1 - \frac{A_{\max / 10} - 1}{A_{\min / 10} - 1} \Bigg) }
-    { K \Bigg( 1 -\Big( \frac{\Omega_D}{\Omega_S} \Big)^2 \Bigg) \, K \Bigg(\frac{A_{\max / 10} - 1}{A_{\min / 10} - 1} \Bigg) }  \right\rceil 
+$$ \boxed{ n = \left\lceil \frac{ K \Bigg( \Big( \frac{\Omega_D}{\Omega_S} \Big)^2 \Bigg) \, K \Bigg( 1 - \frac{10^{A_{pass }/ 10} - 1}{10^{A_{stop }/ 10} - 1} \Bigg) }
+    { K \Bigg( 1 -\Big( \frac{\Omega_D}{\Omega_S} \Big)^2 \Bigg) \, K \Bigg(\frac{10^{A_{pass}/ 10} - 1}{10^{A_{stop}/ 10} - 1} \Bigg) }  \right\rceil 
     \quad \text{mit } K(k) = \int\limits_{0}^{\frac{\pi}{2} }  \frac{1}{\sqrt{1- k \sin^2(\theta)}} \, \diff \theta }$$
     \textrightarrow\ Nomogramm!
 
