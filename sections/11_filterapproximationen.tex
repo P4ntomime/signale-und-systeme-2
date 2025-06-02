@@ -126,7 +126,7 @@ Durch Auflösen der Gleichung nach $S$ kommen die Pole auf dem \textbf{Einheitsk
 
 \example{Butterworth 2. Ordnung -- $H(s)$ und Pol-Lage bestimmen}
 
-$$ \text{Ansatz:} \quad H(S) \cdot H(-S) = \frac{1}{D(s)} \cdot \frac{1}{H(s)} = \frac{1}{ 1 + (-S^2)^n} $$
+$$ \text{Ansatz:} \quad H(S) \cdot H(-S) = \frac{1}{D(S)} \cdot \frac{1}{D(S)} = \frac{1}{ 1 + (-S^2)^n} $$
 
 Für die Ordnung $n = 2$ ergibt sich das Nennerpolynom zu:
 $$ D(S) \cdot D(-S) = 1 + S^4 \quad \Leftrightarrow \quad S^4 = -1 \quad \Leftrightarrow \quad
@@ -153,8 +153,8 @@ $$ D(S) \cdot D(-S) = 1 + S^4 \quad \Leftrightarrow \quad S^4 = -1 \quad \Leftri
 \end{minipage}
 
 \vspace{0.2cm}
-Die Übertragungsfunktion $H(s)$ ergibt sich aus
-$$ H(s) = \frac{1}{D(s)} = \frac{1}{(S - P_2) \cdot (S - P_3)} = \frac{1}{S^2 + \sqrt{2} S + 1} $$
+Die Übertragungsfunktion $H(S)$ ergibt sich aus
+$$ H(S) = \frac{1}{D(S)} = \frac{1}{(S - P_2) \cdot (S - P_3)} = \frac{1}{S^2 + \sqrt{2} S + 1} $$
 
 
 Alternativ kann die Übertragungsfunktion $H(S)$ auch mittels folgendem Ansatz für $D(S)$ und anschliessendem Koeffizientenvergleich

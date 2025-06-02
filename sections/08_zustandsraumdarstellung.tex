@@ -437,7 +437,7 @@ Es gibt mehrere Methoden, die quadratische $(n \times n)$ Fundamentalmatrix zu b
 
 \subsubsection{Methode 1 -- Inverse Laplace-Transformation}
 
-$$ \boxed{ \bm{\Phi}(t) = \mathcal{L}^{-1} \Bigl\{ (s \bm{I} - \bm{A}^{-1})  \Bigr\} } $$
+$$ \boxed{ \bm{\Phi}(t) = \mathcal{L}^{-1} \Bigl\{ (s \bm{I} - \bm{A})^{-1}  \Bigr\} } $$
 
 
 \example{Inverse Laplace-Transformation}
@@ -446,7 +446,7 @@ Mit der \textbf{Systemmatrix} $\bm{A} = \begin{bmatrix*}[r] -1 & 0 \\ 1 & -2 \en
 $(s \bm{I} - \bm{A}) = \begin{bmatrix*} s+1 & 0 \\ -1 & s+2 \end{bmatrix*}$
 
 Somit ist $(s \bm{I} - \bm{A})^{-1} = \dfrac{\begin{bmatrix*} s+1 & 0 \\ -1 & s+2 \end{bmatrix*}}{(s+1)(s+2)} \,
-\laplace \, \begin{bmatrix*} e^{-t} & 0 \\ e^{-t} - e^{-2t} & e^{-2t} \end{bmatrix*} = \bm{\Phi}(t)$
+\laplace \, \begin{bmatrix*} e^{-2t} & 0 \\ e^{-t} - e^{-2t} & e^{-t} \end{bmatrix*} = \bm{\Phi}(t)$
 
 
 \subsubsection{Methode 2 -- Diagonalisierung von $\bm{\Phi}(t) = e^{\bm{A} t}$}
