@@ -330,11 +330,12 @@ $\bm{\hat{A}} = \bm{ T A T}^{-1}$ wird dann üblicherweise $\bm{A_{\rm diag}}$ v
 \end{minipage}
 \hfill
 \begin{minipage}[c]{0.72\columnwidth}
-    $$ \abs{\bm{A} - \lambda \bm{I}} = \begin{vmatrix*}[c]
-        -2 -\lambda & 7 \\
-        -1 & 6 - \lambda
-    \end{vmatrix*} = (-2 - \lambda) \cdot (6 - \lambda) -7 \cdot (-1) = 0 $$
+    $$ \abs{\lambda \bm{I} - \bm{A}} = \begin{vmatrix*}[c]
+        2 +\lambda & -7 \\
+        1 & \lambda - 6
+    \end{vmatrix*} = (\lambda + 1) \cdot (\lambda - 6) - 7 \cdot (-1) = 0 $$
 \end{minipage}
+% note : Eigenwertberechnung laut Linalg anders herum (\abs{\bm{A} - \lambda \bm{I}}) -> oben gelich wie in Skript für Einheitlichkeit
 
 \textrightarrow\ Mitternachtsformel $\lambda_{1,2} =\frac{-b \pm \sqrt{b^2 - 4 a c}}{2a}$ liefert die Eigenwerte $\lambda_1 = -1$ und $\lambda_2 = 5$
 Form: $a\lambda^2 + b\lambda + c$
